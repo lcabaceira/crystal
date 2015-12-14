@@ -5,8 +5,6 @@ A tool for Alfresco predictions, scenario discovery, Stress tests based on Jmete
 
 Supports Alfresco 5.0.X onwards.
 
-![Crystal Logo](LOGO.png)
-
 
 ## Installation & Usage
 
