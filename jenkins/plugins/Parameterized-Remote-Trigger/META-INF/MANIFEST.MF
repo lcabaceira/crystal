@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: kutzi
+Build-Jdk: 1.8.0_51
+Extension-Name: Parameterized-Remote-Trigger
+Specification-Title: This plugin gives you the ability to trigger para
+ meterized builds on a remote Jenkins server as part of your build.
+Implementation-Title: Parameterized-Remote-Trigger
+Implementation-Version: 2.2.2
+Group-Id: org.jenkins-ci.plugins
+Short-Name: Parameterized-Remote-Trigger
+Long-Name: Parameterized Remote Trigger Plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Remote+T
+ rigger+Plugin
+Plugin-Version: 2.2.2
+Hudson-Version: 1.580
+Jenkins-Version: 1.580
+Plugin-Dependencies: credentials:1.9.4,token-macro:1.9
+Plugin-Developers: Maurice Williams:morficus:
+

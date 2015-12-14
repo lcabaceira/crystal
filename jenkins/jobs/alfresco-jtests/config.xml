@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>testsPlanFolder</name>
+          <description>The location of the .jmx test files</description>
+          <defaultValue>/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/TestCases/browserAutomationShare</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>jmeterBin</name>
+          <description>The location of jmeter jar and the .sh file</description>
+          <defaultValue>/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/Dependencies/jmeter/bin</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>testCase</name>
+          <description>The name of the testcase file</description>
+          <defaultValue>Alfresco5-TestPlan.jmx</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>reportsLocation</name>
+          <description>The location of the jmeter reports</description>
+          <defaultValue>/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/supportingData/reports</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>alfrescoServer</name>
+          <description>The alfresco server ip or hostname</description>
+          <defaultValue>192.168.101.231</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>alfrescoPort</name>
+          <description>The alfresco server port</description>
+          <defaultValue>8080</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <org.jenkinsci.plugins.requeuejob.RequeueJobProperty plugin="jobrequeue@1.0">
+      <requeueJob>false</requeueJob>
+    </org.jenkinsci.plugins.requeuejob.RequeueJobProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>$jmeterBin/jmeter.sh -n -t $testsPlanFolder/$testCase -l $reportsLocation/Alfresco5-TestResults.jtl</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.performance.PerformancePublisher plugin="performance@1.13">
+      <errorFailedThreshold>0</errorFailedThreshold>
+      <errorUnstableThreshold>0</errorUnstableThreshold>
+      <errorUnstableResponseTimeThreshold></errorUnstableResponseTimeThreshold>
+      <relativeFailedThresholdPositive>0.0</relativeFailedThresholdPositive>
+      <relativeFailedThresholdNegative>0.0</relativeFailedThresholdNegative>
+      <relativeUnstableThresholdPositive>0.0</relativeUnstableThresholdPositive>
+      <relativeUnstableThresholdNegative>0.0</relativeUnstableThresholdNegative>
+      <nthBuildNumber>0</nthBuildNumber>
+      <modeRelativeThresholds>false</modeRelativeThresholds>
+      <configType>ART</configType>
+      <modeOfThreshold>false</modeOfThreshold>
+      <compareBuildPrevious>false</compareBuildPrevious>
+      <xml></xml>
+      <modePerformancePerTestCase>true</modePerformancePerTestCase>
+      <parsers/>
+      <modeThroughput>false</modeThroughput>
+    </hudson.plugins.performance.PerformancePublisher>
+  </publishers>
+  <buildWrappers/>
+</project>

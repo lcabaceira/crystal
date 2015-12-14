@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.jenkins-ci.plugins</groupId>
+    <artifactId>plugin</artifactId>
+    <version>1.424</version><!-- which version of Jenkins is this plugin built against? -->
+  </parent>
+
+  <groupId>org.jenkins-ci.plugins</groupId>
+  <artifactId>jobrequeue</artifactId>
+  <version>1.0</version>
+  <packaging>hpi</packaging>
+
+  <!-- get every artifact through repo.jenkins-ci.org, which proxies all the artifacts that we need -->
+  <repositories>
+    <repository>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+    </repository>
+  </repositories>
+
+  <scm>
+    <connection>scm:git:ssh://github.com/jenkinsci/jobrequeue-plugin.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/jenkinsci/jobrequeue-plugin.git</developerConnection>
+    <url>https://github.com/jenkinsci/jobrequeue-plugin</url>
+  </scm>
+
+  <developers>
+    <developer>
+      <id>bwall</id>
+      <name>Brian Wallace</name>
+      <email>bwall@openbwall.com</email>
+    </developer>
+  </developers>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
+  <name>Requeue Job Plugin</name>
+  <description>This plugin adds an option to jobs to allow them to be requeued in the case of failure.  The option is enabled/disabled at the project configuration page.</description>
+  <url>https://wiki.jenkins-ci.org/display/JENKINS/JobRequeue-Plugin</url>
+</project>

@@ -1,0 +1,1128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<!-- start the processing -->
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../../docs/css/style.css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Apache JMeter - User's Manual: Generating Dashboard Report</title>
+<style>
+  .code { font-weight: bold; }
+</style>
+</head>
+
+<body bgcolor="#ffffff" text="#000000" link="#525D76">
+<table border="0" cellspacing="0">
+<tr>
+<td align="left">
+<a href="http://www.apache.org"><img title="Apache Software Foundation" width="387" height="100" src="../../docs/images/asf-logo.gif" border="0"/></a>
+</td>
+<td align="right">
+<a href="http://jmeter.apache.org/"><img width="182" height="88" src="../../docs/images/logo.jpg" alt="Apache JMeter" title="Apache JMeter" border="0"/></a>
+</td>
+</tr>
+</table>
+<table border="0" cellspacing="4">
+<tr><td>
+<hr noshade size="1"/>
+</td></tr>
+<tr>
+<td align="left" valign="top">
+<table>
+<tr>
+<td bgcolor="#525D76">
+<div align="right"><a href="index.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Index</font></a></div>
+</td>
+<td bgcolor="#525D76">
+<div align="right"><a href="hints_and_tips.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Next</font></a></div>
+</td>
+<td bgcolor="#525D76">
+<div align="right"><a href="regular_expressions.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Prev</font></a></div>
+</td>
+</tr>
+</table>
+<br>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#525D76">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="generation"><strong>16. Generating Report Dashboard</strong></a></font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+
+				JMeter supports dashboard report generation to get graphs and
+				statistics from a test plan.
+				
+<br>
+
+
+				This chapter describes how to configure and use the generator.
+			
+</p>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="overview"><strong>16.1 Overview</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+
+					The dashboard generator is a modular extension of JMeter. Its
+					default behavior is to read and process samples from CSV files to
+					generate Html files containing graph views.
+				
+</p>
+<p>
+
+					It is designed to support different way of data exportation, if
+					Html files are not relevant.
+				
+</p>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="configure"><strong>16.2 Configuring Dashboard Generation</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+
+					Dashboard generation uses JMeter properties to customize the
+					report. Some properties are used
+					for general settings and others are
+					used to describe a graph
+					configuration or exporter configuration.
+				
+</p>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="configure_general"><strong>16.2.1 General settings</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td>
+						All properties must be prefixed with
+						
+<tt class="code">jmeter.reportgenerator.</tt>
+
+					
+</td></tr>
+</table>
+</p>
+<table>
+</table>
+<p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td>Relative paths are build from the JMeter working directory
+						(default: bin).
+</td></tr>
+</table>
+</p>
+<p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td>
+						
+<p>
+
+							You can define some overall properties which are used by the
+							generator configuration.
+							These properties are freely named but you
+							should use the prefix
+							"jmeter.reportgenerator." in order to avoid
+							properties overlap.
+						
+</p>
+
+						
+<p>
+
+							E.g :
+							
+<br>
+
+
+							Property definition :
+							
+<tt class="code">jmeter.reportgenerator.overall_granularity=60000</tt>
+
+							
+<br>
+
+
+							Property reference :
+							
+<br>
+
+
+							
+<tt class="code">jmeter.reportgenerator.graph.&lt;…&gt;=${jmeter.reportgenerator.overall_granularity}
+							</tt>
+
+						
+</p>
+
+					
+</td></tr>
+</table>
+</p>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="configure_graph"><strong>16.2.2 Graph settings</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+Each property describing a graph configuration must be prefixed
+						with "jmeter.reportgenerator.graph." followed by the graph
+						identifier.
+</p>
+<p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td> The identifier is used to group properties by graph.
+</td></tr>
+</table>
+</p>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="general_graph_properties"><strong>16.2.2.1 General properties</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+All graphs support these properties :
+</p>
+<table>
+</table>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="specific_graph_properties"><strong>16.2.2.2 Specific properties</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+
+							Specific graph properties must use the prefix
+							"jmeter.reportgenerator.graph.<graph_id>.property"
+							
+<br>
+
+
+							The name of the property will be mapped using camel case
+							transformation and the matching method of the class will be
+							called
+							with the property
+							value as argument.
+						
+</p>
+<p>
+
+							E.g :
+							
+<br>
+
+
+							jmeter.reportgenerator.graph.<graph_id>.property.set_granularity
+							= 150 induces the call of the method setGranularity(150) on the
+							instance of the graph.
+						
+</p>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="configure_export"><strong>16.2.3 Export settings</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+
+						Each property describing an exporter configuration must be
+						prefixed
+						with "jmeter.reportgenerator.exporter"
+						followed by the
+						exporter identifier.
+					
+</p>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="general_export_properties"><strong>16.2.3.1 General properties</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<table>
+</table>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="html_export_properties"><strong>16.2.3.1 Specific properties for Html export</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+
+							Specific exporter properties must use the prefix
+							"jmeter.reportgenerator.exporter.<exporter_id>.property"
+						
+</p>
+<table>
+</table>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="report_only"><strong>16.3 Generating dashboard</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+
+					The report generation can be done as a stand alone process from a
+					samples log file or after running load test.
+				
+</p>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="report_only"><strong>16.3.1 Generating from samples log file</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+
+						Use the following command :
+						
+<tt class="code">jmeter -n -g &lt;log file&gt;</tt>
+
+					
+</p>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="report_after_load_test"><strong>16.3.2 Generating after load test</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+
+						Use the following command :
+						
+<tt class="code">jmeter -n -e -l &lt;test log file&gt;</tt>
+
+					
+</p>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="process_template"><strong>16.4 Template processing</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="template_overview"><strong>16.4.1 Overview</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+
+						The default exporter of the generator use the template engine
+						
+<a href="http://freemarker.org/">
+freemarker
+</a>
+
+						to produce html pages.
+						
+<br>
+
+
+						Templated files are located in the template directory defined by
+						the JMeter property "jmeter.reportgenerator.template_dir" and have
+						the
+						extension ".fmkr".
+					
+</p>
+<p>
+
+						The graph references in the templated files use the syntax :
+						${<graph_id>.<value>} where :
+						
+<ul>
+
+							
+<li>
+"graph_id" is the identifier of the graph matching the jmeter
+								properties definition
+</li>
+
+							
+<li>
+"value" is the name of the value where data are stored.
+</li>
+
+						
+</ul>
+
+					
+</p>
+<p>
+
+						Each graph produces the following values :
+						
+<ul>
+
+							
+<li>
+
+								
+<p>
+
+									
+<tt class="code">maxX</tt>
+
+									:
+									
+<br>
+
+
+									The maximum abscissa of the graph (double).
+								
+</p>
+
+							
+</li>
+
+							
+<li>
+
+								
+<p>
+
+									
+<tt class="code">maxY</tt>
+
+									:
+									
+<br>
+
+
+									The maximum ordinate of the graph (double).
+								
+</p>
+
+							
+</li>
+
+							
+<li>
+
+								
+<p>
+
+									
+<tt class="code">minX</tt>
+
+									:
+									
+<br>
+
+
+									The minimum abscissa of the graph (double).
+								
+</p>
+
+							
+</li>
+
+							
+<li>
+
+								
+<p>
+
+									
+<tt class="code">minY</tt>
+
+									:
+									
+<br>
+
+
+									The maximum ordinate of the graph (double).
+								
+</p>
+
+							
+</li>
+
+							
+<li>
+
+								
+<p>
+
+									
+<tt class="code">title</tt>
+
+									:
+									
+<br>
+
+
+									The title of the graph (string).
+								
+</p>
+
+							
+</li>
+
+							
+<li>
+
+								
+<p>
+
+									
+<tt class="code">values</tt>
+
+									:
+									
+<br>
+
+
+									A json object representing the data of the graph series
+									(string).
+								
+</p>
+
+							
+</li>
+
+						
+</ul>
+
+					
+</p>
+<p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td>
+						Graph can provide some other values, see
+						
+<a href="#default_graphs">
+Default graph section
+</a>
+
+						to get the list of these values for default graphs.
+					
+</td></tr>
+</table>
+</p>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="template_customization"><strong>16.4.2 Customization</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+You can customize the dashboard generation by modifying the
+						files in the template directory.
+					
+</p>
+<p>
+
+						If you want to add a graph to the dahsboard, you have to
+						
+<a href="#configure_graph">
+declare
+							it among the JMeter properties
+</a>
+
+						and use its references in the templated files.
+					
+</p>
+<p>
+If you want to remove a graph from the dashboard, you must
+						remove
+						all its references in the templated files and clear JMeter
+						properties.
+</p>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="default_graphs"><strong>16.5 Default graphs</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td>Due to limitations of this early version, each default graph
+					must be declared among the JMeter properties. Otherwise, the graph
+					views will be empty.
+</td></tr>
+</table>
+</p>
+<p>
+The dashboard generator provides the following graph classes :
+</p>
+<ul>
+
+					
+<li>
+
+						
+<p>
+
+							
+<tt class="code">org.apache.jmeter.report.processor.graph.impl.ActiveThreadsGraphConsumer</tt>
+
+							:
+							
+<br>
+
+
+							This graph represents the number of active threads over time.
+							
+<br>
+
+
+							Additional produced values : granularity.
+						
+</p>
+
+					
+</li>
+
+					
+<li>
+
+						
+<p>
+
+							
+<tt class="code">org.apache.jmeter.report.processor.graph.impl.BytesThroughputGraphConsumer</tt>
+
+							:
+							
+<br>
+
+
+							This graph represents the troughput of received and sent data
+							over time.
+							
+<br>
+
+
+							Additional produced values : granularity.
+						
+</p>
+
+					
+</li>
+
+					
+<li>
+
+						
+<p>
+
+							
+<tt class="code">org.apache.jmeter.report.processor.graph.impl.CodesPerSecondGraphConsumer</tt>
+
+							:
+							
+<br>
+
+
+							This graph represents the rate of response codes over time.
+							
+<br>
+
+
+							Additional produced values : granularity.
+						
+</p>
+
+					
+</li>
+
+					
+<li>
+
+						
+<p>
+
+							
+<tt class="code">org.apache.jmeter.report.processor.graph.impl.HitsPerSecondGraphConsumer</tt>
+
+							:
+							
+<br>
+
+
+							This graph represents the rate of finished requests over time.
+							
+<br>
+
+
+							Additional produced values : granularity.
+						
+</p>
+
+					
+</li>
+
+					
+<li>
+
+						
+<p>
+
+							
+<tt class="code">org.apache.jmeter.report.processor.graph.impl.LatencyOverTimeGraphConsumer</tt>
+
+							:
+							
+<br>
+
+
+							This graph represents the average latency time over time.
+							
+<br>
+
+
+							Additional produced values : granularity.
+						
+</p>
+
+					
+</li>
+
+					
+<li>
+
+						
+<p>
+
+							
+<tt class="code">org.apache.jmeter.report.processor.graph.impl.LatencyVSRequestGraphConsumer</tt>
+
+							:
+							
+<br>
+
+
+							This graph represents the median and average latency time
+							depending on the number of current requests.
+							
+<br>
+
+
+							Additional produced values : granularity.
+						
+</p>
+
+					
+</li>
+
+					
+<li>
+
+						
+<p>
+
+							
+<tt class="code">org.apache.jmeter.report.processor.graph.impl.ResponseTimeDistributionGraphConsumer</tt>
+
+							:
+							
+<br>
+
+
+							This graph represents the distribution of the samples depending
+							on their elapsed time and name.
+							
+<br>
+
+
+							Additional produced values : granularity.
+						
+</p>
+
+					
+</li>
+
+					
+<li>
+
+						
+<p>
+
+							
+<tt class="code">org.apache.jmeter.report.processor.graph.impl.ResponseTimeOverTimeGraphConsumer</tt>
+
+							:
+							
+<br>
+
+
+							This graph represents the average response time over time.
+							
+<br>
+
+
+							Additional produced values : granularity.
+						
+</p>
+
+					
+</li>
+
+					
+<li>
+
+						
+<p>
+
+							
+<tt class="code">
+								org.apache.jmeter.report.processor.graph.impl.ResponseTimePercentilesGraphConsumer
+							</tt>
+
+							:
+							
+<br>
+
+
+							This graph represents the percentiles of the elapsed time over
+							time.
+						
+</p>
+
+					
+</li>
+
+					
+<li>
+
+						
+<p>
+
+							
+<tt class="code">
+								org.apache.jmeter.report.processor.graph.impl.ResponseTimePerSampleGraphConsumer
+							</tt>
+
+							:
+							
+<br>
+
+
+							This graph represents the median and average response time per
+							sample name.
+							
+<br>
+
+
+							Additional produced values : sampleNames (index of sample names).
+						
+</p>
+
+					
+</li>
+
+					
+<li>
+
+						
+<p>
+
+							
+<tt class="code">
+								org.apache.jmeter.report.processor.graph.impl.ResponseTimeVSRequestGraphConsumer
+							</tt>
+
+							:
+							
+<br>
+
+
+							This graph represents the median and average response time
+							depending on the number of current requests.
+							
+<br>
+
+
+							Additional produced values : granularity.
+						
+</p>
+
+					
+</li>
+
+					
+<li>
+
+						
+<p>
+
+							
+<tt class="code">org.apache.jmeter.report.processor.graph.impl.TimeVSThreadGraphConsumer</tt>
+
+							:
+							
+<br>
+
+
+							This graph represents the average response time depending on the
+							number of current active threads.
+							
+<br>
+
+
+							
+ NOTE : Actually aggregated series are disabled 
+
+							
+<p> The *-aggregated series represent the average response time 
+								regardless of the number of current active threads. These series are represented 
+								by a sole point because the number of current active threads is aggregated 
+								to an average. So for these points : <ul> <li>The abscissa is the average 
+								of the number of current active threads when samples of the series finish.</li> 
+								<li>The ordinate is the average of the response time for the samples of the 
+								series regardless of the number of current active threads.</li> </ul> </p> 
+
+						
+</p>
+
+					
+</li>
+
+					
+<li>
+
+						
+<p>
+
+							
+<tt class="code">org.apache.jmeter.report.processor.graph.impl.TransactionsPerSecondGraphConsumer</tt>
+
+							:
+							
+<br>
+
+
+							This graph represents the rate of transaction by sample name over
+							time.
+							
+<br>
+
+
+							Additional produced values : granularity.
+						
+</p>
+
+					
+</li>
+
+				
+</ul>
+</blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+</blockquote>
+</p>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+<br>
+<table>
+<tr>
+<td bgcolor="#525D76">
+<div align="right"><a href="index.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Index</font></a></div>
+</td>
+<td bgcolor="#525D76">
+<div align="right"><a href="hints_and_tips.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Next</font></a></div>
+</td>
+<td bgcolor="#525D76">
+<div align="right"><a href="regular_expressions.html"><font size=-1 color="#ffffff" face="arial,helvetica,sanserif">Prev</font></a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<hr noshade size="1"/>
+</td></tr>
+<tr>
+<td>
+<table width=100%>
+<tr>
+<td>
+<font color="#525D76" size="-1"><em>
+Copyright &copy; 1999-2015, Apache Software Foundation
+</em></font>
+</td>
+<td align="right">
+<font color="#525D76" size="-1"><em>
+$Id$
+</em></font>
+</td>
+</tr>
+<tr><td colspan="2">
+<div align="center"><font color="#525D76" size="-1">
+Apache, Apache JMeter, JMeter, the Apache feather, and the Apache JMeter logo are
+trademarks of the Apache Software Foundation.
+</font>
+</div>
+</td></tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+<!-- end the processing -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+Starting Selenium Grid
+[jenkins] $ /Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home/jre/bin/java -cp /Users/lcabaceira/My-Library/Customers/jtests/project/jtests/jenkins/tomcat7/webapps/ROOT/WEB-INF/lib/remoting-2.52.jar hudson.remoting.Launcher -cp /Users/lcabaceira/My-Library/Customers/jtests/project/jtests/./jenkins/plugins/selenium/WEB-INF/lib/selenium-server-standalone-2.41.0.jar -connectTo localhost:64849
+Starting Selenium Grid
+channel started
+2015-08-21 19:26:08.337:INFO:osjs.Server:jetty-7.x.y-SNAPSHOT
+2015-08-21 19:26:08.372:INFO:osjsh.ContextHandler:started o.s.j.s.ServletContextHandler{/,null}
+2015-08-21 19:26:08.377:INFO:osjs.AbstractConnector:Started SocketConnector@localhost:4444

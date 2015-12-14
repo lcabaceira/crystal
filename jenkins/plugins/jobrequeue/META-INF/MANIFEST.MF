@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: bwall
+Build-Jdk: 1.7.0_17
+Extension-Name: jobrequeue
+Specification-Title: This plugin adds an option to jobs to allow them 
+ to be requeued in the case of failure.  The option is enabled/disable
+ d at the project configuration page.
+Implementation-Title: jobrequeue
+Implementation-Version: 1.0
+Plugin-Class: org.jenkinsci.plugins.requeuejob.PluginImpl
+Group-Id: org.jenkins-ci.plugins
+Short-Name: jobrequeue
+Long-Name: Requeue Job Plugin
+Url: https://wiki.jenkins-ci.org/display/JENKINS/JobRequeue-Plugin
+Plugin-Version: 1.0
+Hudson-Version: 1.424
+Jenkins-Version: 1.424
+Plugin-Developers: Brian Wallace:bwall:bwall@openbwall.com
+

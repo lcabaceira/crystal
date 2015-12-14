@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>To use with Alfresco in-place-bulk importer</comment>
+<entry key="cm:subject">Metadata file created with SSMR</entry>
+<entry key="cm:coverage">General</entry>
+<entry key="cm:author">SuperSizeMyRepo</entry>
+<entry key="cm:contributor">SuperSizeMyRepo</entry>
+<entry key="cm:publisher">SuperSizeMyRepo</entry>
+<entry key="cm:identifier">1450096206472_MSWordSSMR.docx</entry>
+<entry key="type">cm:content</entry>
+<entry key="cm:source">SuperSizeMyRepo</entry>
+<entry key="cm:description"/>
+<entry key="cm:type">default_plus_dubincore_aspect</entry>
+<entry key="cm:rights"/>
+<entry key="aspects">cm:versionable,cm:dublincore</entry>
+<entry key="cm:title">Daily Report document : 2015/12/14 12:30:07</entry>
+</properties>

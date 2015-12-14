@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.5" jmeter="2.13 r1665067">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="CMIS Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath">/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/TestCases/cmis-jmeter-test/src</stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Parameters" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="user.threads" elementType="Argument">
+            <stringProp name="Argument.name">user.threads</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Number of concurrent users</stringProp>
+          </elementProp>
+          <elementProp name="rampup" elementType="Argument">
+            <stringProp name="Argument.name">rampup</stringProp>
+            <stringProp name="Argument.value">4</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="loop" elementType="Argument">
+            <stringProp name="Argument.name">loop</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="cmis.protocol" elementType="Argument">
+            <stringProp name="Argument.name">cmis.protocol</stringProp>
+            <stringProp name="Argument.value">http</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="cmis.host" elementType="Argument">
+            <stringProp name="Argument.name">cmis.host</stringProp>
+            <stringProp name="Argument.value">192.168.101.231</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="cmis.port" elementType="Argument">
+            <stringProp name="Argument.name">cmis.port</stringProp>
+            <stringProp name="Argument.value">8080</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="cmis.url.context" elementType="Argument">
+            <stringProp name="Argument.name">cmis.url.context</stringProp>
+            <stringProp name="Argument.value">alfresco/api/-default-/public/cmis/versions/1.1/atom</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="cmis.username" elementType="Argument">
+            <stringProp name="Argument.name">cmis.username</stringProp>
+            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="cmis.password" elementType="Argument">
+            <stringProp name="Argument.name">cmis.password</stringProp>
+            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="cmis.folder.path" elementType="Argument">
+            <stringProp name="Argument.name">cmis.folder.path</stringProp>
+            <stringProp name="Argument.value">CmisJMeterTest</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="sample.file.dir" elementType="Argument">
+            <stringProp name="Argument.name">sample.file.dir</stringProp>
+            <stringProp name="Argument.value">/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/supportingData/txtFiles</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="processing.file.dir" elementType="Argument">
+            <stringProp name="Argument.name">processing.file.dir</stringProp>
+            <stringProp name="Argument.value">processing</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="completed.file.dir" elementType="Argument">
+            <stringProp name="Argument.name">completed.file.dir</stringProp>
+            <stringProp name="Argument.value">completed</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="cmis.query" elementType="Argument">
+            <stringProp name="Argument.name">cmis.query</stringProp>
+            <stringProp name="Argument.value">SELECT * FROM cmis:document WHERE cmis:name like &apos;test-%&apos;</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="total.file.count" elementType="Argument">
+            <stringProp name="Argument.name">total.file.count</stringProp>
+            <stringProp name="Argument.value">11</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="min.file.size" elementType="Argument">
+            <stringProp name="Argument.name">min.file.size</stringProp>
+            <stringProp name="Argument.value">4</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="max.file.size" elementType="Argument">
+            <stringProp name="Argument.name">max.file.size</stringProp>
+            <stringProp name="Argument.value">4</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="delete.test.files.dir" elementType="Argument">
+            <stringProp name="Argument.name">delete.test.files.dir</stringProp>
+            <stringProp name="Argument.value">false</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="loginEveryIteration" elementType="Argument">
+            <stringProp name="Argument.name">loginEveryIteration</stringProp>
+            <stringProp name="Argument.value">true</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="files_deployment_location" elementType="Argument">
+            <stringProp name="Argument.name">files_deployment_location</stringProp>
+            <stringProp name="Argument.value">/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/supportingData/files</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="images_location" elementType="Argument">
+            <stringProp name="Argument.name">images_location</stringProp>
+            <stringProp name="Argument.value">/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/supportingData/images</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="files_per_folder" elementType="Argument">
+            <stringProp name="Argument.name">files_per_folder</stringProp>
+            <stringProp name="Argument.value">2</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="threadPoolSize" elementType="Argument">
+            <stringProp name="Argument.name">threadPoolSize</stringProp>
+            <stringProp name="Argument.value">5</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="max_files_per_folder" elementType="Argument">
+            <stringProp name="Argument.name">max_files_per_folder</stringProp>
+            <stringProp name="Argument.value">1000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+          </value>
+        </objProp>
+        <stringProp name="filename">/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/TestCases/cmis-jmeter-test/results/results.jtl</stringProp>
+        <boolProp name="ResultCollector.success_only_logging">true</boolProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+        <boolProp name="ResultCollector.success_only_logging">true</boolProp>
+      </ResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Main" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${user.threads}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampup}</stringProp>
+        <longProp name="ThreadGroup.start_time">1293887799000</longProp>
+        <longProp name="ThreadGroup.end_time">1293887799000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">${DURATION}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="false">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">${loop}</stringProp>
+        </LoopController>
+        <hashTree>
+          <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="createCmisDocuments" enabled="false">
+            <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="cmis.username" elementType="Argument">
+                  <stringProp name="Argument.name">cmis.username</stringProp>
+                  <stringProp name="Argument.value">${cmis.username}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="cmis.password" elementType="Argument">
+                  <stringProp name="Argument.name">cmis.password</stringProp>
+                  <stringProp name="Argument.value">${cmis.password}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="cmis.host" elementType="Argument">
+                  <stringProp name="Argument.name">cmis.host</stringProp>
+                  <stringProp name="Argument.value">${cmis.host}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="cmis.port" elementType="Argument">
+                  <stringProp name="Argument.name">cmis.port</stringProp>
+                  <stringProp name="Argument.value">${cmis.port}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="cmis.url" elementType="Argument">
+                  <stringProp name="Argument.name">cmis.url</stringProp>
+                  <stringProp name="Argument.value">${cmis.protocol}://${cmis.host}:${cmis.port}/${cmis.url.context}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="cmis.folder.path" elementType="Argument">
+                  <stringProp name="Argument.name">cmis.folder.path</stringProp>
+                  <stringProp name="Argument.value">${cmis.folder.path}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="sample.file.dir" elementType="Argument">
+                  <stringProp name="Argument.name">sample.file.dir</stringProp>
+                  <stringProp name="Argument.value">${sample.file.dir}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="loginEveryIteration" elementType="Argument">
+                  <stringProp name="Argument.name">loginEveryIteration</stringProp>
+                  <stringProp name="Argument.value">${loginEveryIteration}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="max_files_per_folder" elementType="Argument">
+                  <stringProp name="Argument.name">max_files_per_folder</stringProp>
+                  <stringProp name="Argument.value">${max_files_per_folder}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="files_deployment_location" elementType="Argument">
+                  <stringProp name="Argument.name">files_deployment_location</stringProp>
+                  <stringProp name="Argument.value">${files_deployment_location}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="images_location" elementType="Argument">
+                  <stringProp name="Argument.name">images_location</stringProp>
+                  <stringProp name="Argument.value">${images_location}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="files_per_folder" elementType="Argument">
+                  <stringProp name="Argument.name">files_per_folder</stringProp>
+                  <stringProp name="Argument.value">${files_per_folder}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="classname">org.alfresco.jmeter.test.AlfrescoCmisTests</stringProp>
+          </JavaSampler>
+          <hashTree/>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">${loop}</stringProp>
+        </LoopController>
+        <hashTree>
+          <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="createDocument" enabled="true">
+            <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="sample.file.dir" elementType="Argument">
+                  <stringProp name="Argument.name">sample.file.dir</stringProp>
+                  <stringProp name="Argument.value">${sample.file.dir}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="total.file.count" elementType="Argument">
+                  <stringProp name="Argument.name">total.file.count</stringProp>
+                  <stringProp name="Argument.value">${total.file.count}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="min.file.size" elementType="Argument">
+                  <stringProp name="Argument.name">min.file.size</stringProp>
+                  <stringProp name="Argument.value">${min.file.size}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="max.file.size" elementType="Argument">
+                  <stringProp name="Argument.name">max.file.size</stringProp>
+                  <stringProp name="Argument.value">${max.file.size}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="processing.file.dir" elementType="Argument">
+                  <stringProp name="Argument.name">processing.file.dir</stringProp>
+                  <stringProp name="Argument.value">${sample.file.dir}/${processing.file.dir}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="completed.file.dir" elementType="Argument">
+                  <stringProp name="Argument.name">completed.file.dir</stringProp>
+                  <stringProp name="Argument.value">${sample.file.dir}/${completed.file.dir}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="cmis.username" elementType="Argument">
+                  <stringProp name="Argument.name">cmis.username</stringProp>
+                  <stringProp name="Argument.value">${cmis.username}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="cmis.password" elementType="Argument">
+                  <stringProp name="Argument.name">cmis.password</stringProp>
+                  <stringProp name="Argument.value">${cmis.password}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="cmis.url" elementType="Argument">
+                  <stringProp name="Argument.name">cmis.url</stringProp>
+                  <stringProp name="Argument.value">${cmis.protocol}://${cmis.host}:${cmis.port}/${cmis.url.context}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="cmis.folder.path" elementType="Argument">
+                  <stringProp name="Argument.name">cmis.folder.path</stringProp>
+                  <stringProp name="Argument.value">${cmis.folder.path}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="classname">org.alfresco.jmeter.test.CreateDocument</stringProp>
+          </JavaSampler>
+          <hashTree/>
+        </hashTree>
+        <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="createTxtFolder" enabled="false">
+          <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="cmis.username" elementType="Argument">
+                <stringProp name="Argument.name">cmis.username</stringProp>
+                <stringProp name="Argument.value">${cmis.username}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.password" elementType="Argument">
+                <stringProp name="Argument.name">cmis.password</stringProp>
+                <stringProp name="Argument.value">${cmis.password}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.url" elementType="Argument">
+                <stringProp name="Argument.name">cmis.url</stringProp>
+                <stringProp name="Argument.value">${cmis.protocol}://${cmis.host}:${cmis.port}/${cmis.url.context}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.folder.path" elementType="Argument">
+                <stringProp name="Argument.name">cmis.folder.path</stringProp>
+                <stringProp name="Argument.value">${cmis.folder.path}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="classname">org.alfresco.jmeter.test.CreateFolder</stringProp>
+        </JavaSampler>
+        <hashTree/>
+        <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="getChildren" enabled="false">
+          <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="cmis.username" elementType="Argument">
+                <stringProp name="Argument.name">cmis.username</stringProp>
+                <stringProp name="Argument.value">${cmis.username}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.password" elementType="Argument">
+                <stringProp name="Argument.name">cmis.password</stringProp>
+                <stringProp name="Argument.value">${cmis.password}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.url" elementType="Argument">
+                <stringProp name="Argument.name">cmis.url</stringProp>
+                <stringProp name="Argument.value">${cmis.protocol}://${cmis.host}:${cmis.port}/${cmis.url.context}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.folder.path" elementType="Argument">
+                <stringProp name="Argument.name">cmis.folder.path</stringProp>
+                <stringProp name="Argument.value">${cmis.folder.path}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="classname">org.alfresco.jmeter.test.GetChildren</stringProp>
+        </JavaSampler>
+        <hashTree/>
+        <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="getDocumentContentStream" enabled="false">
+          <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="cmis.username" elementType="Argument">
+                <stringProp name="Argument.name">cmis.username</stringProp>
+                <stringProp name="Argument.value">${cmis.username}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.password" elementType="Argument">
+                <stringProp name="Argument.name">cmis.password</stringProp>
+                <stringProp name="Argument.value">${cmis.password}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.url" elementType="Argument">
+                <stringProp name="Argument.name">cmis.url</stringProp>
+                <stringProp name="Argument.value">${cmis.protocol}://${cmis.host}:${cmis.port}/${cmis.url.context}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.folder.path" elementType="Argument">
+                <stringProp name="Argument.name">cmis.folder.path</stringProp>
+                <stringProp name="Argument.value">${cmis.folder.path}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="classname">org.alfresco.jmeter.test.GetDocumentContentStream</stringProp>
+        </JavaSampler>
+        <hashTree/>
+        <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="appendContentStream" enabled="false">
+          <stringProp name="TestPlan.comments">Only use with Alfresco 4.2+ and CMIS 1.1+</stringProp>
+          <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="cmis.username" elementType="Argument">
+                <stringProp name="Argument.name">cmis.username</stringProp>
+                <stringProp name="Argument.value">${cmis.username}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.password" elementType="Argument">
+                <stringProp name="Argument.name">cmis.password</stringProp>
+                <stringProp name="Argument.value">${cmis.password}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.url" elementType="Argument">
+                <stringProp name="Argument.name">cmis.url</stringProp>
+                <stringProp name="Argument.value">${cmis.protocol}://${cmis.host}:${cmis.port}/${cmis.url.context}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.folder.path" elementType="Argument">
+                <stringProp name="Argument.name">cmis.folder.path</stringProp>
+                <stringProp name="Argument.value">${cmis.folder.path}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="classname">org.alfresco.jmeter.test.AppendDocumentContentStream</stringProp>
+        </JavaSampler>
+        <hashTree/>
+        <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="createNewVersion" enabled="false">
+          <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="cmis.username" elementType="Argument">
+                <stringProp name="Argument.name">cmis.username</stringProp>
+                <stringProp name="Argument.value">${cmis.username}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.password" elementType="Argument">
+                <stringProp name="Argument.name">cmis.password</stringProp>
+                <stringProp name="Argument.value">${cmis.password}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.url" elementType="Argument">
+                <stringProp name="Argument.name">cmis.url</stringProp>
+                <stringProp name="Argument.value">${cmis.protocol}://${cmis.host}:${cmis.port}/${cmis.url.context}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.folder.path" elementType="Argument">
+                <stringProp name="Argument.name">cmis.folder.path</stringProp>
+                <stringProp name="Argument.value">${cmis.folder.path}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="classname">org.alfresco.jmeter.test.CreateNewVersion</stringProp>
+        </JavaSampler>
+        <hashTree/>
+        <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="getDocumentsByQuery" enabled="false">
+          <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="cmis.username" elementType="Argument">
+                <stringProp name="Argument.name">cmis.username</stringProp>
+                <stringProp name="Argument.value">${cmis.username}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.password" elementType="Argument">
+                <stringProp name="Argument.name">cmis.password</stringProp>
+                <stringProp name="Argument.value">${cmis.password}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.url" elementType="Argument">
+                <stringProp name="Argument.name">cmis.url</stringProp>
+                <stringProp name="Argument.value">${cmis.protocol}://${cmis.host}:${cmis.port}/${cmis.url.context}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.query" elementType="Argument">
+                <stringProp name="Argument.name">cmis.query</stringProp>
+                <stringProp name="Argument.value">${cmis.query}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="classname">org.alfresco.jmeter.test.GetDocumentsByQuery</stringProp>
+        </JavaSampler>
+        <hashTree/>
+        <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="deleteDocument" enabled="false">
+          <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="cmis.username" elementType="Argument">
+                <stringProp name="Argument.name">cmis.username</stringProp>
+                <stringProp name="Argument.value">${cmis.username}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.password" elementType="Argument">
+                <stringProp name="Argument.name">cmis.password</stringProp>
+                <stringProp name="Argument.value">${cmis.password}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.url" elementType="Argument">
+                <stringProp name="Argument.name">cmis.url</stringProp>
+                <stringProp name="Argument.value">${cmis.protocol}://${cmis.host}:${cmis.port}/${cmis.url.context}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.folder.path" elementType="Argument">
+                <stringProp name="Argument.name">cmis.folder.path</stringProp>
+                <stringProp name="Argument.value">${cmis.folder.path}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="classname">org.alfresco.jmeter.test.DeleteDocument</stringProp>
+        </JavaSampler>
+        <hashTree/>
+        <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="deleteFolderTree" enabled="false">
+          <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="cmis.username" elementType="Argument">
+                <stringProp name="Argument.name">cmis.username</stringProp>
+                <stringProp name="Argument.value">${cmis.username}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.password" elementType="Argument">
+                <stringProp name="Argument.name">cmis.password</stringProp>
+                <stringProp name="Argument.value">${cmis.password}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.url" elementType="Argument">
+                <stringProp name="Argument.name">cmis.url</stringProp>
+                <stringProp name="Argument.value">${cmis.protocol}://${cmis.host}:${cmis.port}/${cmis.url.context}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="cmis.folder.path" elementType="Argument">
+                <stringProp name="Argument.name">cmis.folder.path</stringProp>
+                <stringProp name="Argument.value">${cmis.folder.path}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="classname">org.alfresco.jmeter.test.DeleteFolderTree</stringProp>
+        </JavaSampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

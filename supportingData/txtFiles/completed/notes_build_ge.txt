@@ -1,0 +1,3 @@
+mvn -U integration-test -Pamp-to-war,unpack-deps
+
+ mvn -U clean install -DskipTests=true

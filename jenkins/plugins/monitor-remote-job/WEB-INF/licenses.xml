@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<l:dependencies xmlns:l='licenses' groupId='org.ukiuni.monitor-remote-job-plugin' artifactId='monitor-remote-job' version='1.0'><l:dependency name='monitor-remote-job' groupId='org.ukiuni.monitor-remote-job-plugin' artifactId='monitor-remote-job' version='1.0' url='http://jenkins-ci.org/plugin/monitor-remote-job/'><l:description/></l:dependency></l:dependencies>

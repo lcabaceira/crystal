@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/BulkImportManifestCreator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/CustomXWPFDocument.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/importer/InPlaceContentImporter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/agents/JpgAgent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/agents/MSExcelAgent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/agents/MSPowerPointAgent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/agents/MSWordAgent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/agents/PdfAgent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/locator/PropertiesLocator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/locator/exceptions/PropertiesLocatorException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/words/RandomWords.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/locator/ServiceLocator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/locator/exceptions/ServiceLocatorException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/jmeter/supersize/SuperSizeHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/WriteXMLFile.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/log4j.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/words/words.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/words.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/org/alfresco/consulting/words/words.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../Dependencies/lib/ext/JMeterPlugins-Extras.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Alfresco5-TestPlan-3.jmx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/2/archive/dashBoard_createUsersResults.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/2/build.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/2/changelog.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/2/log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/2/performance-reports/JMeter/createUsersResults.jtl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/2/performance-reports/JMeter/createUsersResults.jtl.serialized" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/3/archive/dashBoard_createUsersResults.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/3/build.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/3/changelog.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/3/log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/3/performance-reports/JMeter/createUsersResults.jtl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/3/performance-reports/JMeter/createUsersResults.jtl.serialized" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/lastFailedBuild" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/lastStableBuild" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/lastSuccessfulBuild" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/lastUnstableBuild" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/lastUnsuccessfulBuild" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/builds/legacyIds" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/config.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/lastStable" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/lastSuccessful" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-create-users/nextBuildNumber" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/queue.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jenkins/tomcat7/work/Catalina/localhost/_/SESSIONS.ser" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../files/Activiti.pdf" afterPath="$PROJECT_DIR$/../files/Activiti.pdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../files/AlfrescoFAQ.docx" afterPath="$PROJECT_DIR$/../files/AlfrescoFAQ.docx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../files/JMX.pptx" afterPath="$PROJECT_DIR$/../files/JMX.pptx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../files/Troubleshooting.pdf" afterPath="$PROJECT_DIR$/../files/Troubleshooting.pdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../files/bpm-2.pptx" afterPath="$PROJECT_DIR$/../files/bpm-2.pptx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-jtests/builds/lastFailedBuild" afterPath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-jtests/builds/lastFailedBuild" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-jtests/builds/lastUnsuccessfulBuild" afterPath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-jtests/builds/lastUnsuccessfulBuild" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jenkins/.owner" afterPath="$PROJECT_DIR$/../../jenkins/.owner" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTest8443Threads.csv" afterPath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTest8443Threads.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestActiveThreadsOverTime.csv" afterPath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestActiveThreadsOverTime.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestCPUUsage.csv" afterPath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestCPUUsage.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestConcurrentUsers.csv" afterPath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestConcurrentUsers.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestGC.csv" afterPath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestGC.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestHeapMemory.csv" afterPath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestHeapMemory.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestHitsPerSecond.csv" afterPath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestHitsPerSecond.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestResponseTimesOverTime.csv" afterPath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestResponseTimesOverTime.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestResultsTable.csv" afterPath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestResultsTable.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestSummaryReport.csv" afterPath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestSummaryReport.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestTransactionsPerSecond.csv" afterPath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestTransactionsPerSecond.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestresults.csv" afterPath="$PROJECT_DIR$/../../Dependencies/bin/resultlogs/AlfrescoTestresults.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../files/Yourkit.txt" afterPath="$PROJECT_DIR$/../files/Yourkit.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../files/attaching.rtf" afterPath="$PROJECT_DIR$/../files/attaching.rtf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jenkins/tomcat7/logs/catalina.out" afterPath="$PROJECT_DIR$/../../jenkins/tomcat7/logs/catalina.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-jtests/config.xml" afterPath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-jtests/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jenkins/updates/default.json" afterPath="$PROJECT_DIR$/../../jenkins/updates/default.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Dependencies/bin/jmeter.log" afterPath="$PROJECT_DIR$/../../Dependencies/bin/jmeter.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jenkins/workspace/alfresco-jtests/jmeter.log" afterPath="$PROJECT_DIR$/../../jenkins/workspace/alfresco-jtests/jmeter.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-jtests/nextBuildNumber" afterPath="$PROJECT_DIR$/../../jenkins/jobs/alfresco-jtests/nextBuildNumber" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../files/notes.txt" afterPath="$PROJECT_DIR$/../files/notes.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jenkins/queue.xml.bak" afterPath="$PROJECT_DIR$/../../jenkins/queue.xml.bak" />
+    </list>
+    <ignored path="cmis-jmeter-test.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" time="1449679003889" ignored="false" />
+    <file path="/CreateDocument.java" changelist="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" time="1449748753192" ignored="false" />
+    <file path="/AlfrescoCmisTests.java" changelist="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" time="1449741487304" ignored="false" />
+    <file path="/RunTests.java" changelist="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" time="1442824996893" ignored="false" />
+    <file path="/a.dummy" changelist="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" time="1449234478022" ignored="false" />
+    <file path="/cmis-test-plan.jmx" changelist="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" time="1449238673149" ignored="false" />
+    <file path="/SuperSizeHelper.java" changelist="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" time="1449742970398" ignored="false" />
+    <file path="/MSPowerPointAgent.java" changelist="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" time="1449740918188" ignored="false" />
+    <file path="/super-size-my-repo.properties" changelist="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" time="1449528317196" ignored="false" />
+    <file path="/RandomWords.java" changelist="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" time="1449522554470" ignored="false" />
+    <file path="/CmisHelper.java" changelist="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" time="1449569712564" ignored="false" />
+    <file path="/MSWordAgent.java" changelist="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" time="1449679314035" ignored="false" />
+    <file path="/MSExcelAgent.java" changelist="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" time="1449688990529" ignored="false" />
+    <file path="/PdfAgent.java" changelist="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" time="1449700120235" ignored="false" />
+    <file path="/BulkImportManifestCreator.java" changelist="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" time="1449740972388" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DebuggerManager">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="cmis-jmeter-test" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="CreateDocument.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/alfresco/jmeter/test/CreateDocument.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="149" column="9" selection-start="6259" selection-end="6595" vertical-scroll-proportion="2.2848837">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/executor/MainExecutor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/super-size-my-repo.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/words/RandomWords.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/importer/InPlaceContentImporter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/alfresco/jmeter/util/CmisHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/super-size-my-repo.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/agents/MSPowerPointAgent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/agents/MSWordAgent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/agents/MSExcelAgent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/agents/PdfAgent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/agents/JpgAgent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/alfresco/jmeter/test/AlfrescoCmisTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/alfresco/jmeter/supersize/SuperSizeHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/BulkImportManifestCreator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/alfresco/jmeter/test/CreateDocument.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+    <option name="enabledProfiles">
+      <list>
+        <option value="developer" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="834" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmis-jmeter-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmis-jmeter-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmis-jmeter-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmis-jmeter-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmis-jmeter-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmis-jmeter-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmis-jmeter-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmis-jmeter-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmis-jmeter-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alfresco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jmeter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmis-jmeter-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmis-jmeter-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alfresco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jmeter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmis-jmeter-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmis-jmeter-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alfresco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jmeter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="supersize" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmis-jmeter-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmis-jmeter-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alfresco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="consulting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="vcs.Git" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../WIP/European Comission-Benchmarks/create-loads" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/org/alfresco/consulting/words" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <list size="0" />
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="true">$USER_HOME$/.subversion</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1edcdaf9-32a0-4422-9ae6-d532ae6800b4" name="Default" comment="" />
+      <created>1442821086984</created>
+      <updated>1442821086984</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="834" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.258967" sideWeight="0.67086834" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913166" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913166" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/alfresco/jmeter/util/CmisHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="34" selection-start="3260" selection-end="3276" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="31" selection-start="2795" selection-end="2795" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/agents/MSWordAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="223" column="95" selection-start="10188" selection-end="10188" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/agents/MSExcelAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="228" column="95" selection-start="8783" selection-end="8783" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/alfresco-consulting-tests.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/alfresco/jmeter/test/AlfrescoCmisTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="216" column="0" selection-start="12832" selection-end="12832" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3126#3134#0" expanded="true" />
+            <element signature="e#3187#3195#0" expanded="true" />
+            <element signature="e#3247#3255#0" expanded="true" />
+            <element signature="e#3307#3315#0" expanded="true" />
+            <element signature="e#5701#5717#0" expanded="true" />
+            <element signature="e#7683#7699#0" expanded="true" />
+            <element signature="e#9652#9668#0" expanded="true" />
+            <element signature="e#11568#11584#0" expanded="true" />
+            <element signature="method#invokeWebScriptgetRequest#0;class#AlfrescoCmisTests#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/alfresco/jmeter/test/AppendDocumentContentStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="13" selection-start="719" selection-end="719" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/importer/InPlaceContentImporter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="3" selection-start="395" selection-end="1148" vertical-scroll-proportion="0.24801272">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/BulkImportManifestCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="920" selection-end="1614" vertical-scroll-proportion="-1.1654135">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#loadTraditionalProperties#0;class#BulkImportManifestCreator#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/agents/MSPowerPointAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="120" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/agents/PdfAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="93" selection-start="2461" selection-end="2461" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/alfresco/jmeter/test/GetChildren.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="13" selection-start="512" selection-end="512" vertical-scroll-proportion="-0.5338346">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/alfresco/consulting/tools/content/creator/agents/JpgAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="48" selection-start="972" selection-end="972" vertical-scroll-proportion="0.29651162">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/alfresco/jmeter/supersize/SuperSizeHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="31" selection-start="1465" selection-end="1465" vertical-scroll-proportion="-0.4651163">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/alfresco/jmeter/test/CreateFolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="119" selection-start="2348" selection-end="2348" vertical-scroll-proportion="0.45930234">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/alfresco/jmeter/test/CreateDocument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="149" column="9" selection-start="6259" selection-end="6595" vertical-scroll-proportion="2.2848837">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

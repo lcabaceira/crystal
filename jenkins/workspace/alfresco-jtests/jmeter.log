@@ -1,0 +1,442 @@
+2015/12/14 12:40:27 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_US 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: Loading user properties from: /Users/lcabaceira/My-Library/Customers/jtests/project/jtests/Dependencies/jmeter/bin/user.properties 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: Loading system properties from: /Users/lcabaceira/My-Library/Customers/jtests/project/jtests/Dependencies/jmeter/bin/system.properties 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: Copyright (c) 1998-2015 The Apache Software Foundation 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: Version r1719185 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: java.version=1.7.0_25 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: os.name=Mac OS X 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: os.arch=x86_64 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: os.version=10.10.5 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: file.encoding=UTF-8 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: Max memory     =225050624 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: Available Processors =8 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: Default Locale=English (United States) 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: JMeter  Locale=English (United States) 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: JMeterHome=/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/Dependencies/jmeter 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: user.dir  =/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/jenkins/workspace/alfresco-jtests 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: PWD       =/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/jenkins/workspace/alfresco-jtests 
+2015/12/14 12:40:27 INFO  - jmeter.JMeter: IP: 192.168.1.132 Name: LuisMacBookPro.lan FullName: luismacbookpro.lan 
+2015/12/14 12:40:27 INFO  - jmeter.services.FileServer: Default base='/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/jenkins/workspace/alfresco-jtests' 
+2015/12/14 12:40:27 INFO  - jmeter.services.FileServer: Set new base='/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/TestCases/browserAutomationShare' 
+2015/12/14 12:40:27 INFO  - jmeter.save.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2 
+2015/12/14 12:40:27 INFO  - jmeter.save.SaveService: Using SaveService properties file encoding UTF-8 
+2015/12/14 12:40:27 INFO  - jmeter.save.SaveService: Using SaveService properties version 2.9 
+2015/12/14 12:40:27 INFO  - jmeter.save.SaveService: All converter versions present and correct 
+2015/12/14 12:40:27 INFO  - jmeter.save.SaveService: Loading file: /Users/lcabaceira/My-Library/Customers/jtests/project/jtests/TestCases/browserAutomationShare/Alfresco5-TestPlan.jmx 
+2015/12/14 12:40:27 INFO  - jmeter.protocol.http.control.CookieManager: Settings: Delete null: true Check: true Allow variable: true Save: false Prefix: COOKIE_ 
+2015/12/14 12:40:27 INFO  - jmeter.protocol.http.control.CacheManager: Will only cache the following methods: [GET] 
+2015/12/14 12:40:27 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Cannot find .className property for htmlParser, using default 
+2015/12/14 12:40:27 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/html is  
+2015/12/14 12:40:27 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xhtml+xml is  
+2015/12/14 12:40:27 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xml is  
+2015/12/14 12:40:27 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/xml is  
+2015/12/14 12:40:27 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser 
+2015/12/14 12:40:27 INFO  - jmeter.samplers.SampleResult: Note: Sample TimeStamps are START times 
+2015/12/14 12:40:27 INFO  - jmeter.samplers.SampleResult: sampleresult.default.encoding is set to ISO-8859-1 
+2015/12/14 12:40:27 INFO  - jmeter.samplers.SampleResult: sampleresult.useNanoTime=true 
+2015/12/14 12:40:27 INFO  - jmeter.samplers.SampleResult: sampleresult.nanoThreadSleep=5000 
+2015/12/14 12:40:28 INFO  - jorphan.exec.KeyToolUtils: keytool found at 'keytool' 
+2015/12/14 12:40:28 INFO  - jmeter.protocol.http.proxy.ProxyControl: HTTP(S) Test Script Recorder SSL Proxy will use keys that support embedded 3rd party resources in file /Users/lcabaceira/My-Library/Customers/jtests/project/jtests/Dependencies/jmeter/bin/proxyserver.jks 
+2015/12/14 12:40:28 INFO  - jmeter.JMeter: Creating summariser <summary> 
+2015/12/14 12:40:28 INFO  - jmeter.engine.StandardJMeterEngine: Listeners will be started after enabling running version 
+2015/12/14 12:40:28 INFO  - jmeter.engine.StandardJMeterEngine: To revert to the earlier behaviour, define jmeterengine.startlistenerslater=false 
+2015/12/14 12:40:28 INFO  - jmeter.engine.StandardJMeterEngine: Running the test! 
+2015/12/14 12:40:28 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2015/12/14 12:40:28 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2015/12/14 12:40:28 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must contain the string: '.functions.' 
+2015/12/14 12:40:28 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must not contain the string: '.gui.' 
+2015/12/14 12:42:59 ERROR - kg.apc.jmeter.jmxmon.JMXMonCollector: IOException reading JMX java.rmi.ConnectException: Connection refused to host: 192.168.101.231; nested exception is: 
+	java.net.ConnectException: Operation timed out
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:128)
+	at javax.management.remote.rmi.RMIServerImpl_Stub.newClient(Unknown Source)
+	at javax.management.remote.rmi.RMIConnector.getConnection(RMIConnector.java:2373)
+	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:297)
+	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.initiateConnector(JMXMonCollector.java:188)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.initiateConnectors(JMXMonCollector.java:178)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.testStarted(JMXMonCollector.java:112)
+	at org.apache.jmeter.reporters.ResultCollector.testStarted(ResultCollector.java:351)
+	at kg.apc.jmeter.vizualizers.CorrectedResultCollector.testStarted(CorrectedResultCollector.java:28)
+	at org.apache.jmeter.engine.StandardJMeterEngine.notifyTestListenersOfStart(StandardJMeterEngine.java:214)
+	at org.apache.jmeter.engine.StandardJMeterEngine.run(StandardJMeterEngine.java:336)
+	at java.lang.Thread.run(Thread.java:724)
+Caused by: java.net.ConnectException: Operation timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.<init>(Socket.java:425)
+	at java.net.Socket.<init>(Socket.java:208)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:146)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 15 more
+
+2015/12/14 12:44:16 ERROR - kg.apc.jmeter.jmxmon.JMXMonCollector: IOException reading JMX java.rmi.ConnectException: Connection refused to host: 192.168.101.231; nested exception is: 
+	java.net.ConnectException: Operation timed out
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:128)
+	at javax.management.remote.rmi.RMIServerImpl_Stub.newClient(Unknown Source)
+	at javax.management.remote.rmi.RMIConnector.getConnection(RMIConnector.java:2373)
+	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:297)
+	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.initiateConnector(JMXMonCollector.java:188)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.initiateConnectors(JMXMonCollector.java:178)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.testStarted(JMXMonCollector.java:112)
+	at org.apache.jmeter.reporters.ResultCollector.testStarted(ResultCollector.java:351)
+	at kg.apc.jmeter.vizualizers.CorrectedResultCollector.testStarted(CorrectedResultCollector.java:28)
+	at org.apache.jmeter.engine.StandardJMeterEngine.notifyTestListenersOfStart(StandardJMeterEngine.java:214)
+	at org.apache.jmeter.engine.StandardJMeterEngine.run(StandardJMeterEngine.java:336)
+	at java.lang.Thread.run(Thread.java:724)
+Caused by: java.net.ConnectException: Operation timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.<init>(Socket.java:425)
+	at java.net.Socket.<init>(Socket.java:208)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:146)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 15 more
+
+2015/12/14 12:45:32 ERROR - kg.apc.jmeter.jmxmon.JMXMonCollector: IOException reading JMX java.rmi.ConnectException: Connection refused to host: 192.168.101.231; nested exception is: 
+	java.net.ConnectException: Operation timed out
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:128)
+	at javax.management.remote.rmi.RMIServerImpl_Stub.newClient(Unknown Source)
+	at javax.management.remote.rmi.RMIConnector.getConnection(RMIConnector.java:2373)
+	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:297)
+	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.initiateConnector(JMXMonCollector.java:188)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.initiateConnectors(JMXMonCollector.java:178)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.testStarted(JMXMonCollector.java:112)
+	at org.apache.jmeter.reporters.ResultCollector.testStarted(ResultCollector.java:351)
+	at kg.apc.jmeter.vizualizers.CorrectedResultCollector.testStarted(CorrectedResultCollector.java:28)
+	at org.apache.jmeter.engine.StandardJMeterEngine.notifyTestListenersOfStart(StandardJMeterEngine.java:214)
+	at org.apache.jmeter.engine.StandardJMeterEngine.run(StandardJMeterEngine.java:336)
+	at java.lang.Thread.run(Thread.java:724)
+Caused by: java.net.ConnectException: Operation timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.<init>(Socket.java:425)
+	at java.net.Socket.<init>(Socket.java:208)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:146)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 15 more
+
+2015/12/14 12:46:47 ERROR - kg.apc.jmeter.jmxmon.JMXMonCollector: IOException reading JMX java.rmi.ConnectException: Connection refused to host: 192.168.101.231; nested exception is: 
+	java.net.ConnectException: Operation timed out
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:128)
+	at javax.management.remote.rmi.RMIServerImpl_Stub.newClient(Unknown Source)
+	at javax.management.remote.rmi.RMIConnector.getConnection(RMIConnector.java:2373)
+	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:297)
+	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.initiateConnector(JMXMonCollector.java:188)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.initiateConnectors(JMXMonCollector.java:178)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.testStarted(JMXMonCollector.java:112)
+	at org.apache.jmeter.reporters.ResultCollector.testStarted(ResultCollector.java:351)
+	at kg.apc.jmeter.vizualizers.CorrectedResultCollector.testStarted(CorrectedResultCollector.java:28)
+	at org.apache.jmeter.engine.StandardJMeterEngine.notifyTestListenersOfStart(StandardJMeterEngine.java:214)
+	at org.apache.jmeter.engine.StandardJMeterEngine.run(StandardJMeterEngine.java:336)
+	at java.lang.Thread.run(Thread.java:724)
+Caused by: java.net.ConnectException: Operation timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.<init>(Socket.java:425)
+	at java.net.Socket.<init>(Socket.java:208)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:146)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 15 more
+
+2015/12/14 12:48:03 ERROR - kg.apc.jmeter.jmxmon.JMXMonCollector: IOException reading JMX java.rmi.ConnectException: Connection refused to host: 192.168.101.231; nested exception is: 
+	java.net.ConnectException: Operation timed out
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:128)
+	at javax.management.remote.rmi.RMIServerImpl_Stub.newClient(Unknown Source)
+	at javax.management.remote.rmi.RMIConnector.getConnection(RMIConnector.java:2373)
+	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:297)
+	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.initiateConnector(JMXMonCollector.java:188)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.initiateConnectors(JMXMonCollector.java:178)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.testStarted(JMXMonCollector.java:112)
+	at org.apache.jmeter.reporters.ResultCollector.testStarted(ResultCollector.java:351)
+	at kg.apc.jmeter.vizualizers.CorrectedResultCollector.testStarted(CorrectedResultCollector.java:28)
+	at org.apache.jmeter.engine.StandardJMeterEngine.notifyTestListenersOfStart(StandardJMeterEngine.java:214)
+	at org.apache.jmeter.engine.StandardJMeterEngine.run(StandardJMeterEngine.java:336)
+	at java.lang.Thread.run(Thread.java:724)
+Caused by: java.net.ConnectException: Operation timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.<init>(Socket.java:425)
+	at java.net.Socket.<init>(Socket.java:208)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:146)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 15 more
+
+2015/12/14 12:49:19 ERROR - kg.apc.jmeter.jmxmon.JMXMonCollector: IOException reading JMX java.rmi.ConnectException: Connection refused to host: 192.168.101.231; nested exception is: 
+	java.net.ConnectException: Operation timed out
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:128)
+	at javax.management.remote.rmi.RMIServerImpl_Stub.newClient(Unknown Source)
+	at javax.management.remote.rmi.RMIConnector.getConnection(RMIConnector.java:2373)
+	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:297)
+	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.initiateConnector(JMXMonCollector.java:188)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.initiateConnectors(JMXMonCollector.java:178)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.testStarted(JMXMonCollector.java:112)
+	at org.apache.jmeter.reporters.ResultCollector.testStarted(ResultCollector.java:351)
+	at kg.apc.jmeter.vizualizers.CorrectedResultCollector.testStarted(CorrectedResultCollector.java:28)
+	at org.apache.jmeter.engine.StandardJMeterEngine.notifyTestListenersOfStart(StandardJMeterEngine.java:214)
+	at org.apache.jmeter.engine.StandardJMeterEngine.run(StandardJMeterEngine.java:336)
+	at java.lang.Thread.run(Thread.java:724)
+Caused by: java.net.ConnectException: Operation timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.<init>(Socket.java:425)
+	at java.net.Socket.<init>(Socket.java:208)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:146)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 15 more
+
+2015/12/14 12:50:35 ERROR - kg.apc.jmeter.jmxmon.JMXMonCollector: IOException reading JMX java.rmi.ConnectException: Connection refused to host: 192.168.101.231; nested exception is: 
+	java.net.ConnectException: Operation timed out
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:128)
+	at javax.management.remote.rmi.RMIServerImpl_Stub.newClient(Unknown Source)
+	at javax.management.remote.rmi.RMIConnector.getConnection(RMIConnector.java:2373)
+	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:297)
+	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.initiateConnector(JMXMonCollector.java:188)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.initiateConnectors(JMXMonCollector.java:178)
+	at kg.apc.jmeter.jmxmon.JMXMonCollector.testStarted(JMXMonCollector.java:112)
+	at org.apache.jmeter.reporters.ResultCollector.testStarted(ResultCollector.java:351)
+	at kg.apc.jmeter.vizualizers.CorrectedResultCollector.testStarted(CorrectedResultCollector.java:28)
+	at org.apache.jmeter.engine.StandardJMeterEngine.notifyTestListenersOfStart(StandardJMeterEngine.java:214)
+	at org.apache.jmeter.engine.StandardJMeterEngine.run(StandardJMeterEngine.java:336)
+	at java.lang.Thread.run(Thread.java:724)
+Caused by: java.net.ConnectException: Operation timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.<init>(Socket.java:425)
+	at java.net.Socket.<init>(Socket.java:208)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:146)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 15 more
+
+2015/12/14 12:50:35 INFO  - jmeter.JMeter: Running test (1450097435323) 
+2015/12/14 12:50:35 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 1 : Test Started 
+2015/12/14 12:50:35 INFO  - jmeter.engine.StandardJMeterEngine: Starting 1 threads for group Test Started. 
+2015/12/14 12:50:35 INFO  - jmeter.engine.StandardJMeterEngine: Thread will continue on error 
+2015/12/14 12:50:35 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 1 threads 1 ramp-up 1 perThread 1000.0 delayedStart=false 
+2015/12/14 12:50:35 INFO  - jmeter.threads.JMeterThread: jmeterthread.startearlier=true (see jmeter.properties) 
+2015/12/14 12:50:35 INFO  - jmeter.threads.JMeterThread: Running PostProcessors in forward order 
+2015/12/14 12:50:35 INFO  - jmeter.threads.ThreadGroup: Started thread group number 1 
+2015/12/14 12:50:35 INFO  - jmeter.engine.StandardJMeterEngine: Waiting for thread group: Test Started to finish before starting next group 
+2015/12/14 12:50:35 INFO  - jmeter.threads.JMeterThread: Thread started: Test Started 1-1 
+2015/12/14 12:50:35 INFO  - jmeter.services.FileServer: Stored: uploadFiles.txt 
+2015/12/14 12:50:35 INFO  - jmeter.reporters.Summariser: summary +      1 in   0.1s =    8.2/s Avg:    15 Min:    15 Max:    15 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0 
+2015/12/14 12:50:35 INFO  - jmeter.threads.JMeterThread: Thread is done: Test Started 1-1 
+2015/12/14 12:50:35 INFO  - jmeter.threads.JMeterThread: Thread finished: Test Started 1-1 
+2015/12/14 12:50:35 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 2 : Create Users 
+2015/12/14 12:50:35 INFO  - jmeter.engine.StandardJMeterEngine: Starting 1 threads for group Create Users. 
+2015/12/14 12:50:35 INFO  - jmeter.engine.StandardJMeterEngine: Thread will continue on error 
+2015/12/14 12:50:35 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 2 threads 1 ramp-up 0 perThread 0.0 delayedStart=false 
+2015/12/14 12:50:35 INFO  - jmeter.threads.ThreadGroup: Started thread group number 2 
+2015/12/14 12:50:35 INFO  - jmeter.engine.StandardJMeterEngine: Waiting for thread group: Create Users to finish before starting next group 
+2015/12/14 12:50:35 INFO  - jmeter.threads.JMeterThread: Thread started: Create Users 2-1 
+2015/12/14 12:50:35 INFO  - jmeter.protocol.http.sampler.HTTPHCAbstractImpl: Local host = LuisMacBookPro.lan 
+2015/12/14 12:50:35 INFO  - jmeter.protocol.http.sampler.HTTPHC4Impl: HTTP request retry count = 0 
+2015/12/14 12:50:35 INFO  - jmeter.protocol.http.sampler.HTTPHC4Impl: Setting up HTTPS TrustAll scheme 
+2015/12/14 12:50:35 INFO  - jmeter.util.JsseSSLManager: Using default SSL protocol: TLS 
+2015/12/14 12:50:35 INFO  - jmeter.util.JsseSSLManager: SSL session context: per-thread 
+2015/12/14 12:50:36 INFO  - jmeter.protocol.http.sampler.HTTPJavaImpl: Maximum connection retries = 10 
+2015/12/14 12:50:36 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: readResponse: java.io.IOException: Server returned HTTP response code: 409 for URL: http://192.168.101.234:8080/share/proxy/alfresco/api/people 
+2015/12/14 12:50:36 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: Cause: java.io.IOException: Server returned HTTP response code: 409 for URL: http://192.168.101.234:8080/share/proxy/alfresco/api/people 
+2015/12/14 12:50:36 INFO  - jmeter.protocol.http.sampler.HTTPJavaImpl: Error Response Code: 409 
+2015/12/14 12:50:36 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: readResponse: java.io.IOException: Server returned HTTP response code: 409 for URL: http://192.168.101.234:8080/share/proxy/alfresco/api/people 
+2015/12/14 12:50:36 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: Cause: java.io.IOException: Server returned HTTP response code: 409 for URL: http://192.168.101.234:8080/share/proxy/alfresco/api/people 
+2015/12/14 12:50:36 INFO  - jmeter.protocol.http.sampler.HTTPJavaImpl: Error Response Code: 409 
+2015/12/14 12:50:36 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: readResponse: java.io.IOException: Server returned HTTP response code: 409 for URL: http://192.168.101.234:8080/share/proxy/alfresco/api/people 
+2015/12/14 12:50:36 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: Cause: java.io.IOException: Server returned HTTP response code: 409 for URL: http://192.168.101.234:8080/share/proxy/alfresco/api/people 
+2015/12/14 12:50:36 INFO  - jmeter.protocol.http.sampler.HTTPJavaImpl: Error Response Code: 409 
+2015/12/14 12:50:56 INFO  - jmeter.threads.JMeterThread: Thread is done: Create Users 2-1 
+2015/12/14 12:50:56 INFO  - jmeter.threads.JMeterThread: Thread finished: Create Users 2-1 
+2015/12/14 12:50:56 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 3 : For each user - Log in - Create Site - Upload Document - Searches - Log out 
+2015/12/14 12:50:56 INFO  - jmeter.engine.StandardJMeterEngine: Starting 3 threads for group For each user - Log in - Create Site - Upload Document - Searches - Log out. 
+2015/12/14 12:50:56 INFO  - jmeter.engine.StandardJMeterEngine: Thread will continue on error 
+2015/12/14 12:50:56 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 3 threads 3 ramp-up 10 perThread 3333.3333 delayedStart=false 
+2015/12/14 12:50:56 INFO  - jmeter.threads.JMeterThread: Thread started: For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1 
+2015/12/14 12:50:56 INFO  - jmeter.threads.ThreadGroup: Started thread group number 3 
+2015/12/14 12:50:56 INFO  - jmeter.engine.StandardJMeterEngine: Waiting for thread group: For each user - Log in - Create Site - Upload Document - Searches - Log out to finish before starting next group 
+2015/12/14 12:50:58 INFO  - com.googlecode.jmeter.plugins.webdriver.config.WebDriverConfig: iterationStart() 
+2015/12/14 12:50:59 INFO  - jmeter.threads.JMeterThread: Thread started: For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2 
+2015/12/14 12:51:01 INFO  - jmeter.reporters.Summariser: summary +     12 in    26s =    0.5/s Avg:    46 Min:     1 Max:   297 Err:     4 (33.33%) Active: 2 Started: 4 Finished: 2 
+2015/12/14 12:51:01 INFO  - jmeter.reporters.Summariser: summary =     13 in  26.1s =    0.5/s Avg:    44 Min:     1 Max:   297 Err:     4 (30.77%) 
+2015/12/14 12:51:01 INFO  - com.googlecode.jmeter.plugins.webdriver.config.WebDriverConfig: iterationStart() 
+2015/12/14 12:51:03 INFO  - jmeter.threads.JMeterThread: Thread started: For each user - Log in - Create Site - Upload Document - Searches - Log out 3-3 
+2015/12/14 12:51:05 INFO  - com.googlecode.jmeter.plugins.webdriver.config.WebDriverConfig: iterationStart() 
+2015/12/14 12:51:31 INFO  - jmeter.reporters.Summariser: summary +      9 in    30s =    0.3/s Avg:  1592 Min:     4 Max:  3010 Err:     0 (0.00%) Active: 3 Started: 5 Finished: 2 
+2015/12/14 12:51:31 INFO  - jmeter.reporters.Summariser: summary =     22 in    56s =    0.4/s Avg:   677 Min:     1 Max:  3010 Err:     4 (18.18%) 
+2015/12/14 12:51:38 ERROR - com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler: sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 7 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=xpath, value=//*[@class='action-link' and @title='Delete Document']}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#8) in <Unknown source> at line number 8 
+2015/12/14 12:51:38 INFO  - jmeter.services.FileServer: Stored: searchWords.txt 
+2015/12/14 12:51:42 ERROR - com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler: sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 5 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_SEARCHBOX_FORM_FIELD}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#9) in <Unknown source> at line number 9 
+2015/12/14 12:51:45 ERROR - com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler: sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 10 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_SEARCHBOX_FORM_FIELD}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#8) in <Unknown source> at line number 8 
+2015/12/14 12:51:47 ERROR - com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler: sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 7 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_SEARCHBOX_FORM_FIELD}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#9) in <Unknown source> at line number 9 
+2015/12/14 12:51:51 ERROR - com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler: sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 11 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_SEARCHBOX_FORM_FIELD}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#8) in <Unknown source> at line number 8 
+2015/12/14 12:51:55 ERROR - com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler: sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 5 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_SEARCHBOX_FORM_FIELD}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#9) in <Unknown source> at line number 9 
+2015/12/14 12:51:59 ERROR - com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler: sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 6 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_SEARCHBOX_FORM_FIELD}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#8) in <Unknown source> at line number 8 
+2015/12/14 12:52:02 ERROR - com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler: sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 7 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_SEARCHBOX_FORM_FIELD}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#9) in <Unknown source> at line number 9 
+2015/12/14 12:52:02 INFO  - jmeter.reporters.Summariser: summary +     12 in  31.4s =    0.4/s Avg:    34 Min:     6 Max:   289 Err:    11 (91.67%) Active: 3 Started: 5 Finished: 2 
+2015/12/14 12:52:02 INFO  - jmeter.reporters.Summariser: summary =     34 in  87.2s =    0.4/s Avg:   450 Min:     1 Max:  3010 Err:    15 (44.12%) 
+2015/12/14 12:52:06 ERROR - com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler: sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 5 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_SEARCHBOX_FORM_FIELD}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#8) in <Unknown source> at line number 8 
+2015/12/14 12:52:09 ERROR - com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler: sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 6 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_SEARCHBOX_FORM_FIELD}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#9) in <Unknown source> at line number 9 
+2015/12/14 12:52:12 ERROR - com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler: sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 5 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_SEARCHBOX_FORM_FIELD}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#8) in <Unknown source> at line number 8 
+2015/12/14 12:52:15 ERROR - com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler: sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 5 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_USER_MENU_POPUP_text}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#7) in <Unknown source> at line number 7 
+2015/12/14 12:52:19 ERROR - com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler: sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 5 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_USER_MENU_LOGOUT_text}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#7) in <Unknown source> at line number 7 
+2015/12/14 12:52:19 INFO  - jmeter.threads.JMeterThread: Thread is done: For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1 
+2015/12/14 12:52:19 INFO  - jmeter.threads.JMeterThread: Thread finished: For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1 

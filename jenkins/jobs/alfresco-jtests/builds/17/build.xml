@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.ParametersAction>
+      <parameters>
+        <hudson.model.StringParameterValue>
+          <name>testsPlanFolder</name>
+          <description>The location of the .jmx test files</description>
+          <value>/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/TestCases/browserAutomationShare</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>jmeterBin</name>
+          <description>The location of jmeter jar and the .sh file</description>
+          <value>/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/Dependencies/jmeter/bin</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>testCase</name>
+          <description>The name of the testcase file</description>
+          <value>Alfresco5-TestPlan.jmx</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>reportsLocation</name>
+          <description>The location of the jmeter reports</description>
+          <value>/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/supportingData/reports</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>alfrescoServer</name>
+          <description>The alfresco server ip or hostname</description>
+          <value>192.168.101.231</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>alfrescoPort</name>
+          <description>The alfresco server port</description>
+          <value>8080</value>
+        </hudson.model.StringParameterValue>
+      </parameters>
+    </hudson.model.ParametersAction>
+    <hudson.model.CauseAction>
+      <causes>
+        <hudson.model.Cause_-UserIdCause/>
+      </causes>
+    </hudson.model.CauseAction>
+    <jenkins.model.InterruptedBuildAction>
+      <causes class="com.google.common.collect.ImmutableList">
+        <jenkins.model.CauseOfInterruption_-UserInterruption>
+          <user>anonymous</user>
+        </jenkins.model.CauseOfInterruption_-UserInterruption>
+      </causes>
+    </jenkins.model.InterruptedBuildAction>
+    <hudson.plugins.performance.PerformanceBuildAction plugin="performance@1.13">
+      <build class="build" reference="../../.."/>
+      <parsers/>
+    </hudson.plugins.performance.PerformanceBuildAction>
+  </actions>
+  <queueId>9</queueId>
+  <timestamp>1450095467780</timestamp>
+  <startTime>1450095467784</startTime>
+  <result>ABORTED</result>
+  <duration>74292</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <builtOn></builtOn>
+  <workspace>/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/jenkins/workspace/alfresco-jtests</workspace>
+  <hudsonVersion>1.624</hudsonVersion>
+  <scm class="hudson.scm.NullChangeLogParser"/>
+  <culprits class="com.google.common.collect.EmptyImmutableSortedSet"/>
+</build>

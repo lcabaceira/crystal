@@ -1,0 +1,9 @@
+Jtests
+------
+
+We will use Jenkins to run our set of Tests
+
+
+     
+     
+    

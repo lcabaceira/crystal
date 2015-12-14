@@ -1,0 +1,270 @@
+1449851383125,13,Print Test Started,200,OK,Test Started 1-1,text,true,0,1,1,0
+1449851383264,4,Print Creating Users,200,OK,Create Users 2-1,text,true,0,1,1,0
+1449851383424,261,Log in,200,OK,Create Users 2-1,text,true,57626,1,1,152
+1449851383691,71,Admin Console,200,OK,Create Users 2-1,text,true,74523,1,1,66
+1449851383768,6,authentication,200,OK,Create Users 2-1,text,true,371,1,1,6
+1449851383777,23,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,23
+1449851383804,309,Create User,200,OK,Create Users 2-1,text,true,1022,1,1,309
+1449851404120,1,Log out,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: 192.168.101.231:8080 failed to respond,Create Users 2-1,text,false,2163,1,1,0
+1449851413003,11,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,1,1,0
+1449851413015,2287,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,123471,1,1,0
+1449851416697,2175,Create Site,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,236520,1,1,0
+1449851423100,1600,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,194514,1,1,0
+1449852270106,17,Print Test Started,200,OK,Test Started 1-1,text,true,0,1,1,0
+1449852270254,5,Print Creating Users,200,OK,Create Users 2-1,text,true,0,1,1,0
+1449852270424,269,Log in,200,OK,Create Users 2-1,text,true,57626,1,1,161
+1449852270699,58,Admin Console,200,OK,Create Users 2-1,text,true,74523,1,1,58
+1449852270762,7,authentication,200,OK,Create Users 2-1,text,true,371,1,1,7
+1449852270772,28,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,28
+1449852270804,180,Create User,200,OK,Create Users 2-1,text,true,1027,1,1,180
+1449852290990,1,Log out,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: 192.168.101.231:8080 failed to respond,Create Users 2-1,text,false,2163,1,1,0
+1449852295175,6,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,1,1,0
+1449852295182,5034,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,123546,1,1,0
+1449852302680,2279,Create Site,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,236682,1,1,0
+1449852309068,1424,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,194584,1,1,0
+1449852312552,1424,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,203373,1,1,0
+1449852316256,2535,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,213443,1,1,0
+1449852322975,189,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,261928,1,1,0
+1449852326021,103,Live Search,500,"sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchElementException: Unable to locate element: {""method"":""id"",""selector"":""HEADER_SEARCHBOX_FORM_FIELD""}
+Command duration or timeout: 97 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.local', ip: '10.32.74.78', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_SEARCHBOX_FORM_FIELD}
+Session ID: 834087a5-c255-e24f-a2d2-cc3c486e7994
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#9) in <Unknown source> at line number 9",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,false,1699,1,1,0
+1449852328152,70,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,194599,1,1,0
+1449852324801,173,Transaction Controller,,"Number of samples in transaction : 2, number of failing samples : 1",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,false,196298,1,1,0
+1449852330374,57,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,194599,1,1,0
+1449852331843,1926,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234777,1,1,0
+1449852328290,1983,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,429376,1,1,0
+1449852336038,78,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234777,1,1,0
+1449852338602,60,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449852333851,138,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,469738,1,1,0
+1449852341059,97,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449852343453,64,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449852338739,161,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,469922,1,1,0
+1449852345722,53,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449852347537,81,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449852343596,134,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,469922,1,1,0
+1449852347702,174,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,275249,1,1,0
+1449852352025,3,Print Deleting Sites,200,OK,Delete Sites 4-1,text,true,0,1,1,0
+1449852352033,115,Log in,200,OK,Delete Sites 4-1,text,true,57054,1,1,27
+1449852352148,637,Delete Site,200,"Number of samples in transaction : 1, number of failing samples : 0",Delete Sites 4-1,,true,376,1,1,0
+1449852352787,557,Empty User Trashcan,200,"Number of samples in transaction : 7, number of failing samples : 0",Delete Sites 4-1,,true,93719,1,1,0
+1449852353352,12,Log out,401,Unauthorized,Delete Sites 4-1,,true,306,1,1,12
+1449852353378,4,Print Deleting Users,200,OK,Delete Users 5-1,text,true,0,1,1,0
+1449852353385,169,Log in,200,OK,Delete Users 5-1,text,true,57626,1,1,37
+1449852353555,55,Admin Console,200,OK,Delete Users 5-1,text,true,74523,1,1,54
+1449852353614,7,authentication,200,OK,Delete Users 5-1,text,true,371,1,1,7
+1449852353623,26,check-user-exists,200,OK,Delete Users 5-1,text,true,1052,1,1,26
+1449852353651,234,Delete User,200,OK,Delete Users 5-1,text,true,328,1,1,234
+1449852353886,10,Log out,401,Unauthorized,Delete Users 5-1,,true,306,1,1,10
+1449852353905,3,Print Test Finished,200,OK,Test completed 6-1,text,true,0,1,1,0
+1449854203924,20,Print Test Started,200,OK,Test Started 1-1,text,true,0,1,1,0
+1449854204108,4,Print Creating Users,200,OK,Create Users 2-1,text,true,0,1,1,0
+1449854204293,299,Log in,200,OK,Create Users 2-1,text,true,57626,1,1,191
+1449854204599,56,Admin Console,200,OK,Create Users 2-1,text,true,74523,1,1,55
+1449854204661,7,authentication,200,OK,Create Users 2-1,text,true,371,1,1,7
+1449854204672,21,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,21
+1449854204696,176,Create User,200,OK,Create Users 2-1,text,true,1027,1,1,176
+1449854224878,1,Log out,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: 192.168.101.231:8080 failed to respond,Create Users 2-1,text,false,2163,1,1,0
+1449854230960,10,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,1,1,0
+1449854230970,4023,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,123546,1,1,0
+1449854237820,1955,Create Site,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,236682,1,1,0
+1449854245781,1465,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,194485,1,1,0
+1449854249964,1168,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,203336,1,1,0
+1449854254012,2317,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,208190,1,1,0
+1449854259294,227,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,261928,1,1,0
+1449854263497,209,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,234868,1,1,0
+1449854269212,4,Print Deleting Sites,200,OK,Delete Sites 4-1,text,true,0,1,1,0
+1449854269220,131,Log in,200,OK,Delete Sites 4-1,text,true,56952,1,1,31
+1449854269351,384,Delete Site,200,"Number of samples in transaction : 1, number of failing samples : 0",Delete Sites 4-1,,true,376,1,1,0
+1449854269737,402,Empty User Trashcan,200,"Number of samples in transaction : 7, number of failing samples : 0",Delete Sites 4-1,,true,93515,1,1,0
+1449854270146,11,Log out,401,Unauthorized,Delete Sites 4-1,,true,306,1,1,11
+1449854270173,5,Print Deleting Users,200,OK,Delete Users 5-1,text,true,0,1,1,0
+1449854270181,124,Log in,200,OK,Delete Users 5-1,text,true,57626,1,1,36
+1449854270306,111,Admin Console,200,OK,Delete Users 5-1,text,true,74523,1,1,110
+1449854270418,7,authentication,200,OK,Delete Users 5-1,text,true,371,1,1,7
+1449854270428,27,check-user-exists,200,OK,Delete Users 5-1,text,true,1052,1,1,27
+1449854270457,200,Delete User,200,OK,Delete Users 5-1,text,true,328,1,1,200
+1449854270658,10,Log out,401,Unauthorized,Delete Users 5-1,,true,306,1,1,10
+1449854270677,4,Print Test Finished,200,OK,Test completed 6-1,text,true,0,1,1,0
+1449854315736,17,Print Test Started,200,OK,Test Started 1-1,text,true,0,1,1,0
+1449854315879,4,Print Creating Users,200,OK,Create Users 2-1,text,true,0,1,1,0
+1449854316040,216,Log in,200,OK,Create Users 2-1,text,true,57626,1,1,122
+1449854316262,55,Admin Console,200,OK,Create Users 2-1,text,true,74523,1,1,54
+1449854316325,7,authentication,200,OK,Create Users 2-1,text,true,371,1,1,7
+1449854316335,20,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,20
+1449854316358,130,Create User,200,OK,Create Users 2-1,text,true,1027,1,1,130
+1449854336492,2,Log out,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: 192.168.101.231:8080 failed to respond,Create Users 2-1,text,false,2163,1,1,0
+1449854341910,5,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,1,1,0
+1449854341916,9392,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,123546,1,1,0
+1449854354637,2019,Create Site,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,236682,1,1,0
+1449854361967,1431,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,194485,1,1,0
+1449854365795,938,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,203358,1,1,0
+1449854369295,2283,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,208190,1,1,0
+1449854374119,184,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,261928,1,1,0
+1449854375624,148,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,234868,1,1,0
+1449854382496,3,Print Deleting Sites,200,OK,Delete Sites 4-1,text,true,0,1,1,0
+1449854382503,117,Log in,200,OK,Delete Sites 4-1,text,true,56952,1,1,27
+1449854382621,389,Delete Site,200,"Number of samples in transaction : 1, number of failing samples : 0",Delete Sites 4-1,,true,376,1,1,0
+1449854383011,414,Empty User Trashcan,200,"Number of samples in transaction : 7, number of failing samples : 0",Delete Sites 4-1,,true,93515,1,1,0
+1449854383433,12,Log out,401,Unauthorized,Delete Sites 4-1,,true,306,1,1,12
+1449854383460,4,Print Deleting Users,200,OK,Delete Users 5-1,text,true,0,1,1,0
+1449854383470,119,Log in,200,OK,Delete Users 5-1,text,true,57626,1,1,33
+1449854383590,50,Admin Console,200,OK,Delete Users 5-1,text,true,74523,1,1,49
+1449854383642,7,authentication,200,OK,Delete Users 5-1,text,true,371,1,1,6
+1449854383651,24,check-user-exists,200,OK,Delete Users 5-1,text,true,1052,1,1,24
+1449854383678,210,Delete User,200,OK,Delete Users 5-1,text,true,328,1,1,210
+1449854383890,11,Log out,401,Unauthorized,Delete Users 5-1,,true,306,1,1,11
+1449854383909,4,Print Test Finished,200,OK,Test completed 6-1,text,true,0,1,1,0
+1449854765152,16,Print Test Started,200,OK,Test Started 1-1,text,true,0,1,1,0
+1449854765302,4,Print Creating Users,200,OK,Create Users 2-1,text,true,0,1,1,0
+1449854765476,254,Log in,200,OK,Create Users 2-1,text,true,57626,1,1,154
+1449854765736,53,Admin Console,200,OK,Create Users 2-1,text,true,74523,1,1,52
+1449854765798,7,authentication,200,OK,Create Users 2-1,text,true,371,1,1,7
+1449854765808,23,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,23
+1449854765835,147,Create User,200,OK,Create Users 2-1,text,true,1027,1,1,147
+1449854785986,1,Log out,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: 192.168.101.231:8080 failed to respond,Create Users 2-1,text,false,2163,1,1,0
+1449854791106,5,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,1,1,0
+1449854791112,2599,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,123546,1,1,0
+1449854796148,1909,Create Site,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,236682,1,1,0
+1449854805194,1636,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,194569,1,1,0
+1449854808996,1131,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,203258,1,1,0
+1449854813314,2339,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,208190,1,1,0
+1449854819310,381,Download document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,261928,1,1,0
+1449854823040,195,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,261928,1,1,0
+1449854831492,152,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,194619,1,1,0
+1449854835047,1727,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234777,1,1,0
+1449854827309,1879,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,429396,1,1,0
+1449854839701,60,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234777,1,1,0
+1449854842792,86,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449854836853,146,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,469738,1,1,0
+1449854845902,57,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449854848924,83,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449854842959,140,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,469922,1,1,0
+1449854852971,58,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449854856699,87,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449854849087,145,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,469922,1,1,0
+1449854859647,57,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449854864051,87,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449854856867,144,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,469922,1,1,0
+1449854864223,187,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,275249,1,1,0
+1449854871909,4,Print Deleting Sites,200,OK,Delete Sites 4-1,text,true,0,1,1,0
+1449854871917,110,Log in,200,OK,Delete Sites 4-1,text,true,57054,1,1,27
+1449854872028,375,Delete Site,200,"Number of samples in transaction : 1, number of failing samples : 0",Delete Sites 4-1,,true,376,1,1,0
+1449854872404,389,Empty User Trashcan,200,"Number of samples in transaction : 7, number of failing samples : 0",Delete Sites 4-1,,true,93719,1,1,0
+1449854872799,13,Log out,401,Unauthorized,Delete Sites 4-1,,true,306,1,1,13
+1449854872827,4,Print Deleting Users,200,OK,Delete Users 5-1,text,true,0,1,1,0
+1449854872834,115,Log in,200,OK,Delete Users 5-1,text,true,57626,1,1,30
+1449854872949,45,Admin Console,200,OK,Delete Users 5-1,text,true,74523,1,1,42
+1449854872998,5,authentication,200,OK,Delete Users 5-1,text,true,371,1,1,5
+1449854873005,23,check-user-exists,200,OK,Delete Users 5-1,text,true,1052,1,1,22
+1449854873030,189,Delete User,200,OK,Delete Users 5-1,text,true,328,1,1,189
+1449854873220,11,Log out,401,Unauthorized,Delete Users 5-1,,true,306,1,1,11
+1449854873239,4,Print Test Finished,200,OK,Test completed 6-1,text,true,0,1,1,0
+1449855114929,16,Print Test Started,200,OK,Test Started 1-1,text,true,0,1,1,0
+1449855115078,4,Print Creating Users,200,OK,Create Users 2-1,text,true,0,1,1,0
+1449855115246,253,Log in,200,OK,Create Users 2-1,text,true,57626,1,1,157
+1449855115505,53,Admin Console,200,OK,Create Users 2-1,text,true,74523,1,1,52
+1449855115567,6,authentication,200,OK,Create Users 2-1,text,true,371,1,1,6
+1449855115577,20,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,20
+1449855115601,149,Create User,200,OK,Create Users 2-1,text,true,1027,1,1,149
+1449855135757,1,Log out,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: 192.168.101.231:8080 failed to respond,Create Users 2-1,text,false,2163,1,1,0
+1449855141657,6,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,1,1,0
+1449855141664,2146,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,123546,1,1,0
+1449855146901,1974,Create Site,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,236682,1,1,0
+1449855154952,1387,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,194569,1,1,0
+1449855159762,916,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,203358,1,1,0
+1449855163611,1574,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,213443,1,1,0
+1449855168686,162,Download document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,261928,1,1,0
+1449855171760,200,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,261928,1,1,0
+1449855180461,149,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,194599,1,1,0
+1449855183036,1774,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234777,1,1,0
+1449855176137,1923,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,429376,1,1,0
+1449855187651,65,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234777,1,1,0
+1449855190996,91,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449855184893,156,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,469738,1,1,0
+1449855195377,54,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449855198440,94,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449855191171,148,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,469922,1,1,0
+1449855202076,58,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449855204605,84,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449855198615,142,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,469922,1,1,0
+1449855207666,56,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449855211016,84,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,234961,1,1,0
+1449855204769,140,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,469922,1,1,0
+1449855211180,201,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,275249,1,1,0
+1449855216611,4,Print Deleting Sites,200,OK,Delete Sites 4-1,text,true,0,1,1,0
+1449855216621,111,Log in,200,OK,Delete Sites 4-1,text,true,57054,1,1,28
+1449855216733,391,Delete Site,200,"Number of samples in transaction : 1, number of failing samples : 0",Delete Sites 4-1,,true,376,1,1,0
+1449855217125,384,Empty User Trashcan,200,"Number of samples in transaction : 7, number of failing samples : 0",Delete Sites 4-1,,true,93719,1,1,0
+1449855217515,12,Log out,401,Unauthorized,Delete Sites 4-1,,true,306,1,1,12
+1449855217541,4,Print Deleting Users,200,OK,Delete Users 5-1,text,true,0,1,1,0
+1449855217548,120,Log in,200,OK,Delete Users 5-1,text,true,57626,1,1,32
+1449855217669,46,Admin Console,200,OK,Delete Users 5-1,text,true,74523,1,1,44
+1449855217717,5,authentication,200,OK,Delete Users 5-1,text,true,371,1,1,5
+1449855217725,25,check-user-exists,200,OK,Delete Users 5-1,text,true,1052,1,1,25
+1449855217752,181,Delete User,200,OK,Delete Users 5-1,text,true,328,1,1,181
+1449855217934,13,Log out,401,Unauthorized,Delete Users 5-1,,true,306,1,1,13
+1449855217957,4,Print Test Finished,200,OK,Test completed 6-1,text,true,0,1,1,0
+1450097435420,15,Print Test Started,200,OK,Test Started 1-1,text,true,0,1,1,0
+1450097435580,4,Print Creating Users,200,OK,Create Users 2-1,text,true,0,1,1,0
+1450097435817,297,Log in,200,OK,Create Users 2-1,text,true,57626,1,1,183
+1450097436120,55,Admin Console,200,OK,Create Users 2-1,text,true,74523,1,1,54
+1450097436183,7,authentication,200,OK,Create Users 2-1,text,true,371,1,1,7
+1450097436194,127,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,127
+1450097436325,14,Create User,409,Conflict,Create Users 2-1,text,false,738,1,1,14
+1450097436341,18,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,18
+1450097436363,9,Create User,409,Conflict,Create Users 2-1,text,false,738,1,1,9
+1450097436374,14,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,14
+1450097436391,10,Create User,409,Conflict,Create Users 2-1,text,false,738,1,1,10
+1450097456407,1,Log out,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: 192.168.101.234:8080 failed to respond,Create Users 2-1,text,false,2163,1,1,0
+1450097461429,5,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,2,2,0
+1450097464774,7,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,0,3,3,0
+1450097461436,3010,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,123546,3,3,0
+1450097468047,4,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-3,text,true,0,3,3,0
+1450097464782,1808,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,124373,3,3,0
+1450097468052,1811,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-3,,true,124373,3,3,0
+1450097467016,2216,Create Site,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,236682,3,3,0
+1450097475333,1556,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,194569,3,3,0
+1450097480243,1170,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,203280,3,3,0
+1450097484990,2749,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,208190,3,3,0
+1450097491221,289,Download document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,261928,3,3,0
+1450097495533,13,Delete document,500,"Number of samples in transaction : 1, number of failing samples : 1",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,false,1602,3,3,0
+1450097502024,7,Live Search,500,"sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 5 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_SEARCHBOX_FORM_FIELD}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#9) in <Unknown source> at line number 9",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,false,1572,3,3,0
+1450097505117,11,Faceted Search,500,"sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 10 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_SEARCHBOX_FORM_FIELD}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#8) in <Unknown source> at line number 8",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,false,1573,3,3,0
+1450097498966,18,Transaction Controller,,"Number of samples in transaction : 2, number of failing samples : 2",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,false,3145,3,3,0
+1450097507649,8,Live Search,500,"sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 7 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_SEARCHBOX_FORM_FIELD}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#9) in <Unknown source> at line number 9",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,false,1572,3,3,0
+1450097511201,12,Faceted Search,500,"sun.org.mozilla.javascript.internal.WrappedException: Wrapped org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 11 milliseconds
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'LuisMacBookPro.lan', ip: '192.168.1.132', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.10.5', java.version: '1.7.0_25'
+*** Element info: {Using=id, value=HEADER_SEARCHBOX_FORM_FIELD}
+Session ID: ec26ddb2-7dc3-994c-be4e-b08d98ff2606
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=42.0}] (<Unknown source>#8) in <Unknown source> at line number 8",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,false,1573,3,3,0
+14500975

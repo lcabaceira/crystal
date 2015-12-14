@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: tito
+Build-Jdk: 1.6.0_51
+Extension-Name: monitor-remote-job
+Implementation-Title: monitor-remote-job
+Implementation-Version: 1.0
+Group-Id: org.ukiuni.monitor-remote-job-plugin
+Short-Name: monitor-remote-job
+Long-Name: monitor-remote-job
+Url: http://jenkins-ci.org/plugin/monitor-remote-job/
+Plugin-Version: 1.0
+Hudson-Version: 1.509.2
+Jenkins-Version: 1.509.2
+Plugin-Developers: 
+

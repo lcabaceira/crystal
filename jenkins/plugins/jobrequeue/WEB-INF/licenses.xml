@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<l:dependencies xmlns:l='licenses' groupId='org.jenkins-ci.plugins' artifactId='jobrequeue' version='1.0'><l:dependency name='Requeue Job Plugin' groupId='org.jenkins-ci.plugins' artifactId='jobrequeue' version='1.0' url='https://wiki.jenkins-ci.org/display/JENKINS/JobRequeue-Plugin'><l:description>This plugin adds an option to jobs to allow them to be requeued in the case of failure.  The option is enabled/disabled at the project configuration page.</l:description></l:dependency></l:dependencies>

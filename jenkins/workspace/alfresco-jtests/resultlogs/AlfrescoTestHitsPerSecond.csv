@@ -1,0 +1,292 @@
+1440762031817,17,Print Test Started,200,OK,Test Started 1-1,text,true,0,1,1,0
+1440762031994,5,Print Creating Users,200,OK,Create Users 2-1,text,true,0,1,1,0
+1440762032246,267,Log in,200,OK,Create Users 2-1,text,true,55789,1,1,183
+1440762032521,76,Admin Console,200,OK,Create Users 2-1,text,true,72686,1,1,76
+1440762032606,6,authentication,200,OK,Create Users 2-1,text,true,371,1,1,6
+1440762032616,20,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,20
+1440762032639,112,Create User,200,OK,Create Users 2-1,text,true,1067,1,1,112
+1440762032752,19,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,19
+1440762032774,90,Create User,200,OK,Create Users 2-1,text,true,1067,1,1,90
+1440762052871,1,Log out,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: 192.168.101.213:8080 failed to respond,Create Users 2-1,text,false,2164,1,1,0
+1440762058383,6,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,2,2,0
+1440762063202,6,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,0,2,2,0
+1440762058390,1782,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,94641,2,2,0
+1440762063210,1683,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,94641,2,2,0
+1440762063964,255,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,194209,2,2,0
+1440762068149,297,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,194511,2,2,0
+1440762071340,1371,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,162881,2,2,0
+1440762076267,251,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,163642,2,2,0
+1440762074946,1244,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,162965,2,2,0
+1440762079495,91,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,182136,2,2,0
+1440762079598,275,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,163720,2,2,0
+1440762084114,189,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,187057,2,2,0
+1440762093247,37,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,163059,2,2,0
+1440762085291,104,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,177374,2,2,0
+1440762097522,92,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,10181,2,2,0
+1440762096525,241,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,193800,2,2,0
+1440762105368,54,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,163059,2,2,0
+1440762098761,224,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,192656,2,2,0
+1440762109403,4,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,2,2,0
+1440762110752,50,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,10181,2,2,0
+1440762109408,1463,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,95596,2,2,0
+1440762111199,160,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,192656,2,2,0
+1440762114382,1052,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,163394,2,2,0
+1440762121635,6,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,0,2,2,0
+1440762119207,307,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,164073,2,2,0
+1440762121642,1225,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,97096,2,2,0
+1440762122582,106,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,181923,2,2,0
+1440762125935,1203,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,163296,2,2,0
+1440762129891,240,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,186282,2,2,0
+1440762130511,255,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,164139,2,2,0
+1440762138589,51,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,163161,2,2,0
+1440762134541,107,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,177590,2,2,0
+1440762142339,54,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,37138,2,2,0
+1440762139797,192,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,182916,2,2,0
+1440762145908,36,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,163161,2,2,0
+1440762142777,168,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,192758,2,2,0
+1440762150732,76,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,37135,1,1,0
+1440762151276,156,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,192758,1,1,0
+1440762161030,4,Print Deleting Sites,200,OK,Delete Sites 4-1,text,true,0,1,1,0
+1440762164045,95,Log in,200,OK,Delete Sites 4-1,text,true,56065,2,2,24
+1440762166042,5,Print Deleting Sites,200,OK,Delete Sites 4-2,text,true,0,2,2,0
+1440762164141,239,Delete Site,200,"Number of samples in transaction : 1, number of failing samples : 0",Delete Sites 4-1,,true,376,2,2,0
+1440762169056,94,Log in,200,OK,Delete Sites 4-2,text,true,56065,2,2,22
+1440762169151,287,Delete Site,200,"Number of samples in transaction : 1, number of failing samples : 0",Delete Sites 4-2,,true,376,2,2,0
+1440762167381,382,Empty User Trashcan,200,"Number of samples in transaction : 7, number of failing samples : 0",Delete Sites 4-1,,true,91143,2,2,0
+1440762189804,9,Log out,401,Unauthorized,Delete Sites 4-1,,true,306,2,2,9
+1440762172445,382,Empty User Trashcan,200,"Number of samples in transaction : 7, number of failing samples : 0",Delete Sites 4-2,,true,91071,1,1,0
+1440762194869,9,Log out,401,Unauthorized,Delete Sites 4-2,,true,306,1,1,9
+1440762195896,4,Print Deleting Users,200,OK,Delete Users 5-1,text,true,0,1,1,0
+1440762196909,97,Log in,200,OK,Delete Users 5-1,text,true,55789,1,1,33
+1440762198010,49,Admin Console,200,OK,Delete Users 5-1,text,true,72686,1,1,45
+1440762199065,6,authentication,200,OK,Delete Users 5-1,text,true,371,1,1,6
+1440762200074,30,check-user-exists,200,OK,Delete Users 5-1,text,true,1092,1,1,30
+1440762201112,137,Delete User,200,OK,Delete Users 5-1,text,true,328,1,1,137
+1440762202254,25,check-user-exists,200,OK,Delete Users 5-1,text,true,1092,1,1,25
+1440762203286,135,Delete User,200,OK,Delete Users 5-1,text,true,328,1,1,135
+1440762204427,10,Log out,401,Unauthorized,Delete Users 5-1,,true,306,1,1,10
+1440762204449,3,Print Test Finished,200,OK,Test completed 6-1,text,true,0,1,1,0
+1440764402510,17,Print Test Started,200,OK,Test Started 1-1,text,true,0,1,1,0
+1440764402667,5,Print Creating Users,200,OK,Create Users 2-1,text,true,0,1,1,0
+1440764402870,230,Log in,200,OK,Create Users 2-1,text,true,55789,1,1,143
+1440764403107,42,Admin Console,200,OK,Create Users 2-1,text,true,72686,1,1,41
+1440764403158,6,authentication,200,OK,Create Users 2-1,text,true,371,1,1,6
+1440764403167,18,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,18
+1440764403189,96,Create User,200,OK,Create Users 2-1,text,true,1067,1,1,96
+1440764403287,16,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,16
+1440764403306,97,Create User,200,OK,Create Users 2-1,text,true,1067,1,1,97
+1440764423409,2,Log out,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: 192.168.101.213:8080 failed to respond,Create Users 2-1,text,false,2164,1,1,0
+1440764431135,6,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,2,2,0
+1440764433180,5,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,0,2,2,0
+1440764431142,1711,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,94641,2,2,0
+1440764433186,1685,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,94641,2,2,0
+1440764436696,211,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,194210,2,2,0
+1440764437871,229,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,194210,2,2,0
+1440764441204,1183,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,162881,2,2,0
+1440764445382,1270,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,162965,2,2,0
+1440764447005,259,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,163642,2,2,0
+1440764450370,325,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,163642,2,2,0
+1440764450567,89,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,62483,2,2,0
+1440764455531,265,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,187057,2,2,0
+1440764462403,53,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,163059,2,2,0
+1440764454485,110,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,63162,2,2,0
+1440764465064,43,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,37033,2,2,0
+1440764466278,231,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,193800,2,2,0
+1440764466694,149,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,192656,2,2,0
+1440764474189,38,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,163059,2,2,0
+1440764478011,4,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,2,2,0
+1440764478664,45,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,10181,2,2,0
+1440764478016,1520,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,95596,2,2,0
+1440764479121,219,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,192656,2,2,0
+1440764483685,1198,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,163394,2,2,0
+1440764489558,4,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,0,2,2,0
+1440764488886,335,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,164073,2,2,0
+1440764489563,1527,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,97096,2,2,0
+1440764492474,2993,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,181923,2,2,0
+1440764495171,1177,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,163310,2,2,0
+1440764499426,178,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,186282,2,2,0
+1440764500210,385,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,164076,2,2,0
+1440764505547,78,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,163161,2,2,0
+1440764504540,1750,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,177519,2,2,0
+1440764509261,52,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,37135,2,2,0
+1440764509345,210,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,182916,2,2,0
+1440764509808,157,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,192758,2,2,0
+1440764518306,42,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,163161,1,1,0
+1440764521931,50,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,37135,1,1,0
+1440764522387,212,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,192754,1,1,0
+1440764534459,5,Print Deleting Sites,200,OK,Delete Sites 4-1,text,true,0,1,1,0
+1440764537473,151,Log in,200,OK,Delete Sites 4-1,text,true,56065,2,2,24
+1440764539473,4,Print Deleting Sites,200,OK,Delete Sites 4-2,text,true,0,2,2,0
+1440764537625,259,Delete Site,200,"Number of samples in transaction : 1, number of failing samples : 0",Delete Sites 4-1,,true,376,2,2,0
+1440764542486,111,Log in,200,OK,Delete Sites 4-2,text,true,56065,2,2,27
+1440764542598,241,Delete Site,200,"Number of samples in transaction : 1, number of failing samples : 0",Delete Sites 4-2,,true,376,2,2,0
+1440764540888,404,Empty User Trashcan,200,"Number of samples in transaction : 7, number of failing samples : 0",Delete Sites 4-1,,true,91143,2,2,0
+1440764563329,11,Log out,401,Unauthorized,Delete Sites 4-1,,true,306,2,2,11
+1440764545844,438,Empty User Trashcan,200,"Number of samples in transaction : 7, number of failing samples : 0",Delete Sites 4-2,,true,91071,1,1,0
+1440764568322,7,Log out,401,Unauthorized,Delete Sites 4-2,,true,306,1,1,7
+1440764569347,4,Print Deleting Users,200,OK,Delete Users 5-1,text,true,0,1,1,0
+1440764570359,125,Log in,200,OK,Delete Users 5-1,text,true,55789,1,1,37
+1440764571486,89,Admin Console,200,OK,Delete Users 5-1,text,true,72686,1,1,87
+1440764572586,6,authentication,200,OK,Delete Users 5-1,text,true,371,1,1,6
+1440764573599,33,check-user-exists,200,OK,Delete Users 5-1,text,true,1092,1,1,33
+1440764574640,179,Delete User,200,OK,Delete Users 5-1,text,true,328,1,1,179
+1440764575824,33,check-user-exists,200,OK,Delete Users 5-1,text,true,1092,1,1,33
+1440764576865,139,Delete User,200,OK,Delete Users 5-1,text,true,328,1,1,139
+1440764578010,8,Log out,401,Unauthorized,Delete Users 5-1,,true,306,1,1,8
+1440764578028,3,Print Test Finished,200,OK,Test completed 6-1,text,true,0,1,1,0
+1440766010065,18,Print Test Started,200,OK,Test Started 1-1,text,true,0,1,1,0
+1440766010253,4,Print Creating Users,200,OK,Create Users 2-1,text,true,0,1,1,0
+1440766010445,231,Log in,200,OK,Create Users 2-1,text,true,55789,1,1,150
+1440766010683,43,Admin Console,200,OK,Create Users 2-1,text,true,72686,1,1,41
+1440766010731,6,authentication,200,OK,Create Users 2-1,text,true,371,1,1,6
+1440766010741,21,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,21
+1440766010766,95,Create User,200,OK,Create Users 2-1,text,true,1067,1,1,95
+1440766010865,18,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,18
+1440766010886,90,Create User,200,OK,Create Users 2-1,text,true,1067,1,1,90
+1440766030980,1,Log out,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: 192.168.101.213:8080 failed to respond,Create Users 2-1,text,false,2164,1,1,0
+1440766037926,9,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,2,2,0
+1440766042639,7,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,0,2,2,0
+1440766037937,2343,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,94641,2,2,0
+1440766042647,2197,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,94641,2,2,0
+1440766043687,364,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,194211,2,2,0
+1440766047145,364,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,194515,2,2,0
+1440766049588,1522,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,162881,2,2,0
+1440766055416,478,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,163642,2,2,0
+1440766054936,1497,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,162881,2,2,0
+1440766060678,176,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,62483,2,2,0
+1440766061111,553,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,163720,2,2,0
+1440766065328,249,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,187057,2,2,0
+1440766074207,64,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,163059,2,2,0
+1440766066061,1804,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,183063,2,2,0
+1440766079124,126,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,37033,2,2,0
+1440766078906,284,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,193800,2,2,0
+1440766085214,63,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,163059,2,2,0
+1440766080006,229,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,163302,2,2,0
+1440766089255,5,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,2,2,0
+1440766089373,34,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,10181,2,2,0
+1440766089261,1440,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,97102,2,2,0
+1440766089918,200,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,192656,2,2,0
+1440766094529,1409,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,163394,2,2,0
+1440766099817,5,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,0,2,2,0
+1440766098653,422,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,164073,2,2,0
+1440766099822,1545,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,96268,2,2,0
+1440766101552,141,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,63365,2,2,0
+1440766106942,289,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,186282,2,2,0
+1440766106107,1392,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,163394,2,2,0
+1440766115884,48,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,163161,2,2,0
+1440766111445,278,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,164154,2,2,0
+1440766119574,54,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,37135,2,2,0
+1440766116069,1505,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,182846,2,2,0
+1440766122294,250,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,182916,2,2,0
+1440766120074,254,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,192758,2,2,0
+1440766130193,65,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,163161,1,1,0
+1440766133885,45,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,37135,1,1,0
+1440766134464,165,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,192758,1,1,0
+1440766146994,3,Print Deleting Sites,200,OK,Delete Sites 4-1,text,true,0,1,1,0
+1440766150005,100,Log in,200,OK,Delete Sites 4-1,text,true,56065,2,2,23
+1440766152009,4,Print Deleting Sites,200,OK,Delete Sites 4-2,text,true,0,2,2,0
+1440766150106,246,Delete Site,200,"Number of samples in transaction : 1, number of failing samples : 0",Delete Sites 4-1,,true,376,2,2,0
+1440766155023,143,Log in,200,OK,Delete Sites 4-2,text,true,56065,2,2,35
+1440766155167,250,Delete Site,200,"Number of samples in transaction : 1, number of failing samples : 0",Delete Sites 4-2,,true,376,2,2,0
+1440766153356,398,Empty User Trashcan,200,"Number of samples in transaction : 7, number of failing samples : 0",Delete Sites 4-1,,true,91143,2,2,0
+1440766175788,11,Log out,401,Unauthorized,Delete Sites 4-1,,true,306,2,2,11
+1440766158421,400,Empty User Trashcan,200,"Number of samples in transaction : 7, number of failing samples : 0",Delete Sites 4-2,,true,91071,1,1,0
+1440766180866,9,Log out,401,Unauthorized,Delete Sites 4-2,,true,306,1,1,9
+1440766181893,4,Print Deleting Users,200,OK,Delete Users 5-1,text,true,0,1,1,0
+1440766182905,102,Log in,200,OK,Delete Users 5-1,text,true,55789,1,1,34
+1440766184012,49,Admin Console,200,OK,Delete Users 5-1,text,true,72686,1,1,47
+1440766185066,7,authentication,200,OK,Delete Users 5-1,text,true,371,1,1,7
+1440766186080,26,check-user-exists,200,OK,Delete Users 5-1,text,true,1092,1,1,26
+1440766187112,148,Delete User,200,OK,Delete Users 5-1,text,true,328,1,1,148
+1440766188266,28,check-user-exists,200,OK,Delete Users 5-1,text,true,1092,1,1,28
+1440766189300,133,Delete User,200,OK,Delete Users 5-1,text,true,328,1,1,133
+1440766190439,9,Log out,401,Unauthorized,Delete Users 5-1,,true,306,1,1,9
+1440766190460,3,Print Test Finished,200,OK,Test completed 6-1,text,true,0,1,1,0
+1440766526038,17,Print Test Started,200,OK,Test Started 1-1,text,true,0,1,1,0
+1440766526200,4,Print Creating Users,200,OK,Create Users 2-1,text,true,0,1,1,0
+1440766526393,239,Log in,200,OK,Create Users 2-1,text,true,55789,1,1,156
+1440766526638,48,Admin Console,200,OK,Create Users 2-1,text,true,72686,1,1,48
+1440766526692,6,authentication,200,OK,Create Users 2-1,text,true,371,1,1,6
+1440766526701,25,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,25
+1440766526731,109,Create User,200,OK,Create Users 2-1,text,true,1067,1,1,109
+1440766526842,19,Search For User,200,OK,Create Users 2-1,text,true,348,1,1,19
+1440766526864,134,Create User,200,OK,Create Users 2-1,text,true,1067,1,1,134
+1440766547004,1,Log out,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: 192.168.101.213:8080 failed to respond,Create Users 2-1,text,false,2164,1,1,0
+1440766553914,5,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,2,2,0
+1440766556668,4,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,0,2,2,0
+1440766553921,2668,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,94641,2,2,0
+1440766556673,2528,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,94641,2,2,0
+1440766561059,298,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,194208,2,2,0
+1440766561291,252,Transaction Controller,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,194210,2,2,0
+1440766567856,1380,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,162880,2,2,0
+1440766570142,1276,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,162881,2,2,0
+1440766571931,436,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,163641,2,2,0
+1440766574543,310,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,163642,2,2,0
+1440766575321,130,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,62483,2,2,0
+1440766579976,329,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,187057,2,2,0
+1440766588660,53,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,163059,2,2,0
+1440766578564,96,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,183063,2,2,0
+1440766592965,47,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,10181,2,2,0
+1440766589907,189,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,193800,2,2,0
+1440766599009,99,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,163059,2,2,0
+1440766594206,166,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,192656,2,2,0
+1440766603888,4,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,2,2,0
+1440766604735,36,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,10181,2,2,0
+1440766603893,1278,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,95596,2,2,0
+1440766605438,118,Log out,500,"Number of samples in transaction : 2, number of failing samples : 1",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,false,154825,2,2,0
+1440766608985,1124,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,163394,2,2,0
+1440766613455,315,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,164151,2,2,0
+1440766616661,4,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,0,2,2,0
+1440766616666,916,Log in,500,"Number of samples in transaction : 1, number of failing samples : 1",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,false,1781,2,2,0
+1440766616494,126,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,181923,2,2,0
+1440766623305,275,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,186282,2,2,0
+1440766621724,1299,Go to Site Document Library,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,163106,2,2,0
+1440766628757,261,Upload Document to Site,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,163813,2,2,0
+1440766632548,90,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,163161,2,2,0
+1440766636275,48,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,37135,2,2,0
+1440766632648,1862,Go to Document Details Page,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,182846,2,2,0
+1440766638554,178,Delete document,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,182916,2,2,0
+1440766636818,182,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,192754,2,2,0
+1440766646917,39,Live Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,163161,1,1,0
+1440766652644,54,Faceted Search,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,text,true,37135,1,1,0
+1440766653109,407,Log out,200,"Number of samples in transaction : 2, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-2,,true,192758,1,1,0
+1440766663351,3,Print Deleting Sites,200,OK,Delete Sites 4-1,text,true,0,1,1,0
+1440766666368,92,Log in,200,OK,Delete Sites 4-1,text,true,56065,2,2,25
+1440766668364,5,Print Deleting Sites,200,OK,Delete Sites 4-2,text,true,0,2,2,0
+1440766666461,231,Delete Site,200,"Number of samples in transaction : 1, number of failing samples : 0",Delete Sites 4-1,,true,376,2,2,0
+1440766671377,103,Log in,200,OK,Delete Sites 4-2,text,true,56065,2,2,23
+1440766671480,232,Delete Site,200,"Number of samples in transaction : 1, number of failing samples : 0",Delete Sites 4-2,,true,376,2,2,0
+1440766669699,418,Empty User Trashcan,200,"Number of samples in transaction : 7, number of failing samples : 0",Delete Sites 4-1,,true,91143,2,2,0
+1440766692159,11,Log out,401,Unauthorized,Delete Sites 4-1,,true,306,2,2,11
+1440766674715,390,Empty User Trashcan,200,"Number of samples in transaction : 7, number of failing samples : 0",Delete Sites 4-2,,true,91071,1,1,0
+1440766697145,9,Log out,401,Unauthorized,Delete Sites 4-2,,true,306,1,1,9
+1440766698171,3,Print Deleting Users,200,OK,Delete Users 5-1,text,true,0,1,1,0
+1440766699182,92,Log in,200,OK,Delete Users 5-1,text,true,55789,1,1,30
+1440766700279,53,Admin Console,200,OK,Delete Users 5-1,text,true,72686,1,1,52
+1440766701339,6,authentication,200,OK,Delete Users 5-1,text,true,371,1,1,6
+1440766702352,32,check-user-exists,200,OK,Delete Users 5-1,text,true,1092,1,1,32
+1440766703391,136,Delete User,200,OK,Delete Users 5-1,text,true,328,1,1,136
+1440766704533,25,check-user-exists,200,OK,Delete Users 5-1,text,true,1092,1,1,25
+1440766705564,148,Delete User,200,OK,Delete Users 5-1,text,true,328,1,1,148
+1440766706718,8,Log out,401,Unauthorized,Delete Users 5-1,,true,306,1,1,8
+1440766706736,4,Print Test Finished,200,OK,Test completed 6-1,text,true,0,1,1,0
+1449851025539,17,Print Test Started,200,OK,Test Started 1-1,text,true,0,1,1,0
+1449851025710,4,Print Creating Users,200,OK,Create Users 2-1,text,true,0,1,1,0
+1449851025954,296,Log in,200,OK,Create Users 2-1,text,true,57626,1,1,182
+1449851026257,121,Admin Console,200,OK,Create Users 2-1,text,true,74523,1,1,121
+1449851026388,8,authentication,200,OK,Create Users 2-1,text,true,371,1,1,8
+1449851026399,33,Search For User,200,OK,Create Users 2-1,text,false,1067,1,1,33
+1449851046440,2,Log out,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: 192.168.101.231:8080 failed to respond,Create Users 2-1,text,false,2163,1,1,0
+1449851051351,6,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,1,1,0
+1449851051358,1874,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,124395,1,1,0
+1449851183945,15,Print Test Started,200,OK,Test Started 1-1,text,true,0,1,1,0
+1449851184090,7,Print Creating Users,200,OK,Create Users 2-1,text,true,0,1,1,0
+1449851184259,216,Log in,200,OK,Create Users 2-1,text,true,57626,1,1,112
+1449851184480,58,Admin Console,200,OK,Create Users 2-1,text,true,74523,1,1,54
+1449851184544,7,authentication,200,OK,Create Users 2-1,text,true,371,1,1,7
+1449851184554,44,Search For User,200,OK,Create Users 2-1,text,true,1077,1,1,44
+1449851184604,55,Create User,409,Conflict,Create Users 2-1,text,false,742,1,1,55
+1449851204662,1,Log out,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: 192.168.101.231:8080 failed to respond,Create Users 2-1,text,false,2163,1,1,0
+1449851213097,5,Print Test Loops Info,200,OK,For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,text,true,0,1,1,0
+1449851213103,977,Log in,200,"Number of samples in transaction : 1, number of failing samples : 0",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,true,39164,1,1,0
+1449851215741,29,Create Site,500,"Number of samples in transaction : 2, number of failing samples : 2",For each user - Log in - Create Site - Upload Document - Searches - Log out 3-1,,false,3560,1,1,0

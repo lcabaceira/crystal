@@ -1,0 +1,38 @@
+Database requirements can be estimated as follows:
+
+ - Number of spaces: 100,000 (S = attributes = standard + custom)
+
+ - Number of documents: 250,000 (D = attributes = standard + custom)
+
+ - No aspect
+
+ 
+
+Number of database records:
+
+ 
+
+ - node = spaces + documents
+
+ - node_properties = (spaces * S) + (documents * D)
+
+ - node_status = spaces + documents
+
+ - node_child_assoc = number of Aspects. If the UI weren't being used, then these could be disabled.
+
+ - permission = (permission will be set at the folder level and inherited) = number of documents
+
+ 
+
+This would give you the number of records, assume 5K each, and you have an approximate size.
+
+
+
+
+
+
+
+
+
+
+ClientAbortException: java.io.IOException

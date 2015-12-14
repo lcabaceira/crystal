@@ -1,0 +1,17 @@
+Started by user [8mha:AAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgYu/dLi1CL9vNKcHACFIKlWvwAAAA==[0manonymous
+Building in workspace /Users/lcabaceira/My-Library/Customers/jtests/project/jtests/jenkins/workspace/alfresco-jtests
+[alfresco-jtests] $ /bin/sh -xe /Users/lcabaceira/My-Library/Customers/jtests/project/jtests/jenkins/tomcat7/temp/hudson8815377591720502054.sh
++ /Users/lcabaceira/My-Library/Customers/jtests/project/jtests/Dependencies/jmeter/bin/jmeter.sh -n -t /Users/lcabaceira/My-Library/Customers/jtests/project/jtests/TestCases/browserAutomationShare/Alfresco5-TestPlan.jmx -l /Users/lcabaceira/My-Library/Customers/jtests/project/jtests/supportingData/reports/Alfresco5-TestResults.jtl
+Writing log file to:/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/jenkins/workspace/alfresco-jtests/jmeter.log
+Creating summariser <summary>
+Created the tree successfully using /Users/lcabaceira/My-Library/Customers/jtests/project/jtests/TestCases/browserAutomationShare/Alfresco5-TestPlan.jmx
+Starting the test @ Mon Dec 14 12:17:49 WET 2015 (1450095469775)
+Waiting for possible Shutdown/StopTestNow/Heapdump message on port 4445
+Build was aborted
+Aborted by [8mha:AAAAmx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgZ+/dLi1CL9xLz8vMrc/NJiAJjzDjjEAAAA[0manonymous
+Performance: Percentage of errors greater or equal than 0% sets the build as unstable
+Performance: Percentage of errors greater or equal than 0% sets the build as failure
+
+
+
+Finished: ABORTED
