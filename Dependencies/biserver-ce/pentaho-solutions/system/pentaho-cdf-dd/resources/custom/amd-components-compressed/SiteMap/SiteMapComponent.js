@@ -1,0 +1,10 @@
+define("cde/components/SiteMapComponent",["cdf/components/BaseComponent","cdf/lib/jquery","amd!cdf/lib/underscore","cdf/lib/mustache","cdf/dashboard/Utils"],function(e,t,a,s,i){var n=e.extend({ph:void 0,selected:"UNUSEDPARAM!@#$",templates:{list:"<ul class='siteMap siteMapLevel{{level}}'></ul>",item:"<li class='siteMapItem {{classes}}'><a href='{{link}}'>{{name}}</a></li>"},update:function(){var e=this;
+if("undefined"!=typeof e.siteMapSelectedParameter&&""!=e.siteMapSelectedParameter&&(e.selected=e.dashboard.getParameterValue(e.siteMapSelectedParameter)),e.ph=t("#"+e.htmlObject).empty(),e.ajaxUrl){var s={url:e.ajaxUrl};
+a.isEmpty(e.parameters)&&(s.data=i.propertiesArrayToObject(e.ajaxData)),e.fetchItems(s,function(t){e.renderList(e.ph,t,0)
+})}else e.siteMapParameter&&e.renderList(e.ph,e.dashboard.getParameterValue(e.siteMapParameter),0);
+e.ph.find(".siteMapItem.siteMapSelected").parents(".siteMapItem").addClass("siteMapSelected"),e.ph.find(".siteMapItem.siteMapInitial").parents(".siteMapItem").addClass("siteMapInitial")
+},fetchItems:function(e,s){e=e||{};var i={type:"GET",success:function(e){s(e)},dataType:"json",async:!0};
+i=a.extend({},i,e),t.ajax(i)},renderList:function(e,i,n){for(var l=this,d=t(s.render(l.templates.list,{level:n})),r=-1,p=i.length;++r<p;){var c=i[r],m=c.name||c.id||"",o=c.id||c.name,f=t(s.render(l.templates.item,{name:m,link:c.link,classes:c.classes||""}));
+c.link||"function"!=typeof c.action||f.find("a").click(function(){c.action(f),l.ph.find(".siteMapItem.siteMapSelected").removeClass("siteMapSelected"),t(this).parents(".siteMapItem").addClass("siteMapSelected"),a.isEmpty(o)||l.dashboard.fireChange(l.siteMapSelectedParameter,o)
+}),o==l.selected&&f.addClass("siteMapSelected siteMapInitial"),c.sublinks&&c.sublinks.length>0&&l.renderList(f,c.sublinks,++n),f.appendTo(d)
+}d.appendTo(e)}});return n});

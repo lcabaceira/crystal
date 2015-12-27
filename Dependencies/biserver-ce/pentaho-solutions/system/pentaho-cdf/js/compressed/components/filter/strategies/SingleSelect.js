@@ -1,0 +1,3 @@
+define(["amd!cdf/lib/underscore","./AbstractSelect"],function(e,t){return t.SelectionStrategies.SingleSelect=t.SelectionStrategies.AbstractSelect.extend({ID:"BaseFilter.SelectionStrategies.SingleSelect",setSelection:function(e,n){return n.children()?void 0:(this.isLogicGlobal===!0?n.root().setSelection(t.Enum.select.NONE):n.getSelection()!==t.Enum.select.ALL&&n.parent()&&n.parent().setSelection(t.Enum.select.NONE),n.setAndUpdateSelection(t.Enum.select.ALL),e)
+},changeSelection:function(e){return this.base(e),this.applySelection(e)},getSelectedItems:function(t,n){return t&&t.isRoot()&&t.children()&&1==t.countSelectedItems()&&1==t.children().length?e.flatten(t.children().map(function(e){return e.getSelectedItems(n)||[]
+})):t.getSelectedItems(n)}}),t});

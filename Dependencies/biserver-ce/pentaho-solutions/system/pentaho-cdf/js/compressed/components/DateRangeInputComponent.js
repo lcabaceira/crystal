@@ -1,0 +1,19 @@
+define(["../lib/jquery","./BaseComponent","amd!../lib/daterangepicker.jQuery","css!./DateRangeInputComponent"],function($,BaseComponent){var DateRangeInputComponent=BaseComponent.extend({update:function(){function e(){s&&u&&(a.fireInputChange(a.startValue,a.endValue),s=u=!1)
+}var t,a=this,n=this.name,r=this.getStartParamValue(),i=this.getEndParamValue(),o=this.inputSeparator=this.inputSeparator||">";
+t=void 0==this.singleInput||1==this.singleInput?$('<input class="date-range-single-input" id="'+n+'" value="'+r+" "+o+" "+i+'"/>'):$('<input class="date-range-multiple-input" id="'+n+'" value="'+r+'"/>'+o+'<input class="date-range-multiple-input-2" id="'+n+'2" value="'+i+'"/>'),this.placeholder().addClass("date-range-input-container").html(t),a.on("onOpen:dateRangeInput",a.onOpenEvent),a.on("onClose:dateRangeInput",a.onCloseEvent);
+var s,u,p=t.offset(),l=void 0!=a.earliestDate?a.earliestDate:Date.parse("-1years"),d=void 0!=a.latestDate?a.latestDate:Date.parse("+1years"),g=void 0!=a.leftOffset?a.leftOffset:0,h=void 0!=a.topOffset?a.topOffset:15,c=void 0==a.dateFormat||null==a.dateFormat?"yy-mm-dd":a.dateFormat;
+$(function(){a.placeholder("input").daterangepicker({posX:p.left+g,posY:p.top+h,earliestDate:l,latestDate:d,dateFormat:c,rangeSplitter:o,onOpen:function(){a.triggerOnOpen(),s=u=!1,a.startValue=null,a.endValue=null,a.addCancelButton()
+},onDateSelect:function(t,n){s=!0,a.storeChanges(t,n),e()},onClose:function(){a.triggerOnClose(),u=!0,e()
+}}),a._doAutoFocus(),a.canClickOutsidePopup&&$(document).off("click")})},triggerOnOpen:function(){this.placeholder("input").toggleClass("driComponentExpanded",!0),this.trigger("onOpen:dateRangeInput")
+},triggerOnClose:function(){this.placeholder("input").toggleClass("driComponentExpanded",!1),this.trigger("onClose:dateRangeInput")
+},getStartParamValue:function(){return this.dashboard.getParameterValue(this.parameter[0])
+},getEndParamValue:function(){return this.dashboard.getParameterValue(this.parameter[1])
+},addCancelButton:function(){var e=this,t=e.getStartParamValue(),a=e.getEndParamValue(),n=$(".ui-daterangepickercontain .ranges"),r=$('<button class="btnCancel ui-state-default ui-corner-all">Cancel</button>').click(function(){var n=e.placeholder("input"),r=$(".ui-daterangepickercontain .ui-daterangepicker"),i=$(".ui-daterangepickercontain .range-start"),o=$(".ui-daterangepickercontain .range-end");
+void 0==e.singleInput||1==e.singleInput?n.val(t+" "+e.inputSeparator+" "+a):(n.eq(0).val(t),n.eq(1).val(a)),i.data("saveDate",new Date(t)).restoreDateFromData(),o.data("saveDate",new Date(a)).restoreDateFromData(),e.triggerOnClose(),r.data("state","closed"),r.fadeOut(300)
+}).hover(function(){$(this).addClass("ui-state-hover")},function(){$(this).removeClass("ui-state-hover")
+}).appendTo(n),i=$(".ui-daterangepickercontain ul");i.find("li").click(function(){r.hide(),setTimeout(function(){r.fadeIn()
+},400)})},fireInputChange:function(e,t){this.preChange&&this.preChange(e,t),this.parameter&&(2==this.parameter.length&&this.dashboard.setParameter(this.parameter[1],t),this.parameter.length>0&&this.dashboard.fireChange(this.parameter[0],e)),this.postChange&&this.postChange(e,t)
+},storeChanges:function(e,t){this.startValue=e,this.endValue=t}},{fireDateRangeInputChange:function(name,rangeA,rangeB){var object=this.dashboard.getComponentByName(name);
+"undefined"!=typeof object.preChange&&object.preChange(rangeA,rangeB);var parameters=eval(name+".parameter");
+this.dashboard.setParameter(parameters[1],rangeB),this.dashboard.fireChange(parameters[0],rangeA),"undefined"!=typeof object.postChange&&object.postChange(rangeA,rangeB)
+}});return DateRangeInputComponent});

@@ -1,0 +1,27 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+  <feature name="pentaho-big-data-plugin-osgi" version="1.0">
+  	<feature>pentaho-big-data-plugin-testless-osgi</feature>
+    <bundle>mvn:pentaho/pentaho-big-data-impl-clusterTests/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-impl-shim-shimTests/6.0.1.0-386</bundle>
+  </feature>
+  <feature name="pentaho-big-data-plugin-testless-osgi" version="1.0">
+    <bundle>mvn:pentaho/pentaho-osgi-utils-impl/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pdi-osgi-bridge-activator/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-api-cluster/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-api-initializer/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-api-hdfs/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-api-pig/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-api-runtimeTest/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-impl-cluster/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-impl-shim-common/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-impl-shim-initializer/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-impl-shim-hdfs/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-impl-shim-pig/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-impl-vfs-hdfs/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-common-ui/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-common-named-cluster-bridge/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-guiTestActionHandlers/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-pig/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-hadoop-shims-mapr-osgi-jaas/6.0.1.0-386</bundle>
+  </feature>
+</features>

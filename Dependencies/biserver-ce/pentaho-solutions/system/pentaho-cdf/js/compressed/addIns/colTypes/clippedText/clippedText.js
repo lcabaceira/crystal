@@ -1,0 +1,3 @@
+define(["../../../AddIn","../../../Dashboard","../../../lib/jquery","../../../lib/CCC/tipsy","amd!../../../lib/datatables","css!./clippedText"],function(t,e,a){var i=new t({name:"clippedText",label:"Clipped Text",defaults:{showTooltip:!0,useTipsy:!1,style:{}},init:function(){a.fn.dataTableExt.oSort[this.name+"-asc"]=a.fn.dataTableExt.oSort["string-asc"],a.fn.dataTableExt.oSort[this.name+"-desc"]=a.fn.dataTableExt.oSort["string-desc"]
+},implementation:function(t,e,i){var l=a(t),s=a("<div>");l.empty().append(s),s.text(e.value).addClass("clippedText").attr("title",i.showTooltip?e.value:""),s.css(i.style),i.useTipsy&&s.tipsy({gravity:"s",html:!1})
+}});return e.registerGlobalAddIn("Table","colType",i),i});

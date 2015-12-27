@@ -1,0 +1,20 @@
+<DesignerProperty>
+  <Header>
+    <Name>cccColorMode</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue></DefaultValue>
+    <Description>colorMode</Description>
+    <Tooltip>Controls how colors are drawn from the color scale to paint visual elements.</Tooltip>
+    <InputType type="valuelist"/>
+    <OutputType>String</OutputType>
+    <Order>278</Order>
+    <Advanced>true</Advanced>
+    <Version>2.0</Version>
+  </Header>
+  <Values>
+    <Value display="By-Parent">byParent</Value>
+    <Value display="By-Self">bySelf</Value>
+    <Value display="Fan">fan</Value>
+    <Value display="Slice">slice</Value>
+  </Values>
+</DesignerProperty>

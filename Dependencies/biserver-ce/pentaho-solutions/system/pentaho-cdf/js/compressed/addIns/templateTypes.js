@@ -1,0 +1,1 @@
+define(["./templateTypes/template/template"],function(){});

@@ -1,0 +1,3 @@
+define(["./Abstract"],function(e){return e.Views.Item=e.Views.AbstractView.extend({type:"Item",ID:"BaseFilter.Views.Root",template:{selection:e.templates["Item-template"],skeleton:e.templates["Item-template"]},events:{"mouseover .filter-item-body":"onMouseOver","mouseout  .filter-item-body":"onMouseOut","click     .filter-item-body":"onSelection","click     .filter-item-only-this":"onClickOnlyThis"},bindToModel:function(e){return this.base(e),this.onChange(e,"isSelected",this.updateSelection),this.onChange(e,"isVisible",this.updateVisibility)
+},onClickOnlyThis:function(e){return e.stopPropagation(),this.trigger("control:only-this",this.model)
+}}),e});

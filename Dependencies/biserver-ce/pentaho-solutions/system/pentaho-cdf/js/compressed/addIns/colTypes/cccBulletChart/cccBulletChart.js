@@ -1,0 +1,6 @@
+define(["../../../AddIn","../../../Dashboard","../../../lib/CCC/pvc","../../../lib/jquery","amd!../../../lib/datatables"],function(t,e,a,l){var n=new t({name:"cccBulletChart",label:"Bullet Chart",defaults:{height:40,animate:!1,orientation:"horizontal",bulletSize:16,bulletSpacing:150,bulletMargin:5,bulletRanges:[30,80,100],extensionPoints:{bulletMarker_shape:"triangle",bulletTitle_textStyle:"green",bulletMeasure_fillStyle:"black",bulletRuleLabel_font:"8px sans-serif",bulletRule_height:5}},init:function(){l.fn.dataTableExt.oSort[this.name+"-asc"]=l.fn.dataTableExt.oSort["string-asc"],l.fn.dataTableExt.oSort[this.name+"-desc"]=l.fn.dataTableExt.oSort["string-desc"]
+},sort:function(){},implementation:function(t,e,n){var i=l.extend(!0,{},n),r=l(t),s=l("<span></span>").appendTo(r.empty()),o=e.value.split(","),u=this.getData(o);
+i.canvas=s.get(0),i.width=i.width||r.width(),i.bulletMeasures=[o[0]],i.bulletMarkers=[o[1]];
+var b=new a.BulletChart(i);b.setData(u,{}),b.render()},getData:function(t){var e,a={resultset:[t],metadata:[]};
+for(e=0;e<t.length;e++)a.metadata.push({colIndex:e,colType:"String",colName:""});
+return a}});return e.registerGlobalAddIn("Table","colType",n),n});

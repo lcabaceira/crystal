@@ -1,0 +1,14 @@
+define(["../../../AddIn","../../../Dashboard","../../../Logger","amd!../../../lib/underscore","amd!../../../lib/mustache-wax","amd!../../../lib/datatables"],function(e,t,s,a,n,i){var o={name:"template",label:"template",defaults:{templateType:"mustache",template:"<div>{{items}}</div>",rootElement:"items",formatters:{},events:[],postProcess:function(){}},messages:{error:{noData:"No data available.",invalidTemplate:"Invalid template.",invalidTemplateType:"Invalid template type.",generic:"Invalid options defined. Please check the template component properties."},success:{},warning:{},info:{},config:{style:{success:{icon:"comment",type:"success"},error:{icon:"remove-sign",type:"danger"},info:{icon:"info-sign",type:"info"},warning:{icon:"exclamation-sign",style:"warning"}},template:"<div class='alert alert-<%=type%>' role='alert'>   <span class='glyphicon glyphicon-<%=icon%>' aria-hidden='true'></span>    <span> <%=msg%> </span></div>"}},processMessage:function(e,t){var s={msg:e||"",type:this.messages.config.style[t].type||"info",icon:this.messages.config.style[t].icon||"comment"};
+return a.template(this.messages.config.template,s)},init:function(){i.fn.dataTableExt.oSort[this.name+"-asc"]=i.fn.dataTableExt.oSort["string-asc"],i.fn.dataTableExt.oSort[this.name+"-desc"]=i.fn.dataTableExt.oSort["string-desc"]
+},implementation:function(e,t,s){s=i.extend(!0,this.defaults,s);var n=this.renderTemplate(e,t,s);
+i(e).empty().html(n);var o={target:e,status:t,options:s};this.attachEvents(i(e),s.events,o),"undefined"!=typeof s.postProcess&&a.isFunction()&&this.postProcess.call(this,o)
+},renderTemplate:function(e,t,o){var r="",l="",c={};try{r=i.parseJSON(t.value)}catch(m){r=t.value
+}if(a.isEmpty(r))l=this.processMessage(this.messages.error.noData,"error"),s.log(this.messages.error.noData,"info");
+else{a.each(o.formatters,function(s,n){!a.isUndefined(r[n])&&a.isFunction(s)&&(r[n]=s(r[n],e,t,o)||r[n])
+}),c[o.rootElement]=r,t.model=c;try{switch(o.templateType.toUpperCase()){case"UNDERSCORE":l=a.template(a.isFunction(o.template)?o.template():o.template,c);
+break;case"MUSTACHE":l=n.render(a.isFunction(o.template)?o.template():o.template,c);
+break;default:l=this.processMessage(this.messages.error.invalidTemplateType,"error")
+}}catch(m){l=this.processMessage(this.messages.error.invalidTemplate,"error"),s.log(this.messages.error.invalidTemplate,"info")
+}}return l},attachEvents:function(e,t,s){a.each(t,function(t){var n=" ",i=a.first(t).split(n),o=a.last(t),r=a.first(i),l=a.last(i);
+a.isFunction(o)&&e.find(l).on(r,s,o)})}};return t.registerGlobalAddIn("Table","colType",new e(o)),o
+});

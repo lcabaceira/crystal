@@ -1,0 +1,90 @@
+<!--
+ ~ This program is free software; you can redistribute it and/or modify it under the
+ ~ terms of the GNU Lesser General Public License, version 2.1 as published by the Free Software
+ ~ Foundation.
+ ~
+ ~ You should have received a copy of the GNU Lesser General Public License along with this
+ ~ program; if not, you can obtain a copy at http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+ ~ or from the Free Software Foundation, Inc.,
+ ~ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ ~
+ ~ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ ~ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ ~ See the GNU Lesser General Public License for more details.
+ ~
+ ~ Copyright 2014 Pentaho Corporation. All rights reserved.
+ -->
+
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+
+    <!-- Overriding the default http feature -->
+    <feature name="http" description="Implementation of the OSGi HTTP service" version="3.7.5" resolver="(obr)">
+        <bundle>mvn:org.apache.felix/org.apache.felix.http.bridge/2.3.2</bundle>
+    </feature>
+
+    <!-- Overriding Whiteboard to ensure that Jetty isn't started -->
+    <feature name="http-whiteboard" version="3.7.5" description="Provide HTTP Whiteboard pattern support" resolver="(obr)">
+        <feature>http</feature>
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-extender-whiteboard/3.1.4</bundle>
+    </feature>
+
+    <!-- Overriding Whiteboard to ensure that Jetty isn't started -->
+    <feature name="pax-http-whiteboard" description="Provide HTTP Whiteboard pattern support" version="3.1.4" resolver="(obr)">
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-extender-whiteboard/3.1.4</bundle>
+    </feature>
+
+    <!-- Overriding WAR to ensure that Jetty isn't started -->
+    <feature name="war" version="3.7.5" description="Turn Karaf as a full WebContainer" resolver="(obr)">
+        <feature>http</feature>
+    </feature>
+
+    <!-- Overriding CXF to ensure that Jetty isn't started -->
+    <feature name="cxf" version="3.7.5" resolver='(obr)'>
+        <feature version="[3,4)">spring</feature>
+        <feature version="[1.2,2)">spring-dm</feature>
+        <feature version="3.0.6">cxf-core</feature>
+        <feature version="3.0.6">cxf-jaxws</feature>
+        <feature version="3.0.6">cxf-jaxrs</feature>
+        <feature version="3.0.6">cxf-databinding-jaxb</feature>
+        <feature version="3.0.6">cxf-databinding-aegis</feature>
+        <feature version="3.0.6">cxf-databinding-xmlbeans</feature>
+        <!-- <feature version="3.0.6">cxf-bindings-corba</feature> -->
+        <feature version="3.0.6">cxf-bindings-coloc</feature>
+        <feature version="3.0.6">cxf-bindings-object</feature>
+        <!-- <feature version="3.0.6">cxf-http-jetty</feature> -->
+        <feature version="3.0.6">cxf-transports-local</feature>
+        <!-- <feature version="3.0.6">cxf-transports-jms</feature> -->
+        <!-- <feature version="3.0.6">cxf-transports-udp</feature> -->
+        <feature version="3.0.6">cxf-xjc-runtime</feature>
+        <feature version="3.0.6">cxf-ws-security</feature>
+        <feature version="3.0.6">cxf-ws-rm</feature>
+        <!-- <feature version="3.0.6">cxf-ws-mex</feature> -->
+        <feature version="3.0.6">cxf-javascript</feature>
+        <!-- <feature version="3.0.6">cxf-frontend-javascript</feature> -->
+        <!-- <feature version="3.0.6">cxf-features-clustering</feature> -->
+    </feature>
+
+    <feature name="pentaho-server" version="1.0">
+        <feature>pentaho-base</feature>
+        <feature>pentaho-client</feature>
+        <feature>http-whiteboard</feature>
+        <feature version="[4,4.1.5)">spring</feature>
+        <feature version="3.1.4.RELEASE">spring-security</feature>
+
+        <bundle>mvn:pentaho/pentaho-server-bundle/6.0.1.0-386</bundle>
+
+        <bundle start-level="20">blueprint:mvn:pentaho/pentaho-blueprint-activators/6.0.1.0-386/xml/proxy-watcher</bundle>
+        <bundle start-level="20">mvn:pentaho/pentaho-ss4-proxies/6.0.1.0-386</bundle>
+        <bundle start-level="20">mvn:pentaho/pentaho-ss2-proxies/6.0.1.0-386</bundle>
+        <bundle start-level="50">mvn:pentaho/pentaho-proxy-spring4/6.0.1.0-386</bundle>
+
+        <bundle>mvn:pentaho/pentaho-requirejs-osgi-manager/6.0.1.0-386</bundle>
+        <bundle>blueprint:mvn:pentaho/pentaho-blueprint-activators/6.0.1.0-386/xml/server</bundle>
+        <bundle>mvn:pentaho/pentaho-angular-bundle/6.0.1.0-386</bundle>
+        <bundle>mvn:org.apache.felix/org.apache.felix.http.bridge/2.2.2</bundle>
+
+
+    </feature>
+
+
+</features>

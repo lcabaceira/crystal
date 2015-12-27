@@ -1,0 +1,2 @@
+var requireConfig=requireCfg.config;requireConfig.amd||(requireConfig.amd={}),requireConfig.amd.shim||(requireConfig.amd.shim={}),requireConfig.amd.shim["cde/components/googleAnalytics/lib/jquery.ga"]={exports:"jQuery",deps:{"cdf/lib/jquery":"jQuery"}},requirejs.config(requireCfg),define("cde/components/GoogleAnalyticsComponent",["cdf/components/BaseComponent","cdf/lib/jquery","amd!./googleAnalytics/lib/jquery.ga"],function(e,i){var r=e.extend({update:function(){i.ga.load(this.gaTrackingId)
+}});return r});

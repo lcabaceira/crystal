@@ -1,0 +1,8 @@
+define(["cdf/lib/jquery","amd!cdf/lib/underscore","cdf/components/BaseComponent","../baseevents/baseevents","../baseevents/baseeventsView","../base/filter-base-implementation"],function(e,t,n,i,o,s){return s.Controllers.RootCtrl=i.extendWithEvents(n).extend(s.Logger).extend({constructor:function(n){return e.extend(this,t.pick(n,["model","view","configuration"])),this.view&&this.bindToView(this.view),this
+},bindToView:function(e){var n,i;return n={selected:this.onSelection,toggleCollapse:this.onToggleCollapse,"control:only-this":this.onOnlyThis,"control:apply":this.onApply,"control:cancel":this.onCancel,"click:outside":this.onClickOutside},i=this,t.each(n,function(t,n){return i.listenTo(e,n,t)
+}),this},onSelection:function(e){return this.configuration.selectionStrategy.strategy.changeSelection(e),this
+},onApply:function(e){return this.configuration.selectionStrategy.strategy.applySelection(e),this
+},onCancel:function(e){return e.restoreSelectedItems(),e.root().set("isCollapsed",!0),this
+},onToggleCollapse:function(e){var t,n;return this.debug("Setting isCollapsed"),e.get("isDisabled")===!0?t=!0:(n=e.get("isCollapsed"),t=!n),e.set("isCollapsed",t),this
+},onClickOutside:function(e){return e.set("isCollapsed",!0),this},onOnlyThis:function(e){return this.debug("Setting Only This"),this.model.root().setSelection(s.Enum.select.NONE),this.configuration.selectionStrategy.strategy.setSelection(s.Enum.select.ALL,e),this
+}}),s});

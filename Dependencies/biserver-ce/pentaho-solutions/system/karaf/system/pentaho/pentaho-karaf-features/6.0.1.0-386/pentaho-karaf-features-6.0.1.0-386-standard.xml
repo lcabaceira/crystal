@@ -1,0 +1,179 @@
+<!--
+ ~ This program is free software; you can redistribute it and/or modify it under the
+ ~ terms of the GNU Lesser General Public License, version 2.1 as published by the Free Software
+ ~ Foundation.
+ ~
+ ~ You should have received a copy of the GNU Lesser General Public License along with this
+ ~ program; if not, you can obtain a copy at http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+ ~ or from the Free Software Foundation, Inc.,
+ ~ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ ~
+ ~ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ ~ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ ~ See the GNU Lesser General Public License for more details.
+ ~
+ ~ Copyright 2014 Pentaho Corporation. All rights reserved.
+ -->
+
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+
+  <!--This feature never works reliably due to the asynchronous loading of blueprint files-->
+  <!--Putting the feature back so these dependencies will be in the local maven repo in /system-->
+  <feature name="pentaho-deployers" version="1.0">
+    <bundle>mvn:commons-logging/commons-logging/1.1.3</bundle>
+    <bundle>mvn:com.googlecode.json-simple/json-simple/1.1.1</bundle>
+    <bundle>mvn:com.google.guava/guava/17.0</bundle>
+    <bundle>mvn:commons-io/commons-io/2.4</bundle>
+    <bundle>mvn:commons-lang/commons-lang/2.6</bundle>
+    <bundle>mvn:log4j/log4j/1.2.17</bundle>
+    <bundle>mvn:pentaho/pentaho-platform-plugin-deployer/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-webjars-deployer/6.0.1.0-386</bundle>
+  </feature>
+
+  <feature name="pentaho-base" version="1.0">
+    <feature>pentaho-deployers</feature>
+    <feature>pentaho-cache-system</feature>
+    <bundle>mvn:org.slf4j/osgi-over-slf4j/1.7.7</bundle>
+    <bundle>mvn:log4j/log4j/1.2.17</bundle>
+    <bundle>mvn:commons-logging/commons-logging/1.1.3</bundle>
+    <bundle>mvn:org.apache.felix/org.apache.felix.http.api/2.3.2</bundle>
+    <bundle>mvn:org.apache.mina/mina-core/2.0.7</bundle>
+    <bundle>mvn:pentaho/pentaho-osgi-utils-impl/6.0.1.0-386</bundle>
+  </feature>
+
+  <feature name="pentaho-client" version="1.0">
+    <feature>pentaho-client-minimal</feature>
+    <feature>pentaho-big-data-plugin-osgi</feature>
+  </feature>
+
+  <feature name="pentaho-client-minimal" version="1.0">
+    <feature>pentaho-base</feature>
+    <bundle>mvn:pentaho/pentaho-mongo-utils/6.0.1.0-386</bundle>
+    <bundle>wrap:mvn:pentaho/pentaho-mongodb-plugin/6.0.1.0-386</bundle>
+    <bundle>mvn:org.mongodb/mongo-java-driver/2.13.0</bundle>
+    <bundle>mvn:pentaho/pdi-osgi-bridge-activator/6.0.1.0-386</bundle>
+  </feature>
+
+  <feature name="pdi-dataservice-client" version="6.0.1.0-386">
+    <feature>pentaho-base</feature>
+    <bundle>mvn:pentaho/pdi-dataservice-client-plugin/6.0.1.0-386</bundle>
+  </feature>
+
+  <feature name="pdi-dataservice" version="6.0.1.0-386">
+    <feature>pdi-dataservice-client</feature>
+    <bundle>mvn:pentaho/pdi-dataservice-server-plugin/6.0.1.0-386</bundle>
+    <bundle>mvn:org.mongodb/mongo-java-driver/2.11.1</bundle>
+  </feature>
+
+  <feature name="pdi-marketplace" version="6.0.1.0-386">
+    <configfile finalname="/etc/pentaho.marketplace.di.cfg">
+      mvn:org.pentaho/pentaho-marketplace-di/6.0.1.0-386/cfg/pentaho-marketplace-config
+    </configfile>
+
+    <bundle>wrap:mvn:net.sf.flexjson/flexjson/2.1</bundle>
+    <bundle>mvn:commons-collections/commons-collections/3.2.2</bundle>
+
+    <!-- START client side dependencies -->
+    <bundle>mvn:pentaho/pentaho-requirejs-osgi-manager/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-angular-bundle/6.0.1.0-386</bundle>
+    <bundle>pentaho-webjars:mvn:org.webjars/angular-sanitize/1.2.15</bundle>
+    <bundle>pentaho-webjars:mvn:org.webjars/underscorejs/1.7.0</bundle>
+    <!-- END -->
+
+    <!-- commons-codec is necessary for commons-httpclient -->
+    <bundle>mvn:commons-codec/commons-codec/1.5</bundle>
+    <bundle>wrap:mvn:commons-httpclient/commons-httpclient/3.1</bundle>
+
+    <bundle>mvn:org.pentaho/pentaho-marketplace-di/6.0.1.0-386</bundle>
+  </feature>
+
+  <feature name="pentaho-marketplace" version="6.0.1.0-386">
+    <configfile finalname="/etc/pentaho.marketplace.ba.cfg">
+      mvn:org.pentaho/pentaho-marketplace-ba/6.0.1.0-386/cfg/pentaho-marketplace-config
+    </configfile>
+
+    <bundle>wrap:mvn:net.sf.flexjson/flexjson/2.1</bundle>
+    <bundle>mvn:commons-collections/commons-collections/3.2.2</bundle>
+
+    <!-- START client side dependencies -->
+    <bundle>mvn:pentaho/pentaho-requirejs-osgi-manager/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-angular-bundle/6.0.1.0-386</bundle>
+    <bundle>pentaho-webjars:mvn:org.webjars/angular-sanitize/1.2.15</bundle>
+    <bundle>pentaho-webjars:mvn:org.webjars/underscorejs/1.7.0</bundle>
+    <!-- END -->
+
+    <bundle>mvn:org.pentaho/pentaho-marketplace-ba/6.0.1.0-386/</bundle>
+  </feature>
+
+  <feature name="pentaho-cache-system" version="1.0">
+    <feature>transaction</feature>
+    <bundle>mvn:pentaho/pentaho-cache-manager-api/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/guava-cache-provider/6.0.1.0-386</bundle>
+    <bundle>mvn:pentaho/pentaho-ehcache-provider/6.0.1.0-386</bundle>
+    <bundle>wrap:mvn:org.ehcache/jcache/1.0.0</bundle>
+    <bundle>mvn:net.sf.ehcache/ehcache/2.8.3</bundle>
+  </feature>
+
+  <!-- Overriding standard one to exclude log bundle which will not work without pax-logging -->
+  <feature name="pentaho-jms">
+    <configfile finalname="/etc/pentaho.jms.cfg">mvn:pentaho/pentaho-osgi-config/6.0.1.0-386/cfg/pentaho-jms
+    </configfile>
+    <feature>jms</feature>
+    <feature>activemq</feature>
+    <bundle start-level="90">blueprint:mvn:pentaho/pentaho-blueprint-activators/6.0.1.0-386/xml/jms
+    </bundle>
+  </feature>
+
+  <feature name="pentaho-camel-jms" version="1.0">
+    <feature>camel-jms</feature>
+    <feature>activemq-camel</feature>
+    <feature>pentaho-jms</feature>
+    <bundle start-level="90">blueprint:mvn:pentaho/pentaho-blueprint-activators/6.0.1.0-386/xml/camel-jms
+    </bundle>
+  </feature>
+
+  <feature name="pentaho-tinkerpop-gremlin" version="2.6">
+    <bundle>wrap:mvn:com.tinkerpop.gremlin/gremlin-java/2.6.0</bundle>
+    <bundle>wrap:mvn:com.tinkerpop/pipes/2.6.0</bundle>
+  </feature>
+
+  <feature name="pentaho-metaverse" version="6.0.1.0-386">
+    <details>Provides data lineage capabilities</details>
+    <configfile finalname="/etc/pentaho.metaverse.cfg">
+      mvn:pentaho/pentaho-osgi-config/6.0.1.0-386/cfg/pentaho-metaverse
+    </configfile>
+
+    <feature>pentaho-client</feature>
+    <feature>pentaho-tinkerpop-gremlin</feature>
+    <feature>http</feature>
+    <feature>http-whiteboard</feature>
+    <feature>cxf</feature>
+
+    <bundle>wrap:mvn:net.sf.flexjson/flexjson/2.1</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.3.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.3.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.3.3</bundle>
+
+    <bundle>mvn:org.codehaus.jackson/jackson-core-asl/1.9.13</bundle>
+    <bundle>mvn:org.codehaus.jackson/jackson-mapper-asl/1.9.13</bundle>
+    <bundle>mvn:org.codehaus.jackson/jackson-jaxrs/1.9.13</bundle>
+    <bundle>mvn:commons-collections/commons-collections/3.2.2</bundle>
+
+    <bundle>mvn:pentaho/pentaho-metaverse-core/6.0.1.0-386</bundle>
+  </feature>
+
+<!-- Overriding KAR to load 3.0.5 of core, remove once 3.0.5 is released -->
+  <feature name="kar" version="3.7.5" description="Provide KAR (KARaf archive) support" resolver="(obr)">
+    <bundle start-level="30">mvn:org.apache.karaf.kar/org.apache.karaf.kar.core/3.0.5</bundle>
+    <bundle start-level="30">mvn:org.apache.karaf.kar/org.apache.karaf.kar.command/3.0.3</bundle>
+    <bundle start-level="30">mvn:org.apache.karaf.deployer/org.apache.karaf.deployer.kar/3.0.3</bundle>
+  </feature>
+
+
+  <feature name="build-helper" description="This is never used in production, exists only to facilitate the build">
+    <bundle>mvn:org.apache.felix/org.apache.felix.http.bridge/2.3.2</bundle>
+    <bundle>mvn:org.apache.karaf.kar/org.apache.karaf.kar.core/3.0.5</bundle>
+    <bundle>mvn:org.apache.aries.transaction/org.apache.aries.transaction.manager/1.1.1</bundle>
+  </feature>
+
+</features>
