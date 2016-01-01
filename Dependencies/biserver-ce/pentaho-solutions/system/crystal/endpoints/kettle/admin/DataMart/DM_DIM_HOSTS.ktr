@@ -78,16 +78,18 @@
   <connection>
     <name>crystal</name>
     <server>localhost</server>
-    <type>HYPERSONIC</type>
+    <type>GENERIC</type>
     <access>Native</access>
     <database>crystal</database>
     <port>9001</port>
-    <username>SA</username>
-    <password>Encrypted </password>
+    <username>pentaho_user</username>
+    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
+      <attribute><code>CUSTOM_DRIVER_CLASS</code><attribute>org.h2.Driver</attribute></attribute>
+      <attribute><code>CUSTOM_URL</code><attribute>jdbc&#x3a;h2&#x3a;tcp&#x3a;localhost&#x3a;9092&#x2f;crystal</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
@@ -226,7 +228,7 @@
            <schema_name/>
            </partitioning>
     <connection>crystal</connection>
-    <sql>SELECT&#xa; &#x27;Unknown&#x27; HOSTNAME&#xa;FROM&#xa; INFORMATION_SCHEMA.SYSTEM_USERS&#xa;WHERE&#xa; USER_NAME &#x3d; &#x27;SA&#x27;&#xa;UNION ALL&#xa;SELECT DISTINCT&#xa; HOSTNAME HOSTNAME&#xa;FROM&#xa; CRYSTAL.OPE_JMETER_REPORTS</sql>
+    <sql>SELECT&#xa; &#x27;Unknown&#x27; HOSTNAME&#xa;UNION ALL&#xa;SELECT DISTINCT&#xa; HOSTNAME HOSTNAME&#xa;FROM&#xa; CRYSTAL.OPE_JMETER_REPORTS</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
