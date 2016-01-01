@@ -76,24 +76,22 @@
   <notepads>
   </notepads>
   <connection>
-    <name>crystal_data_mart</name>
-    <server/>
-    <type>GENERIC</type>
+    <name>crystal</name>
+    <server>localhost</server>
+    <type>HYPERSONIC</type>
     <access>Native</access>
-    <database/>
-    <port>1521</port>
-    <username>sa</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10bef2bcdb</password>
+    <database>crystal</database>
+    <port>9001</port>
+    <username>SA</username>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute><code>CUSTOM_DRIVER_CLASS</code><attribute>org.h2.Driver</attribute></attribute>
-      <attribute><code>CUSTOM_URL</code><attribute>jdbc&#x3a;h2&#x3a;&#x24;&#x7b;Internal.Entry.Current.Directory&#x7d;&#x24;&#x7b;file.separator&#x7d;..&#x24;&#x7b;file.separator&#x7d;..&#x24;&#x7b;file.separator&#x7d;..&#x24;&#x7b;file.separator&#x7d;..&#x24;&#x7b;file.separator&#x7d;database&#x24;&#x7b;file.separator&#x7d;crystal_data_mart</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>9001</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -165,7 +163,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>crystal_data_mart</connection>
+    <connection>crystal</connection>
     <commit>1000</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -297,8 +295,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>crystal_data_mart</connection>
-    <sql>SELECT&#xa; NVL&#x28;T.ID,SELECT ID FROM CRYSTAL.DM_DIM_TESTS WHERE SRC_ID&#x3d;&#x27;UNKNOWN&#x27;&#x29; TESTNAME_ID,&#xa; NVL&#x28;H.ID,SELECT ID FROM CRYSTAL.DM_DIM_HOSTS WHERE SRC_ID&#x3d;&#x27;UNKNOWN&#x27;&#x29; HOSTNAME_ID,&#xa; OPE.DATETIME,&#xa; TRIM&#x28;OPE.THREADNAME&#x29; THREADNAME,&#xa; TRIM&#x28;OPE.LABEL&#x29; LABEL,&#xa; UPPER&#x28;TRIM&#x28;OPE.SUCCESS&#x29;&#x29; SUCCESS,&#xa; NVL&#x28;OPE.ELAPSED,0&#x29; ELAPSED,&#xa; NVL&#x28;OPE.IDLETIME,0&#x29; IDLETIME,&#xa; NVL&#x28;OPE.LATENCY,0&#x29; LATENCY,&#xa; NVL&#x28;OPE.CONNECT,0&#x29; CONNECT,&#xa; NVL&#x28;OPE.BYTES,0&#x29; BYTES&#xa;FROM&#xa; CRYSTAL.OPE_JMETER_REPORTS OPE&#xa; LEFT JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.DESCRIPTION &#x3d; OPE.TESTNAME&#xa; LEFT JOIN CRYSTAL.DM_DIM_HOSTS AS H ON H.DESCRIPTION &#x3d; OPE.HOSTNAME&#xa;</sql>
+    <connection>crystal</connection>
+    <sql>SELECT&#xa; NVL&#x28;T.ID, &#x28;SELECT ID FROM CRYSTAL.DM_DIM_TESTS WHERE SRC_ID&#x3d;&#x27;UNKNOWN&#x27;&#x29;&#x29; TESTNAME_ID,&#xa; NVL&#x28;H.ID, &#x28;SELECT ID FROM CRYSTAL.DM_DIM_HOSTS WHERE SRC_ID&#x3d;&#x27;UNKNOWN&#x27;&#x29;&#x29; HOSTNAME_ID,&#xa; OPE.DATETIME,&#xa; TRIM&#x28;OPE.THREADNAME&#x29; THREADNAME,&#xa; TRIM&#x28;OPE.LABEL&#x29; LABEL,&#xa; UPPER&#x28;TRIM&#x28;OPE.SUCCESS&#x29;&#x29; SUCCESS,&#xa; NVL&#x28;OPE.ELAPSED,0&#x29; ELAPSED,&#xa; NVL&#x28;OPE.IDLETIME,0&#x29; IDLETIME,&#xa; NVL&#x28;OPE.LATENCY,0&#x29; LATENCY,&#xa; NVL&#x28;OPE.CONNECT,0&#x29; CONNECT,&#xa; NVL&#x28;OPE.BYTES,0&#x29; BYTES&#xa;FROM&#xa; CRYSTAL.OPE_JMETER_REPORTS OPE&#xa; LEFT JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.DESCRIPTION &#x3d; OPE.TESTNAME&#xa; LEFT JOIN CRYSTAL.DM_DIM_HOSTS AS H ON H.DESCRIPTION &#x3d; OPE.HOSTNAME&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

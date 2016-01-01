@@ -76,24 +76,22 @@
   <notepads>
   </notepads>
   <connection>
-    <name>crystal_data_mart</name>
-    <server/>
-    <type>GENERIC</type>
+    <name>crystal</name>
+    <server>localhost</server>
+    <type>HYPERSONIC</type>
     <access>Native</access>
-    <database/>
-    <port>1521</port>
-    <username>sa</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10bef2bcdb</password>
+    <database>crystal</database>
+    <port>9001</port>
+    <username>SA</username>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute><code>CUSTOM_DRIVER_CLASS</code><attribute>org.h2.Driver</attribute></attribute>
-      <attribute><code>CUSTOM_URL</code><attribute>jdbc&#x3a;h2&#x3a;&#x24;&#x7b;Internal.Entry.Current.Directory&#x7d;&#x24;&#x7b;file.separator&#x7d;..&#x24;&#x7b;file.separator&#x7d;..&#x24;&#x7b;file.separator&#x7d;..&#x24;&#x7b;file.separator&#x7d;..&#x24;&#x7b;file.separator&#x7d;database&#x24;&#x7b;file.separator&#x7d;crystal_data_mart</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>9001</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -233,7 +231,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>crystal_data_mart</connection>
+    <connection>crystal</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
