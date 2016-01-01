@@ -23,7 +23,7 @@ REM -----------------------
 
 call set-pentaho-env.bat "%~dp0..\jre"
 
-"%_PENTAHO_JAVA%" -cp %tempclasspath% org.hsqldb.Server -database.0 hsqldb\sampledata -dbname.0 sampledata -database.1 hsqldb\hibernate -dbname.1 hibernate -database.2 hsqldb\quartz -dbname.2 quartz -database.3 hsqldb\crystal -dbname.3 crystal
+"%_PENTAHO_JAVA%" -cp %tempclasspath% org.hsqldb.Server -database.0 hsqldb\sampledata -dbname.0 sampledata -database.1 hsqldb\hibernate -dbname.1 hibernate -database.2 hsqldb\quartz -dbname.2 quartz
 echo %command%
 %command%
 exit

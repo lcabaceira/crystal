@@ -24,4 +24,4 @@ do
 done
 echo "classpath is $THE_CLASSPATH"
 
-"$_PENTAHO_JAVA" -cp $THE_CLASSPATH org.hsqldb.Server -database.0 $DIR_REL/hsqldb/sampledata -dbname.0 sampledata -database.1 $DIR_REL/hsqldb/hibernate -dbname.1 hibernate -database.2 $DIR_REL/hsqldb/quartz -dbname.2 quartz -database.3 $DIR_REL/hsqldb/crystal -dbname.3 crystal
+"$_PENTAHO_JAVA" -cp $THE_CLASSPATH org.hsqldb.Server -database.0 $DIR_REL/hsqldb/sampledata -dbname.0 sampledata -database.1 $DIR_REL/hsqldb/hibernate -dbname.1 hibernate -database.2 $DIR_REL/hsqldb/quartz -dbname.2 quartz
