@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?><CDADescriptor>
   <DataSources>
-    <Connection id="dummy" type="sql.jndi">
-      <Jndi/>
+    <Connection id="tests" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+    <Connection id="elapsedPerLabel" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
     </Connection>
   </DataSources>
-  <DataAccess access="public" connection="dummy" id="dummy" type="sql">
+  <DataAccess access="public" connection="tests" id="tests" type="sql">
     <Cache duration="3600" enabled="true"/>
     <Columns/>
     <Parameters/>
-    <Query/>
+    <Query><![CDATA[select
+ id,
+ description
+from
+ crystal.dm_dim_tests
+where
+ src_id != 'UNKNOWN']]></Query>
+  </DataAccess>
+  <DataAccess access="public" connection="elapsedPerLabel" id="elapsedPerLabel" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="1" name="testIdParam" type="Integer"/>
+      <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
+      <Parameter default="2001-01-01" name="periodToParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[select
+ label,
+ sum(elapsed) as elapsed
+from
+ crystal.dm_fact_logs f
+where
+ testname_id = ${testIdParam}
+ and day_id between parsedatetime(${periodFromParam},'yyyy-MM-dd') and parsedatetime(${periodToParam},'yyyy-MM-dd')
+group by
+ label
+order by label desc]]></Query>
   </DataAccess>
 </CDADescriptor>
