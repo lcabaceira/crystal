@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><CDADescriptor>
+  <DataSources>
+    <Connection id="tests" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+    <Connection id="logs" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+  </DataSources>
+  <DataAccess access="public" connection="tests" id="tests" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters/>
+    <Query><![CDATA[select
+ description
+from
+ crystal.dm_dim_tests
+where
+ src_id != 'UNKNOWN']]></Query>
+  </DataAccess>
+  <DataAccess access="public" connection="logs" id="logs" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
+      <Parameter default="2001-01-01" name="periodToParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[select
+ t.description testname,
+ concat(formatdatetime(f.day_id,'yyyy-MM-dd'), 'T', m.description, ':', concat(substr('00', 0, (2 - length(f.second))),f.second), '.', concat(substr('000', 0, (3 - length(f.millisecond))),f.millisecond)) timestamp,
+ f.elapsed,
+ f.label,
+ f.threadname,
+ f.success,
+ f.bytes,
+ f.latency,
+ h.description hostname,
+ f.idletime,
+ f.connect
+from
+ crystal.dm_fact_logs as f
+ join crystal.dm_dim_tests as t on t.id = f.testname_id
+ join crystal.dm_dim_days as d on d.id = f.day_id
+ join crystal.dm_dim_minutes as m on m.id = f.minute_id
+ join crystal.dm_dim_hosts as h on h.id = f.hostname_id
+where
+ t.description = ${testParam}
+ and f.day_id between parsedatetime(${periodFromParam},'yyyy-MM-dd') and parsedatetime(${periodToParam},'yyyy-MM-dd')
+order by
+ f.testname_id asc,
+ f.day_id asc,
+ f.minute_id asc,
+ f.second asc,
+ f.millisecond asc]]></Query>
+  </DataAccess>
+</CDADescriptor>
