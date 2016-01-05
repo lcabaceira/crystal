@@ -750,7 +750,7 @@
      {
       "name": "query",
       "type": "SqlQuery",
-      "value": "select\n description\nfrom\n crystal.dm_dim_tests\nwhere\n src_id != 'UNKNOWN'"
+      "value": "select\n description\nfrom\n crystal.dm_dim_tests\nwhere\n src_id != 'UNKNOWN'\norder by\n description asc"
      },
      {
       "name": "parameters",
@@ -836,7 +836,7 @@
      {
       "name": "query",
       "type": "SqlQuery",
-      "value": "select\n t.description testname,\n concat(formatdatetime(f.day_id,'yyyy-MM-dd'), 'T', m.description, ':', concat(substr('00', 0, (2 - length(f.second))),f.second), '.', concat(substr('000', 0, (3 - length(f.millisecond))),f.millisecond)) timestamp,\n f.elapsed,\n f.label,\n f.threadname,\n f.success,\n f.bytes,\n f.latency,\n h.description hostname,\n f.idletime,\n f.connect\nfrom\n crystal.dm_fact_logs as f\n join crystal.dm_dim_tests as t on t.id = f.testname_id\n join crystal.dm_dim_days as d on d.id = f.day_id\n join crystal.dm_dim_minutes as m on m.id = f.minute_id\n join crystal.dm_dim_hosts as h on h.id = f.hostname_id\nwhere\n t.description = ${testParam}\n and f.day_id between parsedatetime(${periodFromParam},'yyyy-MM-dd') and parsedatetime(${periodToParam},'yyyy-MM-dd')\norder by\n f.testname_id asc,\n f.day_id asc,\n f.minute_id asc,\n f.second asc,\n f.millisecond asc"
+      "value": "select\n t.description test_name,\n concat(formatdatetime(f.day_id,'yyyy-MM-dd'), 'T', m.description, ':', concat(substr('00', 0, (2 - length(f.second))),f.second), '.', concat(substr('000', 0, (3 - length(f.millisecond))),f.millisecond)) start_time,\n f.threadname thread_name,\n f.label,\n f.elapsed,\n f.success,\n f.bytes,\n f.latency,\n f.connect,\n f.idletime idle\nfrom\n crystal.dm_fact_logs as f\n join crystal.dm_dim_tests as t on t.id = f.testname_id\n join crystal.dm_dim_days as d on d.id = f.day_id\n join crystal.dm_dim_minutes as m on m.id = f.minute_id\n join crystal.dm_dim_hosts as h on h.id = f.hostname_id\nwhere\n t.description = ${testParam}\n and f.day_id between parsedatetime(${periodFromParam},'yyyy-MM-dd') and parsedatetime(${periodToParam},'yyyy-MM-dd')\norder by\n f.testname_id asc,\n f.day_id asc,\n f.minute_id asc,\n f.second asc,\n f.millisecond asc"
      },
      {
       "name": "parameters",
@@ -884,7 +884,7 @@
    }
   ]
  },
- "filename": "/system/crystal/dashboards/rawLogs.cdfde",
+ "filename": "/system/crystal/dashboards/resultsInTable.cdfde",
  "layout": {
   "rows": [
    {
@@ -1061,7 +1061,7 @@
      {
       "name": "html",
       "type": "Html",
-      "value": "<ul class=\"nav nav-tabs\">\n <li class=\"active dropdown\">\n    <a class=\"dropdown-toggle\" data-toggle=\"dropdown\"><span class=\"glyphicon glyphicon-stats\" aria-hidden=\"true\"></span> Analytics <span class=\"caret\"></span></a>\n    <ul class=\"dropdown-menu\">\n      <li><a href=\"/pentaho/plugin/crystal/api/main\"><span class=\"glyphicon glyphicon-stats\" aria-hidden=\"true\"></span> Main dashboard</a></li>\n      <li role=\"separator\" class=\"divider\"></li>\n      <li class=\"dropdown-header\">Export raw data</li>\n      <li class=\"active\"><a href=\"#\"><span class=\"glyphicon glyphicon-save\" aria-hidden=\"true\"></span> Logs in css/xls</a></li>\n    </ul>\n  </li>\n  <li><a href=\"/pentaho/plugin/crystal/api/import\"><span class=\"glyphicon glyphicon-import\" aria-hidden=\"true\"></span> Import</a></li>\n  <li><a href=\"/pentaho/plugin/crystal/api/about\"><span class=\"glyphicon glyphicon-briefcase\" aria-hidden=\"true\"></span> About</a></li>\n</ul> "
+      "value": "<ul class=\"nav nav-tabs\">\n <li class=\"active dropdown\">\n    <a class=\"dropdown-toggle\" data-toggle=\"dropdown\"><span class=\"glyphicon glyphicon-stats\" aria-hidden=\"true\"></span> Analytics <span class=\"caret\"></span></a>\n    <ul class=\"dropdown-menu\">\n      <li><a href=\"/pentaho/plugin/crystal/api/main\"><span class=\"glyphicon glyphicon-stats\" aria-hidden=\"true\"></span> Main dashboard</a></li>\n      <li role=\"separator\" class=\"divider\"></li>\n      <li class=\"dropdown-header\">Results</li>\n      <li class=\"active\"><a href=\"#\"><span class=\"glyphicon glyphicon-save\" aria-hidden=\"true\"></span> Results in table</a></li>\n    </ul>\n  </li>\n  <li><a href=\"/pentaho/plugin/crystal/api/import\"><span class=\"glyphicon glyphicon-import\" aria-hidden=\"true\"></span> Import</a></li>\n  <li><a href=\"/pentaho/plugin/crystal/api/about\"><span class=\"glyphicon glyphicon-briefcase\" aria-hidden=\"true\"></span> About</a></li>\n</ul> "
      },
      {
       "name": "fontSize",
@@ -1909,6 +1909,6 @@
     "typeDesc": "Html"
    }
   ],
-  "title": "rawLogs"
+  "title": "resultsInTable"
  }
 }

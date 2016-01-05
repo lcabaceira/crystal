@@ -1629,7 +1629,7 @@
      {
       "name": "html",
       "type": "Html",
-      "value": "<ul class=\"nav nav-tabs\">\n <li class=\"active dropdown\">\n    <a class=\"dropdown-toggle\" data-toggle=\"dropdown\"><span class=\"glyphicon glyphicon-stats\" aria-hidden=\"true\"></span> Analytics <span class=\"caret\"></span></a>\n    <ul class=\"dropdown-menu\">\n      <li class=\"active\"><a href=\"#\"><span class=\"glyphicon glyphicon-stats\" aria-hidden=\"true\"></span> Main dashboard</a></li>\n      <li role=\"separator\" class=\"divider\"></li>\n      <li class=\"dropdown-header\">Export raw data</li>\n      <li><a href=\"/pentaho/plugin/crystal/api/rawLogs\"><span class=\"glyphicon glyphicon-save\" aria-hidden=\"true\"></span> Logs in csv/xls</a></li>\n    </ul>\n  </li>\n  <li><a href=\"/pentaho/plugin/crystal/api/import\"><span class=\"glyphicon glyphicon-import\" aria-hidden=\"true\"></span> Import</a></li>\n  <li><a href=\"/pentaho/plugin/crystal/api/about\"><span class=\"glyphicon glyphicon-briefcase\" aria-hidden=\"true\"></span> About</a></li>\n</ul> "
+      "value": "<ul class=\"nav nav-tabs\">\n <li class=\"active dropdown\">\n    <a class=\"dropdown-toggle\" data-toggle=\"dropdown\"><span class=\"glyphicon glyphicon-stats\" aria-hidden=\"true\"></span> Analytics <span class=\"caret\"></span></a>\n    <ul class=\"dropdown-menu\">\n      <li class=\"active\"><a href=\"#\"><span class=\"glyphicon glyphicon-stats\" aria-hidden=\"true\"></span> Main dashboard</a></li>\n      <li role=\"separator\" class=\"divider\"></li>\n      <li class=\"dropdown-header\">Results</li>\n      <li><a href=\"/pentaho/plugin/crystal/api/resultsInTable\"><span class=\"glyphicon glyphicon-save\" aria-hidden=\"true\"></span> Results in table</a></li>\n    </ul>\n  </li>\n  <li><a href=\"/pentaho/plugin/crystal/api/import\"><span class=\"glyphicon glyphicon-import\" aria-hidden=\"true\"></span> Import</a></li>\n  <li><a href=\"/pentaho/plugin/crystal/api/about\"><span class=\"glyphicon glyphicon-briefcase\" aria-hidden=\"true\"></span> About</a></li>\n</ul> "
      },
      {
       "name": "fontSize",
@@ -2228,36 +2228,36 @@
    },
    {
     "id": "679fee89-1147-3882-d25d-aff6edeeafba",
-    "type": "LayoutHtml",
-    "typeDesc": "Html",
     "parent": "7a748857-72f6-89d1-5d65-3b89cef9262a",
     "properties": [
      {
       "name": "name",
-      "value": "",
-      "type": "Id"
+      "type": "Id",
+      "value": ""
      },
      {
       "name": "html",
-      "value": "<label for=\"periodObj\" class=\"control-label\" style=\"margin: 5px; 0px; 0px; 0px;\">Period:</label> ",
-      "type": "Html"
+      "type": "Html",
+      "value": "<label for=\"periodObj\" class=\"control-label\" style=\"margin: 5px; 0px; 0px; 0px;\">Period:</label> "
      },
      {
       "name": "fontSize",
-      "value": "",
-      "type": "Integer"
+      "type": "Integer",
+      "value": ""
      },
      {
       "name": "color",
-      "value": "",
-      "type": "Color"
+      "type": "Color",
+      "value": ""
      },
      {
       "name": "cssClass",
-      "value": "",
-      "type": "String"
+      "type": "String",
+      "value": ""
      }
-    ]
+    ],
+    "type": "LayoutHtml",
+    "typeDesc": "Html"
    },
    {
     "id": "6b15932f-ae26-5de0-5ede-43959d35ee93",
