@@ -11,7 +11,7 @@
     <parameters>
         <parameter>
             <name>reportPath</name>
-            <default_value>&#x2f;home&#x2f;fcorti&#x2f;Desktop&#x2f;crystal&#x2f;TestCases&#x2f;JMeterLogs&#x2f;Alfresco5-TestPlan.jmx_2015-12-20_19-37-45_ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ.xml</default_value>
+            <default_value>&#x2f;home&#x2f;fcorti&#x2f;Desktop&#x2f;crystal&#x2f;TestCases&#x2f;JMeterLogs&#x2f;Alfresco5-TestPlan.jmx_2016-01-05_11-03-45_77ec61de-92e7-4f41-a623-fe7c7d2d5ede.xml</default_value>
             <description>Report name.</description>
         </parameter>
     </parameters>
@@ -318,14 +318,14 @@
         <xpath>&#x40;rc</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
-        <type>Integer</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -643,14 +643,14 @@
         <xpath>&#x40;rc</xpath>
         <element_type>attribut</element_type>
         <result_type>valueof</result_type>
-        <type>Integer</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>right</trim_type>
         <repeat>N</repeat>
       </field>
       <field>

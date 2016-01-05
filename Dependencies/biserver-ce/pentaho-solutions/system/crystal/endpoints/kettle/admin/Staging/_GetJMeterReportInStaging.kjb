@@ -18,7 +18,7 @@
         </parameter>
         <parameter>
             <name>reportPath</name>
-            <default_value>&#x2f;home&#x2f;fcorti&#x2f;Desktop&#x2f;crystal&#x2f;TestCases&#x2f;JMeterLogs&#x2f;Alfresco5-TestPlan.jmx_2015-12-20_19-37-45_ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ.xml</default_value>
+            <default_value>&#x2f;home&#x2f;fcorti&#x2f;Desktop&#x2f;crystal&#x2f;TestCases&#x2f;JMeterLogs&#x2f;Alfresco5-TestPlan.jmx_2016-01-05_11-03-45_77ec61de-92e7-4f41-a623-fe7c7d2d5ede.xml</default_value>
             <description>Report path.</description>
         </parameter>
     </parameters>
@@ -70,7 +70,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x24;&#x7b;file.separator&#x7d;GetJMeterReportInXmlInStaging.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x24;&#x7b;file.separator&#x7d;_GetJMeterReportInXmlInStaging.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -187,7 +187,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x24;&#x7b;file.separator&#x7d;GetJMeterReportInCsvInStaging.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x24;&#x7b;file.separator&#x7d;_GetJMeterReportInCsvInStaging.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>

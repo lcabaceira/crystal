@@ -70,7 +70,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x24;&#x7b;file.separator&#x7d;Utility&#x24;&#x7b;file.separator&#x7d;GetProperties.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x24;&#x7b;file.separator&#x7d;Utility&#x24;&#x7b;file.separator&#x7d;_GetProperties.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -103,7 +103,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x24;&#x7b;file.separator&#x7d;GetJMeterReportsInStaging.kjb</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x24;&#x7b;file.separator&#x7d;_GetJMeterReportsInStaging.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -152,7 +152,7 @@
       <description/>
       <type>WRITE_TO_LOG</type>
       <logmessage>Polling folder does not exist at path &#x27;&#x24;&#x7b;importFolderPath&#x7d;&#x27;.&#xa;Please contact the administrator.</logmessage>
-      <loglevel/>
+      <loglevel>Basic</loglevel>
       <logsubject>Polling folder does not exist</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
