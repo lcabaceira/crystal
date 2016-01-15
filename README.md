@@ -14,4 +14,4 @@ Supports Alfresco 5.0.X onwards.
 
 ## License 
 
-MIT
+Open
