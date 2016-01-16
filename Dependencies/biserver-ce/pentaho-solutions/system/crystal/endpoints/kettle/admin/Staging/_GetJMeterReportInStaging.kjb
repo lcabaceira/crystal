@@ -264,6 +264,10 @@
       <success_condition>success_if_no_errors</success_condition>
       <resultfilenames>all_filenames</resultfilenames>
       <fields>
+        <field>
+          <source_filefolder>&#x24;&#x7b;reportPath&#x7d;</source_filefolder>
+          <wildcard/>
+        </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
