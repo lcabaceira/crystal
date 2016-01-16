@@ -62,7 +62,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>32</xloc>
-      <yloc>32</yloc>
+      <yloc>128</yloc>
       </entry>
     <entry>
       <name>GetJMeterReportInXmlInStaging</name>
@@ -97,8 +97,8 @@
             </parameter>      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>560</xloc>
-      <yloc>32</yloc>
+      <xloc>704</xloc>
+      <yloc>128</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -107,8 +107,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>752</xloc>
-      <yloc>128</yloc>
+      <xloc>896</xloc>
+      <yloc>224</yloc>
       </entry>
     <entry>
       <name>Move Files</name>
@@ -134,8 +134,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>560</xloc>
-      <yloc>128</yloc>
+      <xloc>704</xloc>
+      <yloc>224</yloc>
       </entry>
     <entry>
       <name>is xml&#x3f;</name>
@@ -157,7 +157,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>208</xloc>
-      <yloc>32</yloc>
+      <yloc>128</yloc>
       </entry>
     <entry>
       <name>is csv&#x3f;</name>
@@ -179,7 +179,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>208</xloc>
-      <yloc>224</yloc>
+      <yloc>320</yloc>
       </entry>
     <entry>
       <name>GetJMeterReportInCsvInStaging</name>
@@ -214,8 +214,8 @@
             </parameter>      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>560</xloc>
-      <yloc>224</yloc>
+      <xloc>704</xloc>
+      <yloc>320</yloc>
       </entry>
     <entry>
       <name>Abort job</name>
@@ -226,7 +226,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>208</xloc>
-      <yloc>368</yloc>
+      <yloc>464</yloc>
       </entry>
     <entry>
       <name>Write To Log for xml</name>
@@ -238,8 +238,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>336</xloc>
-      <yloc>32</yloc>
+      <xloc>480</xloc>
+      <yloc>128</yloc>
       </entry>
     <entry>
       <name>Write To Log for csv</name>
@@ -251,8 +251,38 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>336</xloc>
-      <yloc>224</yloc>
+      <xloc>480</xloc>
+      <yloc>320</yloc>
+      </entry>
+    <entry>
+      <name>Check if XML</name>
+      <description/>
+      <type>XML_WELL_FORMED</type>
+      <arg_from_previous>N</arg_from_previous>
+      <include_subfolders>N</include_subfolders>
+      <nr_errors_less_than>10</nr_errors_less_than>
+      <success_condition>success_if_no_errors</success_condition>
+      <resultfilenames>all_filenames</resultfilenames>
+      <fields>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>320</xloc>
+      <yloc>128</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log for malformed xml</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>XML file&#x3a; &#x24;&#x7b;reportPath&#x7d;</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>XML file malformed</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>704</xloc>
+      <yloc>32</yloc>
       </entry>
   </entries>
   <hops>
@@ -302,15 +332,6 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>is xml&#x3f;</from>
-      <to>Write To Log for xml</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Write To Log for xml</from>
       <to>GetJMeterReportInXmlInStaging</to>
       <from_nr>0</from_nr>
@@ -339,6 +360,42 @@
     </hop>
     <hop>
       <from>Move Files</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>is xml&#x3f;</from>
+      <to>Check if XML</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Check if XML</from>
+      <to>Write To Log for xml</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Check if XML</from>
+      <to>Write To Log for malformed xml</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log for malformed xml</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
