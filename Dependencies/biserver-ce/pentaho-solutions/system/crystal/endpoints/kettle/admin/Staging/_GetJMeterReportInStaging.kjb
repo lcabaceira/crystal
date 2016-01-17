@@ -61,8 +61,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>32</xloc>
-      <yloc>128</yloc>
+      <xloc>48</xloc>
+      <yloc>160</yloc>
       </entry>
     <entry>
       <name>GetJMeterReportInXmlInStaging</name>
@@ -97,8 +97,8 @@
             </parameter>      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>704</xloc>
-      <yloc>128</yloc>
+      <xloc>784</xloc>
+      <yloc>160</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -107,8 +107,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>896</xloc>
-      <yloc>224</yloc>
+      <xloc>960</xloc>
+      <yloc>256</yloc>
       </entry>
     <entry>
       <name>Move Files</name>
@@ -134,8 +134,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>704</xloc>
-      <yloc>224</yloc>
+      <xloc>784</xloc>
+      <yloc>256</yloc>
       </entry>
     <entry>
       <name>is xml&#x3f;</name>
@@ -156,8 +156,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>208</xloc>
-      <yloc>128</yloc>
+      <xloc>224</xloc>
+      <yloc>160</yloc>
       </entry>
     <entry>
       <name>is csv&#x3f;</name>
@@ -178,8 +178,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>208</xloc>
-      <yloc>320</yloc>
+      <xloc>224</xloc>
+      <yloc>352</yloc>
       </entry>
     <entry>
       <name>GetJMeterReportInCsvInStaging</name>
@@ -214,8 +214,8 @@
             </parameter>      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>704</xloc>
-      <yloc>320</yloc>
+      <xloc>784</xloc>
+      <yloc>352</yloc>
       </entry>
     <entry>
       <name>Abort job</name>
@@ -225,8 +225,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>208</xloc>
-      <yloc>464</yloc>
+      <xloc>224</xloc>
+      <yloc>496</yloc>
       </entry>
     <entry>
       <name>Write To Log for xml</name>
@@ -238,8 +238,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>480</xloc>
-      <yloc>128</yloc>
+      <xloc>560</xloc>
+      <yloc>160</yloc>
       </entry>
     <entry>
       <name>Write To Log for csv</name>
@@ -251,11 +251,11 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>480</xloc>
-      <yloc>320</yloc>
+      <xloc>560</xloc>
+      <yloc>352</yloc>
       </entry>
     <entry>
-      <name>Check if XML</name>
+      <name>Check if xml</name>
       <description/>
       <type>XML_WELL_FORMED</type>
       <arg_from_previous>N</arg_from_previous>
@@ -272,8 +272,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>320</xloc>
-      <yloc>128</yloc>
+      <xloc>384</xloc>
+      <yloc>160</yloc>
       </entry>
     <entry>
       <name>Write To Log for malformed xml</name>
@@ -285,8 +285,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>704</xloc>
-      <yloc>32</yloc>
+      <xloc>560</xloc>
+      <yloc>48</yloc>
       </entry>
   </entries>
   <hops>
@@ -373,7 +373,7 @@
     </hop>
     <hop>
       <from>is xml&#x3f;</from>
-      <to>Check if XML</to>
+      <to>Check if xml</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -381,7 +381,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Check if XML</from>
+      <from>Check if xml</from>
       <to>Write To Log for xml</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -390,7 +390,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Check if XML</from>
+      <from>Check if xml</from>
       <to>Write To Log for malformed xml</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>

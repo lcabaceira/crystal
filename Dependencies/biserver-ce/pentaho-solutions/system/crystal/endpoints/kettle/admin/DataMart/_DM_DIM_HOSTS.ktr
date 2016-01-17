@@ -228,7 +228,7 @@
            <schema_name/>
            </partitioning>
     <connection>crystal</connection>
-    <sql>SELECT&#xa; &#x27;Unknown&#x27; HOSTNAME&#xa;UNION ALL&#xa;SELECT DISTINCT&#xa; HOSTNAME HOSTNAME&#xa;FROM&#xa; CRYSTAL.OPE_JMETER_REPORTS</sql>
+    <sql>SELECT&#xa; &#x27;Unknown&#x27; HOSTNAME&#xa;UNION ALL&#xa;SELECT DISTINCT&#xa; HOSTNAME HOSTNAME&#xa;FROM&#xa; CRYSTAL.OPE_JMETER_REPORTS&#xa;WHERE&#xa; HOSTNAME IS NOT NULL</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

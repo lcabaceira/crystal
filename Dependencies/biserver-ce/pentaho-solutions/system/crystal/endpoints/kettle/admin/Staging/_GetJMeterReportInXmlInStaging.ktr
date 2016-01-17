@@ -11,7 +11,7 @@
     <parameters>
         <parameter>
             <name>reportPath</name>
-            <default_value>&#x2f;home&#x2f;fcorti&#x2f;Desktop&#x2f;crystal&#x2f;TestCases&#x2f;JMeterLogs&#x2f;Alfresco5-TestPlan.jmx_2016-01-05_11-03-45_77ec61de-92e7-4f41-a623-fe7c7d2d5ede.xml</default_value>
+            <default_value>&#x2f;home&#x2f;fcorti&#x2f;Desktop&#x2f;crystal&#x2f;TestCases&#x2f;JMeterLogs&#x2f;Alfresco5-TestPlan.jmx_2016-01-09_14-12-30_ActiveThreadsOverTime.xml</default_value>
             <description>Report name.</description>
         </parameter>
     </parameters>
@@ -80,39 +80,16 @@
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>crystal</name>
-    <server>localhost</server>
-    <type>GENERIC</type>
-    <access>Native</access>
-    <database>crystal</database>
-    <port>9001</port>
-    <username>pentaho_user</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>CUSTOM_DRIVER_CLASS</code><attribute>org.h2.Driver</attribute></attribute>
-      <attribute><code>CUSTOM_URL</code><attribute>jdbc&#x3a;h2&#x3a;tcp&#x3a;localhost&#x3a;9092&#x2f;crystal</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>9001</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <order>
-  <hop> <from>Get version from XML</from><to>Switch &#x2f; Case</to><enabled>Y</enabled> </hop>
-  <hop> <from>Switch &#x2f; Case</from><to>Abort</to><enabled>Y</enabled> </hop>
-  <hop> <from>Switch &#x2f; Case</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get sample from XML</from><to>Append streams</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get httpSample from XML</from><to>Append streams</to><enabled>Y</enabled> </hop>
-  <hop> <from>Append streams</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>sample tag&#x3f;</from><to>kg.apc.jmeter.jmxmon.JMXMonSampleResult tag&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get version from XML 2</from><to>Switch &#x2f; Case 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Remove testResultsVersion</from><to>sample tag&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Switch &#x2f; Case 2</from><to>Remove testResultsVersion</to><enabled>Y</enabled> </hop>
+  <hop> <from>Switch &#x2f; Case 2</from><to>testResultsVersion not admitted</to><enabled>Y</enabled> </hop>
+  <hop> <from>testResultsVersion not admitted</from><to>Abort</to><enabled>Y</enabled> </hop>
+  <hop> <from>kg.apc.jmeter.jmxmon.JMXMonSampleResult tag&#x3f;</from><to>XML type not recognized</to><enabled>Y</enabled> </hop>
+  <hop> <from>sample tag&#x3f;</from><to>GetJMeterReportInXmlInStaging_Type1</to><enabled>Y</enabled> </hop>
+  <hop> <from>kg.apc.jmeter.jmxmon.JMXMonSampleResult tag&#x3f;</from><to>GetJMeterReportInXmlInStaging_Type2</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Abort</name>
@@ -130,55 +107,15 @@
       <always_log_rows>Y</always_log_rows>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>384</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Append streams</name>
-    <type>Append</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>Get sample from XML</head_name>
-<tail_name>Get httpSample from XML</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>256</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dummy &#x28;do nothing&#x29;</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>384</xloc>
+      <xloc>576</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Get httpSample from XML</name>
-    <type>getXMLData</type>
+    <name>kg.apc.jmeter.jmxmon.JMXMonSampleResult tag&#x3f;</name>
+    <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -187,323 +124,27 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <include>N</include>
-    <include_field/>
-    <rownum>N</rownum>
-    <addresultfile>N</addresultfile>
-    <namespaceaware>N</namespaceaware>
-    <ignorecomments>N</ignorecomments>
-    <readurl>N</readurl>
-    <validating>N</validating>
-    <usetoken>N</usetoken>
-    <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
-    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
-    <rownum_field/>
-    <encoding>UTF-8</encoding>
-    <file>
-      <name>&#x24;&#x7b;reportPath&#x7d;</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <fields>
-      <field>
-        <name>ELAPSED</name>
-        <xpath>&#x40;t</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>IDLETIME</name>
-        <xpath>&#x40;it</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>LATENCY</name>
-        <xpath>&#x40;lt</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>CONNECT</name>
-        <xpath>&#x40;ct</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TIMESTAMP</name>
-        <xpath>&#x40;ts</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>SUCCESS</name>
-        <xpath>&#x40;s</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>LABEL</name>
-        <xpath>&#x40;lb</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>RESPONSECODE</name>
-        <xpath>&#x40;rc</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>RESPONSEMESSAGE</name>
-        <xpath>&#x40;rm</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>THREADNAME</name>
-        <xpath>&#x40;tn</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>DATATYPE</name>
-        <xpath>&#x40;dt</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>ENCODING</name>
-        <xpath>&#x40;de</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>BYTES</name>
-        <xpath>&#x40;by</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>SAMPLECOUNT</name>
-        <xpath>&#x40;sc</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>ERRORCOUNT</name>
-        <xpath>&#x40;ec</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>GROUPTHREADS</name>
-        <xpath>&#x40;ng</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>ALLTHREADS</name>
-        <xpath>&#x40;na</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>HOSTNAME</name>
-        <xpath>&#x40;hn</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <loopxpath>&#x2f;testResults&#x2f;httpSample</loopxpath>
-    <IsInFields>N</IsInFields>
-    <IsAFile>N</IsAFile>
-    <XmlField/>
-    <prunePath/>
-    <shortFileFieldName>FILENAME</shortFileFieldName>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
+<send_true_to>GetJMeterReportInXmlInStaging_Type2</send_true_to>
+<send_false_to>XML type not recognized</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>JMXMonSampleResult</leftvalue>
+ <function>IS NOT NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>96</xloc>
-      <yloc>352</yloc>
+      <xloc>224</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Get sample from XML</name>
-    <type>getXMLData</type>
+    <name>sample tag&#x3f;</name>
+    <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -512,322 +153,26 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <include>N</include>
-    <include_field/>
-    <rownum>N</rownum>
-    <addresultfile>N</addresultfile>
-    <namespaceaware>N</namespaceaware>
-    <ignorecomments>N</ignorecomments>
-    <readurl>N</readurl>
-    <validating>N</validating>
-    <usetoken>N</usetoken>
-    <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
-    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
-    <rownum_field/>
-    <encoding>UTF-8</encoding>
-    <file>
-      <name>&#x24;&#x7b;reportPath&#x7d;</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <fields>
-      <field>
-        <name>ELAPSED</name>
-        <xpath>&#x40;t</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>IDLETIME</name>
-        <xpath>&#x40;it</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>LATENCY</name>
-        <xpath>&#x40;lt</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>CONNECT</name>
-        <xpath>&#x40;ct</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TIMESTAMP</name>
-        <xpath>&#x40;ts</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>SUCCESS</name>
-        <xpath>&#x40;s</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>LABEL</name>
-        <xpath>&#x40;lb</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>RESPONSECODE</name>
-        <xpath>&#x40;rc</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>right</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>RESPONSEMESSAGE</name>
-        <xpath>&#x40;rm</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>THREADNAME</name>
-        <xpath>&#x40;tn</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>DATATYPE</name>
-        <xpath>&#x40;dt</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>ENCODING</name>
-        <xpath>&#x40;de</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>BYTES</name>
-        <xpath>&#x40;by</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>SAMPLECOUNT</name>
-        <xpath>&#x40;sc</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>ERRORCOUNT</name>
-        <xpath>&#x40;ec</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>GROUPTHREADS</name>
-        <xpath>&#x40;ng</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>ALLTHREADS</name>
-        <xpath>&#x40;na</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>HOSTNAME</name>
-        <xpath>&#x40;hn</xpath>
-        <element_type>attribut</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <loopxpath>&#x2f;testResults&#x2f;sample</loopxpath>
-    <IsInFields>N</IsInFields>
-    <IsAFile>N</IsAFile>
-    <XmlField/>
-    <prunePath/>
-    <shortFileFieldName>FILENAME</shortFileFieldName>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
+<send_true_to>GetJMeterReportInXmlInStaging_Type1</send_true_to>
+<send_false_to>kg.apc.jmeter.jmxmon.JMXMonSampleResult tag&#x3f;</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>sample</leftvalue>
+ <function>IS NOT NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>96</xloc>
+      <xloc>224</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Get version from XML</name>
+    <name>Get version from XML 2</name>
     <type>getXMLData</type>
     <description/>
     <distribute>Y</distribute>
@@ -837,8 +182,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <include>N</include>
-    <include_field/>
+    <include>Y</include>
+    <include_field>reportPath</include_field>
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
     <namespaceaware>N</namespaceaware>
@@ -873,6 +218,36 @@
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
+      <field>
+        <name>sample</name>
+        <xpath>sample</xpath>
+        <element_type>node</element_type>
+        <result_type>singlenode</result_type>
+        <type>None</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>JMXMonSampleResult</name>
+        <xpath>kg.apc.jmeter.jmxmon.JMXMonSampleResult</xpath>
+        <element_type>node</element_type>
+        <result_type>singlenode</result_type>
+        <type>None</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
     </fields>
     <limit>0</limit>
     <loopxpath>&#x2f;testResults</loopxpath>
@@ -890,14 +265,84 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>96</xloc>
-      <yloc>64</yloc>
+      <xloc>80</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Switch &#x2f; Case</name>
+    <name>GetJMeterReportInXmlInStaging_Type1</name>
+    <type>TransExecutor</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <specification_method>filename</specification_method>
+    <trans_object_id/>
+    <trans_name/>
+    <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x24;&#x7b;file.separator&#x7d;_GetJMeterReportInXmlInStaging_Type1.ktr</filename>
+    <directory_path/>
+    <group_size>1</group_size>
+    <group_field/>
+    <group_time/>
+          <parameters>       <variablemapping><variable>reportPath</variable><field>reportPath</field><input/></variablemapping>
+    <inherit_all_vars>Y</inherit_all_vars>
+    </parameters>
+    <execution_result_target_step/>
+    <execution_time_field>ExecutionTime</execution_time_field>
+    <execution_result_field>ExecutionResult</execution_result_field>
+    <execution_errors_field>ExecutionNrErrors</execution_errors_field>
+    <execution_lines_read_field>ExecutionLinesRead</execution_lines_read_field>
+    <execution_lines_written_field>ExecutionLinesWritten</execution_lines_written_field>
+    <execution_lines_input_field>ExecutionLinesInput</execution_lines_input_field>
+    <execution_lines_output_field>ExecutionLinesOutput</execution_lines_output_field>
+    <execution_lines_rejected_field>ExecutionLinesRejected</execution_lines_rejected_field>
+    <execution_lines_updated_field>ExecutionLinesUpdated</execution_lines_updated_field>
+    <execution_lines_deleted_field>ExecutionLinesDeleted</execution_lines_deleted_field>
+    <execution_files_retrieved_field>ExecutionFilesRetrieved</execution_files_retrieved_field>
+    <execution_exit_status_field>ExecutionExitStatus</execution_exit_status_field>
+    <execution_log_text_field>ExecutionLogText</execution_log_text_field>
+    <execution_log_channelid_field>ExecutionLogChannelId</execution_log_channelid_field>
+    <result_rows_target_step/>
+    <result_files_target_step/>
+    <result_files_file_name_field>FileName</result_files_file_name_field>
+    <executors_output_step/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>448</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Remove testResultsVersion</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <remove>        <name>testResultsVersion</name>
+      </remove>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>224</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Switch &#x2f; Case 2</name>
     <type>SwitchCase</type>
     <description/>
     <distribute>Y</distribute>
@@ -913,20 +358,20 @@
 <case_value_format/>
 <case_value_decimal/>
 <case_value_group/>
-<default_target_step>Abort</default_target_step>
+<default_target_step>testResultsVersion not admitted</default_target_step>
 <cases><case><value>1.2</value>
-<target_step>Dummy &#x28;do nothing&#x29;</target_step>
+<target_step>Remove testResultsVersion</target_step>
 </case></cases>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>256</xloc>
-      <yloc>64</yloc>
+      <xloc>224</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
+    <name>XML type not recognized</name>
+    <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -935,105 +380,101 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>crystal</connection>
-    <schema>CRYSTAL</schema>
-    <table>STG_JMETER_REPORTS</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>N</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>The XML file is not recognized as a valid XML import file.</logmessage>
     <fields>
-        <field>
-          <column_name>ELAPSED</column_name>
-          <stream_name>ELAPSED</stream_name>
+      <field>
+        <name>sample</name>
         </field>
-        <field>
-          <column_name>IDLETIME</column_name>
-          <stream_name>IDLETIME</stream_name>
+      <field>
+        <name>JMXMonSampleResult</name>
         </field>
-        <field>
-          <column_name>LATENCY</column_name>
-          <stream_name>LATENCY</stream_name>
+      <field>
+        <name>reportPath</name>
         </field>
-        <field>
-          <column_name>CONNECT</column_name>
-          <stream_name>CONNECT</stream_name>
-        </field>
-        <field>
-          <column_name>TIMESTAMP</column_name>
-          <stream_name>TIMESTAMP</stream_name>
-        </field>
-        <field>
-          <column_name>SUCCESS</column_name>
-          <stream_name>SUCCESS</stream_name>
-        </field>
-        <field>
-          <column_name>LABEL</column_name>
-          <stream_name>LABEL</stream_name>
-        </field>
-        <field>
-          <column_name>RESPONSECODE</column_name>
-          <stream_name>RESPONSECODE</stream_name>
-        </field>
-        <field>
-          <column_name>RESPONSEMESSAGE</column_name>
-          <stream_name>RESPONSEMESSAGE</stream_name>
-        </field>
-        <field>
-          <column_name>THREADNAME</column_name>
-          <stream_name>THREADNAME</stream_name>
-        </field>
-        <field>
-          <column_name>DATATYPE</column_name>
-          <stream_name>DATATYPE</stream_name>
-        </field>
-        <field>
-          <column_name>ENCODING</column_name>
-          <stream_name>ENCODING</stream_name>
-        </field>
-        <field>
-          <column_name>BYTES</column_name>
-          <stream_name>BYTES</stream_name>
-        </field>
-        <field>
-          <column_name>SAMPLECOUNT</column_name>
-          <stream_name>SAMPLECOUNT</stream_name>
-        </field>
-        <field>
-          <column_name>ERRORCOUNT</column_name>
-          <stream_name>ERRORCOUNT</stream_name>
-        </field>
-        <field>
-          <column_name>GROUPTHREADS</column_name>
-          <stream_name>GROUPTHREADS</stream_name>
-        </field>
-        <field>
-          <column_name>ALLTHREADS</column_name>
-          <stream_name>ALLTHREADS</stream_name>
-        </field>
-        <field>
-          <column_name>HOSTNAME</column_name>
-          <stream_name>HOSTNAME</stream_name>
-        </field>
-        <field>
-          <column_name>FILENAME</column_name>
-          <stream_name>FILENAME</stream_name>
-        </field>
-    </fields>
+      </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>384</xloc>
-      <yloc>288</yloc>
+      <xloc>224</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>testResultsVersion not admitted</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Result version not admitted with a value &#x27;&#x24;&#x7b;testResultsVersion&#x7d;&#x27;.</logmessage>
+    <fields>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>416</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>GetJMeterReportInXmlInStaging_Type2</name>
+    <type>TransExecutor</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <specification_method>filename</specification_method>
+    <trans_object_id/>
+    <trans_name/>
+    <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x24;&#x7b;file.separator&#x7d;_GetJMeterReportInXmlInStaging_Type2.ktr</filename>
+    <directory_path/>
+    <group_size>1</group_size>
+    <group_field/>
+    <group_time/>
+          <parameters>       <variablemapping><variable>reportPath</variable><field>reportPath</field><input/></variablemapping>
+    <inherit_all_vars>Y</inherit_all_vars>
+    </parameters>
+    <execution_result_target_step/>
+    <execution_time_field>ExecutionTime</execution_time_field>
+    <execution_result_field>ExecutionResult</execution_result_field>
+    <execution_errors_field>ExecutionNrErrors</execution_errors_field>
+    <execution_lines_read_field>ExecutionLinesRead</execution_lines_read_field>
+    <execution_lines_written_field>ExecutionLinesWritten</execution_lines_written_field>
+    <execution_lines_input_field>ExecutionLinesInput</execution_lines_input_field>
+    <execution_lines_output_field>ExecutionLinesOutput</execution_lines_output_field>
+    <execution_lines_rejected_field>ExecutionLinesRejected</execution_lines_rejected_field>
+    <execution_lines_updated_field>ExecutionLinesUpdated</execution_lines_updated_field>
+    <execution_lines_deleted_field>ExecutionLinesDeleted</execution_lines_deleted_field>
+    <execution_files_retrieved_field>ExecutionFilesRetrieved</execution_files_retrieved_field>
+    <execution_exit_status_field>ExecutionExitStatus</execution_exit_status_field>
+    <execution_log_text_field>ExecutionLogText</execution_log_text_field>
+    <execution_log_channelid_field>ExecutionLogChannelId</execution_log_channelid_field>
+    <result_rows_target_step/>
+    <result_files_target_step/>
+    <result_files_file_name_field>FileName</result_files_file_name_field>
+    <executors_output_step/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>576</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
