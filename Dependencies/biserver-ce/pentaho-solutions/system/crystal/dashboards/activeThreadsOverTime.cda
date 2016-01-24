@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><CDADescriptor>
+  <DataSources>
+    <Connection id="tests" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+    <Connection id="logs" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+  </DataSources>
+  <DataAccess access="public" connection="tests" id="tests" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters/>
+    <Query><![CDATA[select
+ description
+from
+ crystal.dm_dim_tests
+where
+ src_id != 'UNKNOWN'
+order by
+ description asc]]></Query>
+  </DataAccess>
+  <DataAccess access="public" connection="logs" id="logs" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
+      <Parameter default="2001-01-01" name="periodToParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[SELECT
+ SUBSTRING(L.THREADNAME, 0, LOCATE(' ', L.THREADNAME, -1) - 1) THREAD_NAME,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') DATE_TIME,
+ (SELECT MAX(SUBSTRING(L2.THREADNAME, LOCATE('-', L2.THREADNAME, -1) + 1)) FROM CRYSTAL.DM_FACT_LOGS L2 WHERE SUBSTRING(L.THREADNAME, 0, LOCATE(' ', L.THREADNAME, -1) - 1) = SUBSTRING(L2.THREADNAME, 0, LOCATE(' ', L2.THREADNAME, -1) - 1)) THREADS
+FROM 
+ CRYSTAL.DM_FACT_LOGS L
+ JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TESTNAME_ID
+ JOIN CRYSTAL.DM_DIM_DAYS D ON L.DAY_ID = D.ID
+ JOIN CRYSTAL.DM_DIM_MINUTES M ON L.MINUTE_ID = M.ID
+WHERE
+ T.DESCRIPTION = ${testParam}
+ AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+ORDER BY 
+ L.DAY_ID ASC, 
+ L.MINUTE_ID ASC, 
+ L.SECOND ASC, 
+ L.MILLISECOND ASC]]></Query>
+  </DataAccess>
+</CDADescriptor>

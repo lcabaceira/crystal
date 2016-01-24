@@ -1479,6 +1479,29 @@
     "typeDesc": "Resource"
    },
    {
+    "id": "1b9f7af0-6d53-15fb-f642-12158b57a76d",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "renderMenu"
+     },
+     {
+      "name": "resourceFile",
+      "type": "ResourceFile",
+      "value": "${system:../static/custom/js/renderMenu.js}"
+     },
+     {
+      "name": "resourceType",
+      "type": "Label",
+      "value": "Javascript"
+     }
+    ],
+    "type": "LayoutResourceFile",
+    "typeDesc": "Resource"
+   },
+   {
     "id": "7fa93a49-1cfd-96a9-ee6b-85f3b5284798",
     "parent": "UnIqEiD",
     "properties": [
@@ -1624,12 +1647,12 @@
      {
       "name": "name",
       "type": "Id",
-      "value": ""
+      "value": "menu"
      },
      {
       "name": "html",
       "type": "Html",
-      "value": "<ul class=\"nav nav-tabs\">\n <li class=\"active dropdown\">\n    <a class=\"dropdown-toggle\" data-toggle=\"dropdown\"><span class=\"glyphicon glyphicon-stats\" aria-hidden=\"true\"></span> Analytics <span class=\"caret\"></span></a>\n    <ul class=\"dropdown-menu\">\n      <li class=\"active\"><a href=\"#\"><span class=\"glyphicon glyphicon-stats\" aria-hidden=\"true\"></span> Main dashboard</a></li>\n      <li role=\"separator\" class=\"divider\"></li>\n      <li class=\"dropdown-header\">Results</li>\n      <li><a href=\"/pentaho/plugin/crystal/api/resultsInTable\"><span class=\"glyphicon glyphicon-save\" aria-hidden=\"true\"></span> Results in table</a></li>\n    </ul>\n  </li>\n  <li><a href=\"/pentaho/plugin/crystal/api/import\"><span class=\"glyphicon glyphicon-import\" aria-hidden=\"true\"></span> Import</a></li>\n  <li><a href=\"/pentaho/plugin/crystal/api/about\"><span class=\"glyphicon glyphicon-briefcase\" aria-hidden=\"true\"></span> About</a></li>\n</ul> "
+      "value": "<script type=\"text/javascript\"> \n  renderMenu();\n</script> "
      },
      {
       "name": "fontSize",
