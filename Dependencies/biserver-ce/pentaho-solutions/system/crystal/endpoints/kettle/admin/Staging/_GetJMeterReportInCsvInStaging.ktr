@@ -108,7 +108,8 @@
   </connection>
   <order>
   <hop> <from>CSV file input</from><to>Set Filename</to><enabled>Y</enabled> </hop>
-  <hop> <from>Set Filename</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Set Filename</from><to>Set Type</to><enabled>Y</enabled> </hop>
+  <hop> <from>Set Type</from><to>Table output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>CSV file input</name>
@@ -559,6 +560,43 @@
           <column_name>FILENAME</column_name>
           <stream_name>Filename</stream_name>
         </field>
+        <field>
+          <column_name>TYPE</column_name>
+          <stream_name>Type</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>432</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Set Type</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>Type</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>SAMPLE</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>

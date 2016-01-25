@@ -221,6 +221,10 @@
           <column_name>TESTNAME</column_name>
           <stream_name>TESTNAME</stream_name>
         </field>
+        <field>
+          <column_name>TYPE</column_name>
+          <stream_name>TYPE</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -408,6 +412,10 @@
         <length>-2</length>
         <precision>-2</precision>
       </field>      <field>        <name>TESTNAME</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>TYPE</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
