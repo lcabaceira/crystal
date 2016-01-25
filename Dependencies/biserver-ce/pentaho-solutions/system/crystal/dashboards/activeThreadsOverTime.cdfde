@@ -1976,7 +1976,7 @@
      {
       "name": "query",
       "type": "SqlQuery",
-      "value": "SELECT\n SUBSTRING(L.THREADNAME, 0, LOCATE(' ', L.THREADNAME, -1) - 1) THREAD_NAME,\n PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') DATE_TIME,\n (SELECT MAX(SUBSTRING(L2.THREADNAME, LOCATE('-', L2.THREADNAME, -1) + 1)) FROM CRYSTAL.DM_FACT_LOGS L2 WHERE SUBSTRING(L.THREADNAME, 0, LOCATE(' ', L.THREADNAME, -1) - 1) = SUBSTRING(L2.THREADNAME, 0, LOCATE(' ', L2.THREADNAME, -1) - 1)) THREADS\nFROM \n CRYSTAL.DM_FACT_LOGS L\n JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TESTNAME_ID\n JOIN CRYSTAL.DM_DIM_DAYS D ON L.DAY_ID = D.ID\n JOIN CRYSTAL.DM_DIM_MINUTES M ON L.MINUTE_ID = M.ID\nWHERE\n T.DESCRIPTION = ${testParam}\n AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')\nORDER BY \n L.DAY_ID ASC, \n L.MINUTE_ID ASC, \n L.SECOND ASC, \n L.MILLISECOND ASC\n"
+      "value": "SELECT\n SUBSTRING(L.THREADNAME, 0, LOCATE(' ', L.THREADNAME, -1) - 1) THREAD_NAME,\n PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') DATE_TIME,\n (SELECT MAX(SUBSTRING(L2.THREADNAME, LOCATE('-', L2.THREADNAME, -1) + 1)) FROM CRYSTAL.DM_FACT_LOGS L2 WHERE SUBSTRING(L.THREADNAME, 0, LOCATE(' ', L.THREADNAME, -1) - 1) = SUBSTRING(L2.THREADNAME, 0, LOCATE(' ', L2.THREADNAME, -1) - 1)) THREADS\nFROM \n CRYSTAL.DM_FACT_LOGS L\n JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TESTNAME_ID\n JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID\n JOIN CRYSTAL.DM_DIM_DAYS D ON L.DAY_ID = D.ID\n JOIN CRYSTAL.DM_DIM_MINUTES M ON L.MINUTE_ID = M.ID\nWHERE\n Ty.DESCRIPTION = 'SAMPLE'\n AND T.DESCRIPTION = ${testParam}\n AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')\nORDER BY \n L.DAY_ID ASC, \n L.MINUTE_ID ASC, \n L.SECOND ASC, \n L.MILLISECOND ASC\n"
      },
      {
       "name": "parameters",
@@ -2052,26 +2052,26 @@
    },
    {
     "id": "c2b0ccc3-e730-4a34-869c-66b660bf508d",
-    "type": "LayoutResourceFile",
-    "typeDesc": "Resource",
     "parent": "UnIqEiD",
     "properties": [
      {
       "name": "name",
-      "value": "renderMenu",
-      "type": "Id"
+      "type": "Id",
+      "value": "renderMenu"
      },
      {
       "name": "resourceFile",
-      "value": "${system:../static/custom/js/renderMenu.js}",
-      "type": "ResourceFile"
+      "type": "ResourceFile",
+      "value": "${system:../static/custom/js/renderMenu.js}"
      },
      {
       "name": "resourceType",
-      "value": "Javascript",
-      "type": "Label"
+      "type": "Label",
+      "value": "Javascript"
      }
-    ]
+    ],
+    "type": "LayoutResourceFile",
+    "typeDesc": "Resource"
    },
    {
     "id": "7fa93a49-1cfd-96a9-ee6b-85f3b5284798",

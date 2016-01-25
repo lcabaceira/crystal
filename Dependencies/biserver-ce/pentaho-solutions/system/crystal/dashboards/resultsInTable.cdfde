@@ -836,7 +836,7 @@
      {
       "name": "query",
       "type": "SqlQuery",
-      "value": "select\n t.description test_name,\n concat(formatdatetime(f.day_id,'yyyy-MM-dd'), 'T', m.description, ':', concat(substr('00', 0, (2 - length(f.second))),f.second), '.', concat(substr('000', 0, (3 - length(f.millisecond))),f.millisecond)) start_time,\n f.threadname thread_name,\n f.label,\n f.elapsed,\n f.success,\n f.bytes,\n f.latency,\n f.connect,\n f.idletime idle\nfrom\n crystal.dm_fact_logs as f\n join crystal.dm_dim_tests as t on t.id = f.testname_id\n join crystal.dm_dim_days as d on d.id = f.day_id\n join crystal.dm_dim_minutes as m on m.id = f.minute_id\n join crystal.dm_dim_hosts as h on h.id = f.hostname_id\nwhere\n t.description = ${testParam}\n and f.day_id between parsedatetime(${periodFromParam},'yyyy-MM-dd') and parsedatetime(${periodToParam},'yyyy-MM-dd')\norder by\n f.testname_id asc,\n f.day_id asc,\n f.minute_id asc,\n f.second asc,\n f.millisecond asc"
+      "value": "select\n ty.description as type,\n t.description test_name,\n concat(formatdatetime(f.day_id,'yyyy-MM-dd'), 'T', m.description, ':', concat(substr('00', 0, (2 - length(f.second))),f.second), '.', concat(substr('000', 0, (3 - length(f.millisecond))),f.millisecond)) start_time,\n f.threadname thread_name,\n f.label,\n f.elapsed,\n f.success,\n f.bytes,\n f.latency,\n f.connect,\n f.idletime idle\nfrom\n crystal.dm_fact_logs as f\n join crystal.dm_dim_tests as t on t.id = f.testname_id\n join crystal.dm_dim_types as ty on ty.id = f.type_id\n join crystal.dm_dim_days as d on d.id = f.day_id\n join crystal.dm_dim_minutes as m on m.id = f.minute_id\n join crystal.dm_dim_hosts as h on h.id = f.hostname_id\nwhere\n t.description = ${testParam}\n and f.day_id between parsedatetime(${periodFromParam},'yyyy-MM-dd') and parsedatetime(${periodToParam},'yyyy-MM-dd')\norder by\n f.testname_id asc,\n f.day_id asc,\n f.minute_id asc,\n f.second asc,\n f.millisecond asc"
      },
      {
       "name": "parameters",
@@ -912,26 +912,26 @@
    },
    {
     "id": "c04656f3-9f84-acac-6062-e0195a58bc1b",
-    "type": "LayoutResourceFile",
-    "typeDesc": "Resource",
     "parent": "UnIqEiD",
     "properties": [
      {
       "name": "name",
-      "value": "renderMenu",
-      "type": "Id"
+      "type": "Id",
+      "value": "renderMenu"
      },
      {
       "name": "resourceFile",
-      "value": "${system:../static/custom/js/renderMenu.js}",
-      "type": "ResourceFile"
+      "type": "ResourceFile",
+      "value": "${system:../static/custom/js/renderMenu.js}"
      },
      {
       "name": "resourceType",
-      "value": "Javascript",
-      "type": "Label"
+      "type": "Label",
+      "value": "Javascript"
      }
-    ]
+    ],
+    "type": "LayoutResourceFile",
+    "typeDesc": "Resource"
    },
    {
     "id": "7fa93a49-1cfd-96a9-ee6b-85f3b5284798",
