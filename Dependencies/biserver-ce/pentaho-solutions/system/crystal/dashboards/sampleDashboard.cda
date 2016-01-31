@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?><CDADescriptor>
+  <DataSources>
+    <Connection id="tests" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+    <Connection id="activeThreadsOverTimeLogs" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+    <Connection id="hitsPerSecondLogs" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+    <Connection id="responseTimesOverTimesLogs" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+    <Connection id="transactionsPerSecondLogs" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+    <Connection id="summaryLogs" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+  </DataSources>
+  <DataAccess access="public" connection="tests" id="tests" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters/>
+    <Query><![CDATA[select
+ description
+from
+ crystal.dm_dim_tests
+where
+ src_id != 'UNKNOWN'
+order by
+ description asc]]></Query>
+  </DataAccess>
+  <DataAccess access="public" connection="activeThreadsOverTimeLogs" id="activeThreadsOverTimeLogs" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
+      <Parameter default="2001-01-01" name="periodToParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[SELECT
+ SUBSTRING(L.THREADNAME, 0, LOCATE(' ', L.THREADNAME, -1) - 1) THREAD_NAME,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') DATE_TIME,
+ (SELECT MAX(SUBSTRING(L2.THREADNAME, LOCATE('-', L2.THREADNAME, -1) + 1)) FROM CRYSTAL.DM_FACT_LOGS L2 WHERE SUBSTRING(L.THREADNAME, 0, LOCATE(' ', L.THREADNAME, -1) - 1) = SUBSTRING(L2.THREADNAME, 0, LOCATE(' ', L2.THREADNAME, -1) - 1)) THREADS
+FROM 
+ CRYSTAL.DM_FACT_LOGS L
+ JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
+ JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
+ JOIN CRYSTAL.DM_DIM_DAYS D ON L.DAY_ID = D.ID
+ JOIN CRYSTAL.DM_DIM_MINUTES M ON L.MINUTE_ID = M.ID
+WHERE
+ Ty.DESCRIPTION = 'SAMPLE'
+ AND T.DESCRIPTION = ${testParam}
+ AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+ORDER BY 
+ L.DAY_ID ASC, 
+ L.MINUTE_ID ASC, 
+ L.SECOND ASC, 
+ L.MILLISECOND ASC]]></Query>
+  </DataAccess>
+  <DataAccess access="public" connection="hitsPerSecondLogs" id="hitsPerSecondLogs" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
+      <Parameter default="2001-01-01" name="periodToParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[SELECT
+ FORMATDATETIME(DATEADD('MILLISECOND', L.ELAPSED, PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss')),'dd-MM-yyyy hh:mm:ss') DATE_TIME,
+ COUNT(*) HITS
+FROM 
+ CRYSTAL.DM_FACT_LOGS L
+ JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
+ JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
+ JOIN CRYSTAL.DM_DIM_DAYS D ON L.DAY_ID = D.ID
+ JOIN CRYSTAL.DM_DIM_MINUTES M ON L.MINUTE_ID = M.ID
+WHERE
+ Ty.DESCRIPTION = 'SAMPLE'
+ AND T.DESCRIPTION = ${testParam}
+ AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+GROUP BY
+ FORMATDATETIME(DATEADD('MILLISECOND', L.ELAPSED, PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss')),'dd-MM-yyyy hh:mm:ss')
+ORDER BY
+ FORMATDATETIME(DATEADD('MILLISECOND', L.ELAPSED, PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss')),'dd-MM-yyyy hh:mm:ss') ASC]]></Query>
+  </DataAccess>
+  <DataAccess access="public" connection="responseTimesOverTimesLogs" id="responseTimesOverTimesLogs" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
+      <Parameter default="2001-01-01" name="periodToParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[SELECT
+ L.LABEL LABEL,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') DATE_TIME,
+ L.ELAPSED RESPONSE_TIMES
+FROM 
+ CRYSTAL.DM_FACT_LOGS L
+ JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
+ JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
+ JOIN CRYSTAL.DM_DIM_DAYS D ON L.DAY_ID = D.ID
+ JOIN CRYSTAL.DM_DIM_MINUTES M ON L.MINUTE_ID = M.ID
+WHERE
+ Ty.DESCRIPTION = 'SAMPLE'
+ AND T.DESCRIPTION = ${testParam}
+ AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+ORDER BY
+ L.LABEL ASC,
+ L.DAY_ID ASC,
+ L.MINUTE_ID ASC, 
+ L.SECOND ASC, 
+ L.MILLISECOND ASC]]></Query>
+  </DataAccess>
+  <DataAccess access="public" connection="transactionsPerSecondLogs" id="transactionsPerSecondLogs" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
+      <Parameter default="2001-01-01" name="periodToParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[SELECT
+ CONCAT(L.LABEL, ' (', CASE WHEN L.SUCCESS THEN 'Success' ELSE 'Failure' END, ')') LABEL,
+ FORMATDATETIME(DATEADD('MILLISECOND', L.ELAPSED, PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss')),'dd-MM-yyyy hh:mm:ss') DATE_TIME,
+ COUNT(*) TRANSACTIONS
+FROM 
+ CRYSTAL.DM_FACT_LOGS L
+ JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
+ JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
+ JOIN CRYSTAL.DM_DIM_DAYS D ON L.DAY_ID = D.ID
+ JOIN CRYSTAL.DM_DIM_MINUTES M ON L.MINUTE_ID = M.ID
+WHERE
+ Ty.DESCRIPTION = 'SAMPLE'
+ AND T.DESCRIPTION = ${testParam}
+ AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+GROUP BY
+ CONCAT(L.LABEL, ' (', CASE WHEN L.SUCCESS THEN 'Success' ELSE 'Failure' END, ')'),
+ FORMATDATETIME(DATEADD('MILLISECOND', L.ELAPSED, PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss')),'dd-MM-yyyy hh:mm:ss')
+ORDER BY
+ CONCAT(L.LABEL, ' (', CASE WHEN L.SUCCESS THEN 'Success' ELSE 'Failure' END, ')') ASC,
+ FORMATDATETIME(DATEADD('MILLISECOND', L.ELAPSED, PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss')),'dd-MM-yyyy hh:mm:ss') ASC]]></Query>
+  </DataAccess>
+  <DataAccess access="public" connection="summaryLogs" id="summaryLogs" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
+      <Parameter default="2001-01-01" name="periodToParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[SELECT
+ F.LABEL,
+ COUNT(*) SAMPLES,
+ ROUND(SUM(F.ELAPSED)/COUNT(*),0) AVERAGE,
+ ROUND(MIN(F.ELAPSED),0) MIN,
+ ROUND(MAX(F.ELAPSED),0) MAX,
+ ROUND(STDDEV_POP(F.ELAPSED),2) STD_DEV,
+ CONCAT(ROUND((SUM(F.ERROR_COUNT) / COUNT(*))*100,2),'%') ERROR_PERC,
+ CONCAT(ROUND(COUNT(*) / (SUM(F.ELAPSED) / 1000) ,1),'/sec') THROUGHPUT,
+ ROUND((SUM(F.BYTES) / 1024) / (SUM(F.ELAPSED) / 1000) ,2) KB_PER_SEC,
+ ROUND(SUM(F.BYTES) / COUNT(*), 1)  AVG_BYTES
+FROM
+ (SELECT SUBF.*, CASE WHEN SUBF.SUCCESS = 'FALSE' THEN 1 ELSE 0 END ERROR_COUNT FROM CRYSTAL.DM_FACT_LOGS SUBF) F
+ JOIN CRYSTAL.DM_DIM_TYPES TY ON TY.ID = F.TYPE_ID AND TY.DESCRIPTION = 'SAMPLE'
+ JOIN CRYSTAL.DM_DIM_TESTS T ON t.ID = F.TEST_ID AND T.DESCRIPTION = ${testParam}
+WHERE
+ F.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+GROUP BY
+ F.LABEL
+ORDER BY
+ MIN(CONCAT(FORMATDATETIME(F.DAY_ID,'yyyyMMdd'), F.MINUTE_ID, CONCAT(SUBSTR('00', 0, (2 - LENGTH(F.SECOND))),F.SECOND), CONCAT(SUBSTR('000', 0, (3 - LENGTH(F.MILLISECOND))),F.MILLISECOND))) ASC]]></Query>
+  </DataAccess>
+</CDADescriptor>

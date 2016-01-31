@@ -92,7 +92,7 @@
      {
       "name": "postExecution",
       "type": "JavaScript",
-      "value": "function() {\n    $('#ImportButtonObj').children(\":first\").attr('class','btn btn-primary');\n} "
+      "value": "function() {\n    $(\"#\" + this.htmlObject).children(\":first\").attr('class','btn btn-primary');\n} "
      },
      {
       "name": "tooltip",
@@ -222,26 +222,26 @@
    },
    {
     "id": "73c5dbc1-36a9-1125-9b79-87897b03c1bc",
-    "type": "LayoutResourceFile",
-    "typeDesc": "Resource",
     "parent": "UnIqEiD",
     "properties": [
      {
       "name": "name",
-      "value": "renderMenu",
-      "type": "Id"
+      "type": "Id",
+      "value": "renderMenu"
      },
      {
       "name": "resourceFile",
-      "value": "${system:../static/custom/js/renderMenu.js}",
-      "type": "ResourceFile"
+      "type": "ResourceFile",
+      "value": "${system:../static/custom/js/renderMenu.js}"
      },
      {
       "name": "resourceType",
-      "value": "Javascript",
-      "type": "Label"
+      "type": "Label",
+      "value": "Javascript"
      }
-    ]
+    ],
+    "type": "LayoutResourceFile",
+    "typeDesc": "Resource"
    },
    {
     "id": "ea7548f9-0551-8d0a-8b2a-8c23cb0bdbd2",

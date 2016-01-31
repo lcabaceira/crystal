@@ -6,7 +6,7 @@
       <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
       <User>pentaho_user</User>
     </Connection>
-    <Connection id="elapsedPerLabel" type="sql.jdbc">
+    <Connection id="samplesPerPeriod" type="sql.jdbc">
       <Driver>org.h2.Driver</Driver>
       <Pass>password</Pass>
       <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
@@ -25,7 +25,7 @@ from
 where
  src_id != 'UNKNOWN']]></Query>
   </DataAccess>
-  <DataAccess access="public" connection="elapsedPerLabel" id="elapsedPerLabel" type="sql">
+  <DataAccess access="public" connection="samplesPerPeriod" id="samplesPerPeriod" type="sql">
     <Cache duration="3600" enabled="true"/>
     <Columns/>
     <Parameters>
@@ -33,16 +33,22 @@ where
       <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
       <Parameter default="2001-01-01" name="periodToParam" type="String"/>
     </Parameters>
-    <Query><![CDATA[select
- label,
- sum(elapsed) as elapsed
-from
- crystal.dm_fact_logs f
-where
- testname_id = ${testIdParam}
- and day_id between parsedatetime(${periodFromParam},'yyyy-MM-dd') and parsedatetime(${periodToParam},'yyyy-MM-dd')
-group by
- label
-order by label desc]]></Query>
+    <Query><![CDATA[SELECT
+ D.ID "Day",
+ COUNT(*) "# Samples",
+ (COUNT(*) * 2) "# JMX samples"
+FROM 
+ CRYSTAL.DM_FACT_LOGS L
+ JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
+ JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
+ JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
+ JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
+WHERE
+ T.ID = ${testIdParam}
+ AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+GROUP BY
+ D.ID
+ORDER BY
+ D.ID ASC]]></Query>
   </DataAccess>
 </CDADescriptor>

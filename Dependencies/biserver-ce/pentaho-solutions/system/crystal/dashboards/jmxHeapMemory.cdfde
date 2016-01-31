@@ -16,63 +16,23 @@
     "typeDesc": "<i>Group</i>"
    },
    {
-    "id": "a7cf9f39-83a9-dca8-63da-75849597a6f4",
+    "id": "fdf49db4-88a7-9de8-f0b5-377dd957d602",
     "parent": "OTHERCOMPONENTS",
     "properties": [
      {
       "name": "name",
       "type": "Id",
-      "value": "testSelectorComponent"
+      "value": "exportXlsButtonComponent"
      },
      {
-      "name": "expandContainerObject",
+      "name": "label",
       "type": "String",
-      "value": ""
+      "value": "XLS"
      },
      {
       "name": "listeners",
       "type": "Listeners",
-      "value": "[]"
-     },
-     {
-      "name": "oLanguage",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "language",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "colFormats",
-      "type": "ColFormatsArray",
-      "value": "[]"
-     },
-     {
-      "name": "colHeaders",
-      "type": "ColHeadersArray",
-      "value": "[\"Id\",\"TEST DESCRIPTION\"]"
-     },
-     {
-      "name": "colSortable",
-      "type": "ColSortableArray",
-      "value": "[]"
-     },
-     {
-      "name": "colTypes",
-      "type": "colTypesCustom",
-      "value": "[]"
-     },
-     {
-      "name": "colWidths",
-      "type": "ColWidthsArray",
-      "value": "[]"
-     },
-     {
-      "name": "expandParameters",
-      "type": "ValuesArray",
-      "value": "[]"
+      "value": "['${p:test}','${p:periodFrom}','${p:periodTo}']"
      },
      {
       "name": "parameters",
@@ -80,66 +40,6 @@
       "value": "[]"
      },
      {
-      "name": "displayLength",
-      "type": "Integer",
-      "value": "10"
-     },
-     {
-      "name": "expandOnClick",
-      "type": "Boolean",
-      "value": "false"
-     },
-     {
-      "name": "filter",
-      "type": "Boolean",
-      "value": "true"
-     },
-     {
-      "name": "info",
-      "type": "Boolean",
-      "value": "false"
-     },
-     {
-      "name": "lengthChange",
-      "type": "Boolean",
-      "value": "false"
-     },
-     {
-      "name": "paginate",
-      "type": "Boolean",
-      "value": "true"
-     },
-     {
-      "name": "sort",
-      "type": "Boolean",
-      "value": "true"
-     },
-     {
-      "name": "colSearchable",
-      "type": "Array",
-      "value": "[]"
-     },
-     {
-      "name": "drawCallback",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "dataSource",
-      "type": "Datasource",
-      "value": "tests"
-     },
-     {
-      "name": "sDom",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "sortBy",
-      "type": "SortByArray",
-      "value": "[]"
-     },
-     {
       "name": "priority",
       "type": "Integer",
       "value": 5
@@ -150,29 +50,24 @@
       "value": ""
      },
      {
-      "name": "paginationType",
-      "type": "PaginationType",
-      "value": "simple_numbers"
+      "name": "componentName",
+      "type": "String",
+      "value": "logsComponent"
      },
      {
-      "name": "tableStyle",
-      "type": "TableStyle",
-      "value": ""
+      "name": "outputType",
+      "type": "String",
+      "value": "xls"
      },
      {
       "name": "htmlObject",
       "type": "HtmlObject",
-      "value": "testSelectorObj"
+      "value": "${h:exportXlsButtonObj}"
      },
      {
       "name": "executeAtStart",
       "type": "Boolean",
       "value": "true"
-     },
-     {
-      "name": "paginateServerside",
-      "type": "Boolean",
-      "value": "false"
      },
      {
       "name": "preExecution",
@@ -182,85 +77,40 @@
      {
       "name": "postExecution",
       "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "postFetch",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "preChange",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "postChange",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "extraOptions",
-      "type": "OptionArray",
-      "value": "[]"
+      "value": "function () {\n    $('#exportXlsButtonObj').children(\":first\").attr('class','btn btn-primary');\n} "
      },
      {
       "name": "tooltip",
       "type": "Html",
       "value": ""
-     },
-     {
-      "name": "clickAction",
-      "type": "JavaScript",
-      "value": "function (sel) {\n\n    var currentTestId = Dashboards.getParameterValue('testId');\n\n    if (currentTestId != sel.tableData[sel.rowIdx][0]) {\n\n        // Fade of the carousel, if not done.\n        if ($('#introCarousel').is(\":visible\")) {\n\n            // Stop the carousel.\n            var introCarouselIntervalId = Dashboards.getParameterValue('introCarouselIntervalId');\n            clearInterval(introCarouselIntervalId);\n\n            // Init the interval id.\n            Dashboards.setParameter('introCarouselIntervalId',null);\n\n            // Fade out the carousel.\n            $('#introCarousel').fadeOut(1000);\n            setTimeout(function () {\n                $('#panelObj').show();\n                updateTest(sel.tableData[sel.rowIdx]);\n            }, 1000);\n\n        }\n        else {\n            updateTest(sel.tableData[sel.rowIdx]);\n        }\n    }\n} "
      }
     ],
-    "type": "ComponentsTable",
-    "typeDesc": "table Component"
+    "type": "ComponentsexportButton",
+    "typeDesc": "Export Button Component"
    },
    {
-    "id": "500e7a5d-481d-86ee-d6af-0809b67d37d1",
+    "id": "5c1a08e4-60d5-e3e1-c21a-31c55cb11d5e",
     "parent": "OTHERCOMPONENTS",
     "properties": [
      {
       "name": "name",
       "type": "Id",
-      "value": "targetButtonComponent_JMXSamples"
+      "value": "exportCsvButtonComponent"
      },
      {
       "name": "label",
       "type": "String",
-      "value": "JMX Samples"
+      "value": "CSV"
      },
      {
       "name": "listeners",
       "type": "Listeners",
-      "value": "['${p:target}']"
+      "value": "['${p:test}','${p:periodFrom}','${p:periodTo}']"
      },
      {
-      "name": "actionParameters",
+      "name": "parameters",
       "type": "ValuesArray",
       "value": "[]"
-     },
-     {
-      "name": "expression",
-      "type": "JavaScript",
-      "value": "function() {\n\n    if (Dashboards.getParameterValue('${p:target}') != \"JMX Samples\") {\n        Dashboards.fireChange(\"${p:target}\",\"JMX Samples\"); \n    }\n\n} "
-     },
-     {
-      "name": "failureCallback",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "successCallback",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "Datasource",
-      "type": "Datasource",
-      "value": ""
      },
      {
       "name": "priority",
@@ -273,14 +123,19 @@
       "value": ""
      },
      {
-      "name": "buttonStyle",
-      "type": "TableStyle",
-      "value": ""
+      "name": "componentName",
+      "type": "String",
+      "value": "logsComponent"
+     },
+     {
+      "name": "outputType",
+      "type": "String",
+      "value": "csv"
      },
      {
       "name": "htmlObject",
       "type": "HtmlObject",
-      "value": "${h:targetSampleObj_1}"
+      "value": "${h:exportCsvButtonObj}"
      },
      {
       "name": "executeAtStart",
@@ -295,7 +150,7 @@
      {
       "name": "postExecution",
       "type": "JavaScript",
-      "value": "function() {\n\n    $(\"#\" + this.htmlObject).children(\":first\").attr('class','btn btn-default');\n    \n    if (Dashboards.getParameterValue('${p:target}') == \"JMX Samples\") {\n        $(\"#\" + this.htmlObject).children(\":first\").attr('class','btn btn-default active');\n    }\n\n} "
+      "value": "function () {\n    $('#exportCsvButtonObj').children(\":first\").attr('class','btn btn-primary');\n} "
      },
      {
       "name": "tooltip",
@@ -303,96 +158,8 @@
       "value": ""
      }
     ],
-    "type": "ComponentsbuttonComponent",
-    "typeDesc": "Button Component"
-   },
-   {
-    "id": "d869682f-a0dd-dfce-3c5e-8b4c388134cf",
-    "parent": "OTHERCOMPONENTS",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "targetButtonComponent_Samples"
-     },
-     {
-      "name": "label",
-      "type": "String",
-      "value": "Samples"
-     },
-     {
-      "name": "listeners",
-      "type": "Listeners",
-      "value": "['${p:target}']"
-     },
-     {
-      "name": "actionParameters",
-      "type": "ValuesArray",
-      "value": "[]"
-     },
-     {
-      "name": "expression",
-      "type": "JavaScript",
-      "value": "function() {\n\n    if (Dashboards.getParameterValue('${p:target}') != \"Samples\") {\n        Dashboards.fireChange(\"${p:target}\",\"Samples\"); \n    }\n\n} "
-     },
-     {
-      "name": "failureCallback",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "successCallback",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "Datasource",
-      "type": "Datasource",
-      "value": ""
-     },
-     {
-      "name": "priority",
-      "type": "Integer",
-      "value": 5
-     },
-     {
-      "name": "refreshPeriod",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "buttonStyle",
-      "type": "TableStyle",
-      "value": ""
-     },
-     {
-      "name": "htmlObject",
-      "type": "HtmlObject",
-      "value": "${h:targetSampleObj_2}"
-     },
-     {
-      "name": "executeAtStart",
-      "type": "Boolean",
-      "value": "true"
-     },
-     {
-      "name": "preExecution",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "postExecution",
-      "type": "JavaScript",
-      "value": "function() {\n\n    $(\"#\" + this.htmlObject).children(\":first\").attr('class','btn btn-default');\n    \n    if (Dashboards.getParameterValue('${p:target}') == \"Samples\") {\n        $(\"#\" + this.htmlObject).children(\":first\").attr('class','btn btn-default active');\n    }\n\n} "
-     },
-     {
-      "name": "tooltip",
-      "type": "Html",
-      "value": ""
-     }
-    ],
-    "type": "ComponentsbuttonComponent",
-    "typeDesc": "Button Component"
+    "type": "ComponentsexportButton",
+    "typeDesc": "Export Button Component"
    },
    {
     "id": "GENERIC",
@@ -409,84 +176,18 @@
     "typeDesc": "<i>Group</i>"
    },
    {
-    "id": "fc94966c-cc15-3b88-9eeb-d232e21520f9",
-    "parent": "GENERIC",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "introCarouselIntervalId"
-     },
-     {
-      "name": "propertyValue",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "parameterViewRole",
-      "type": "parameterViewRoleCustom",
-      "value": "unused"
-     },
-     {
-      "name": "bookmarkable",
-      "type": "Boolean",
-      "value": "false"
-     },
-     {
-      "name": "public",
-      "type": "Boolean",
-      "value": "false"
-     }
-    ],
-    "type": "ComponentsParameter",
-    "typeDesc": "Simple parameter"
-   },
-   {
-    "id": "cd5e7bbc-7655-d61f-a404-f482c29e9a9a",
-    "parent": "GENERIC",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "testId"
-     },
-     {
-      "name": "propertyValue",
-      "type": "String",
-      "value": "1"
-     },
-     {
-      "name": "parameterViewRole",
-      "type": "parameterViewRoleCustom",
-      "value": "unused"
-     },
-     {
-      "name": "bookmarkable",
-      "type": "Boolean",
-      "value": "false"
-     },
-     {
-      "name": "public",
-      "type": "Boolean",
-      "value": "false"
-     }
-    ],
-    "type": "ComponentsParameter",
-    "typeDesc": "Simple parameter"
-   },
-   {
     "id": "0e511467-c34f-7efd-2116-e2b9efe055e5",
     "parent": "GENERIC",
     "properties": [
      {
       "name": "name",
       "type": "Id",
-      "value": "testDescription"
+      "value": "test"
      },
      {
       "name": "propertyValue",
       "type": "String",
-      "value": "Unknown"
+      "value": ""
      },
      {
       "name": "parameterViewRole",
@@ -564,37 +265,229 @@
     "typeDesc": "Date Parameter"
    },
    {
-    "id": "54d3b7ac-df3d-5545-1f65-e29d9bc3a0bf",
-    "parent": "GENERIC",
+    "id": "SELECTORS",
+    "name": "Selects",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "type": "Label",
+      "value": "Selects"
+     }
+    ],
+    "type": "Label",
+    "typeDesc": "<i>Group</i>"
+   },
+   {
+    "id": "cccb3d1d-2dbc-2d8e-96e9-4866c4d360d7",
+    "parent": "SELECTORS",
     "properties": [
      {
       "name": "name",
       "type": "Id",
-      "value": "target"
+      "value": "dateRangeComponent"
      },
      {
-      "name": "propertyValue",
+      "name": "listeners",
+      "type": "Listeners",
+      "value": "['${p:periodFrom}','${p:periodTo}']"
+     },
+     {
+      "name": "earliestDate",
       "type": "String",
-      "value": "Samples"
+      "value": "-1years"
      },
      {
-      "name": "parameterViewRole",
-      "type": "parameterViewRoleCustom",
-      "value": "unused"
+      "name": "latestDate",
+      "type": "String",
+      "value": "+1years"
      },
      {
-      "name": "bookmarkable",
+      "name": "leftOffset",
+      "type": "Integer",
+      "value": 0
+     },
+     {
+      "name": "topOffset",
+      "type": "Integer",
+      "value": 15
+     },
+     {
+      "name": "parameter",
+      "type": "ArrayParameter",
+      "value": "['${p:periodFrom}','${p:periodTo}']"
+     },
+     {
+      "name": "singleInput",
       "type": "Boolean",
-      "value": "false"
+      "value": "true"
      },
      {
-      "name": "public",
+      "name": "inputSeparator",
+      "type": "String",
+      "value": ">"
+     },
+     {
+      "name": "canClickOutsidePopup",
       "type": "Boolean",
-      "value": "false"
+      "value": false
+     },
+     {
+      "name": "priority",
+      "type": "Integer",
+      "value": 5
+     },
+     {
+      "name": "htmlObject",
+      "type": "HtmlObject",
+      "value": "${h:periodFilterObj}"
+     },
+     {
+      "name": "onCloseEvent",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "onOpenEvent",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "executeAtStart",
+      "type": "Boolean",
+      "value": "true"
+     },
+     {
+      "name": "preExecution",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "postExecution",
+      "type": "JavaScript",
+      "value": "function f() {\n    $(\"#\" + this.htmlObject).children(\":first\").attr('class','form-control');\n    $(\"#\" + this.htmlObject).children(\":first\").removeAttr('style');\n} "
+     },
+     {
+      "name": "preChange",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "postChange",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "tooltip",
+      "type": "Html",
+      "value": ""
      }
     ],
-    "type": "ComponentsParameter",
-    "typeDesc": "Simple parameter"
+    "type": "ComponentsDateRangeInput",
+    "typeDesc": "Date range input Component"
+   },
+   {
+    "id": "bdf921a6-0e10-88b0-63ef-5c21c0ade030",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "testComponent"
+     },
+     {
+      "name": "parameter",
+      "type": "Parameter",
+      "value": "${p:test}"
+     },
+     {
+      "name": "listeners",
+      "type": "Listeners",
+      "value": "['${p:test}']"
+     },
+     {
+      "name": "parameters",
+      "type": "ValuesArray",
+      "value": "[]"
+     },
+     {
+      "name": "externalPlugin",
+      "type": "externalPluginCustom",
+      "value": ""
+     },
+     {
+      "name": "valueAsId",
+      "type": "Boolean",
+      "value": "true"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "tests"
+     },
+     {
+      "name": "valuesArray",
+      "type": "ValuesArray",
+      "value": "[]"
+     },
+     {
+      "name": "priority",
+      "type": "Integer",
+      "value": 5
+     },
+     {
+      "name": "refreshPeriod",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "htmlObject",
+      "type": "HtmlObject",
+      "value": "${h:testFilterObj}"
+     },
+     {
+      "name": "executeAtStart",
+      "type": "Boolean",
+      "value": "true"
+     },
+     {
+      "name": "preExecution",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "postExecution",
+      "type": "JavaScript",
+      "value": "function () {\n    $('#testFilterObj').children(\":first\").attr('class','form-control');\n} "
+     },
+     {
+      "name": "postFetch",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "preChange",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "postChange",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "extraOptions",
+      "type": "OptionArray",
+      "value": "[]"
+     },
+     {
+      "name": "tooltip",
+      "type": "Html",
+      "value": ""
+     }
+    ],
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component"
    },
    {
     "id": "CHARTS",
@@ -611,39 +504,39 @@
     "typeDesc": "<i>Group</i>"
    },
    {
-    "id": "0aaa1678-82a9-1e92-ce12-8f099d828abb",
+    "id": "2a0c7e5c-0872-3359-53e1-60a60bc6daa8",
     "meta_cdwSupport": "true",
     "parent": "CHARTS",
     "properties": [
      {
       "name": "name",
       "type": "Id",
-      "value": "samplesPerPeriodComponent"
+      "value": "logsComponent"
      },
      {
       "name": "title",
       "type": "String",
-      "value": ""
+      "value": "Heap memory"
      },
      {
       "name": "listeners",
       "type": "Listeners",
-      "value": "['${p:testDescription}','${p:periodFrom}','${p:periodTo}']"
+      "value": "['${p:test}','${p:periodFrom}','${p:periodTo}']"
      },
      {
       "name": "parameters",
       "type": "ValuesArray",
-      "value": "[[\"testIdParam\",\"testId\"],[\"periodFromParam\",\"periodFrom\"],[\"periodToParam\",\"periodTo\"]]"
+      "value": "[[\"testParam\",\"test\"],[\"periodFromParam\",\"periodFrom\"],[\"periodToParam\",\"periodTo\"]]"
      },
      {
       "name": "dataSource",
       "type": "Datasource",
-      "value": "samplesPerPeriod"
+      "value": "logs"
      },
      {
       "name": "height",
       "type": "Integer",
-      "value": ""
+      "value": "500"
      },
      {
       "name": "priority",
@@ -668,7 +561,7 @@
      {
       "name": "htmlObject",
       "type": "HtmlObject",
-      "value": "${h:chartObj}"
+      "value": "${h:logsObj}"
      },
      {
       "name": "executeAtStart",
@@ -683,7 +576,7 @@
      {
       "name": "postExecution",
       "type": "JavaScript",
-      "value": "function () {\n\n    if ($('#introCarousel').is(\":visible\")) {\n        initCarousel();\n    }\n\n} "
+      "value": ""
      },
      {
       "name": "postFetch",
@@ -716,24 +609,9 @@
       "value": true
      },
      {
-      "name": "barOrthoSizeMin",
-      "type": "Float",
-      "value": 1.5
-     },
-     {
-      "name": "barSizeMax",
-      "type": "Float",
-      "value": 2000
-     },
-     {
-      "name": "barSizeRatio",
-      "type": "Float",
-      "value": 0.9
-     },
-     {
-      "name": "barStackedMargin",
-      "type": "Float",
-      "value": 0
+      "name": "areasVisible",
+      "type": "Boolean",
+      "value": "false"
      },
      {
       "name": "baseAxisBandSize",
@@ -771,8 +649,33 @@
       "value": ""
      },
      {
+      "name": "baseAxisDesiredTickCount",
+      "type": "Float",
+      "value": ""
+     },
+     {
+      "name": "baseAxisDomainRoundMode",
+      "type": "cccBaseAxisDomainRoundModeCustom",
+      "value": "tick"
+     },
+     {
+      "name": "baseAxisDomainScope",
+      "type": "cccBaseAxisDomainScopeCustom",
+      "value": "global"
+     },
+     {
       "name": "baseAxisDoubleClickAction",
       "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "baseAxisFixedMax",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "baseAxisFixedMin",
+      "type": "String",
       "value": ""
      },
      {
@@ -791,9 +694,19 @@
       "value": ""
      },
      {
+      "name": "baseAxisMinorTicks",
+      "type": "Boolean",
+      "value": true
+     },
+     {
       "name": "baseAxisOffset",
       "type": "Float",
       "value": 0
+     },
+     {
+      "name": "baseAxisOriginIsZero",
+      "type": "Boolean",
+      "value": ""
      },
      {
       "name": "baseAxisOverlappedLabelsMode",
@@ -816,6 +729,16 @@
       "value": ""
      },
      {
+      "name": "baseAxisTickExponentMax",
+      "type": "Float",
+      "value": ""
+     },
+     {
+      "name": "baseAxisTickExponentMin",
+      "type": "Float",
+      "value": ""
+     },
+     {
       "name": "baseAxisTickFormatter",
       "type": "JavaScript",
       "value": ""
@@ -824,6 +747,21 @@
       "name": "baseAxisTicks",
       "type": "Boolean",
       "value": true
+     },
+     {
+      "name": "baseAxisTickUnit",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "baseAxisTickUnitMax",
+      "type": "String",
+      "value": "Infinity"
+     },
+     {
+      "name": "baseAxisTickUnitMin",
+      "type": "String",
+      "value": "0"
      },
      {
       "name": "baseAxisTitle",
@@ -876,6 +814,11 @@
       "value": true
      },
      {
+      "name": "baseAxisZeroLine",
+      "type": "Boolean",
+      "value": true
+     },
+     {
       "name": "categoryRole",
       "type": "String",
       "value": ""
@@ -888,7 +831,7 @@
      {
       "name": "clickable",
       "type": "Boolean",
-      "value": "false"
+      "value": false
      },
      {
       "name": "clickAction",
@@ -968,7 +911,7 @@
      {
       "name": "crosstabMode",
       "type": "Boolean",
-      "value": "true"
+      "value": "false"
      },
      {
       "name": "ctrlSelectMode",
@@ -1006,6 +949,11 @@
       "value": ""
      },
      {
+      "name": "dotsVisible",
+      "type": "Boolean",
+      "value": "true"
+     },
+     {
       "name": "doubleClickAction",
       "type": "JavaScript",
       "value": ""
@@ -1028,7 +976,7 @@
      {
       "name": "interactive",
       "type": "Boolean",
-      "value": "true"
+      "value": ""
      },
      {
       "name": "isMultiValued",
@@ -1481,19 +1429,9 @@
       "value": true
      },
      {
-      "name": "overflowMarkersVisible",
-      "type": "Boolean",
-      "value": true
-     },
-     {
       "name": "paddings",
       "type": "String",
       "value": "0"
-     },
-     {
-      "name": "panelSizeRatio",
-      "type": "Float",
-      "value": ""
      },
      {
       "name": "percentValueFormat",
@@ -1608,12 +1546,12 @@
      {
       "name": "selectable",
       "type": "Boolean",
-      "value": "true"
+      "value": false
      },
      {
       "name": "selectionChangedAction",
       "type": "JavaScript",
-      "value": "function filter(selections) {\n\n    Date.prototype.yyyymmdd = function() {\n\n        var yyyy = this.getFullYear().toString();\n        var mm = (this.getMonth()+1).toString();\n\n        // getMonth() is zero-based\n        var dd  = this.getDate().toString();\n        return yyyy + \"-\" + (mm[1]?mm:\"0\"+mm[0]) + \"-\" + (dd[1]?dd:\"0\"+dd[0]); // padding.\n    };\n\n    var url = \"/pentaho/plugin/crystal/api\";\n    if (Dashboards.getParameterValue(\"${p:target}\") == \"Samples\") {\n        url += \"/sampleDashboard\";\n    }\n    else if (Dashboards.getParameterValue(\"${p:target}\") == \"JMX Samples\") {\n        url += \"/jmxDashboard\";\n    }\n\n    var bookmarkState = {\n        \"impl\" : \"client\",\n        \"params\" : {\n            \"test\" : Dashboards.getParameterValue(\"${p:testDescription}\"),\n            \"periodFrom\" : selections[0].atoms.category.value,\n            \"periodTo\" : selections[selections.length-1].atoms.category.value\n        }\n    };\n\n    window.open(url + \"?bookmarkState=\" + encodeURI(JSON.stringify(bookmarkState)), \"_self\");\n} "
+      "value": ""
      },
      {
       "name": "seriesInRows",
@@ -1696,19 +1634,14 @@
       "value": ""
      },
      {
-      "name": "stacked",
+      "name": "timeSeries",
       "type": "Boolean",
       "value": "true"
      },
      {
-      "name": "timeSeries",
-      "type": "Boolean",
-      "value": false
-     },
-     {
       "name": "timeSeriesFormat",
       "type": "String",
-      "value": "%Y-%m-%d"
+      "value": "%Y-%m-%d %H:%M:%S"
      },
      {
       "name": "titleAlign",
@@ -1891,218 +1824,13 @@
       "value": ""
      },
      {
-      "name": "valuesNormalized",
-      "type": "Boolean",
-      "value": false
-     },
-     {
-      "name": "valuesOptimizeLegibility",
-      "type": "Boolean",
-      "value": ""
-     },
-     {
-      "name": "valuesOverflow",
-      "type": "cccValuesOverflowCustom",
-      "value": "hide"
-     },
-     {
       "name": "valuesVisible",
       "type": "Boolean",
-      "value": "true"
+      "value": "false"
      }
     ],
-    "type": "ComponentscccBarChart",
-    "typeDesc": "CCC Bar Chart"
-   },
-   {
-    "id": "SCRIPT",
-    "name": "Scripts",
-    "parent": "UnIqEiD",
-    "properties": [
-     {
-      "name": "Group",
-      "type": "Label",
-      "value": "Scripts"
-     }
-    ],
-    "type": "Label",
-    "typeDesc": "<i>Group</i>"
-   },
-   {
-    "id": "b1766328-524f-3bd9-9cb6-2b5f18a43140",
-    "parent": "SCRIPT",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "initCarousel"
-     },
-     {
-      "name": "javaScript",
-      "type": "JavaScript",
-      "value": "/**\n * Init carousel for the first setup.\n * Author: Francesco Corti\n * Last modification date: 2016-01-02\n */\nfunction initCarousel () {\n\n    var myImages = new Array(\"equal1.jpg\", \"equal2.jpg\", \"equal3.jpg\", \"equal4.jpg\");\n    var random = myImages[Math.floor(Math.random() * myImages.length)];\n\n    // Hide chart panel.\n    $('#panelObj').hide();\n\n    // Set the carousel background.\n    random = 'url(/pentaho/api/repos/crystal/static/custom/img/' + random + ')';\n    $('#introCarousel').css('background-image', random);\n\n    // Fade the carousel background.\n    var newIntroCarouselIntervalId = setInterval(function() {\n        setCarouselImage();\n    }, 10000);\n\n    Dashboards.setParameter('introCarouselIntervalId', newIntroCarouselIntervalId);\n\n} "
-     }
-    ],
-    "type": "ComponentsFunction",
-    "typeDesc": "JavaScript function"
-   },
-   {
-    "id": "410ebc37-21b9-8c0e-c3a2-cef1c746511e",
-    "parent": "SCRIPT",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "setCarouselImage"
-     },
-     {
-      "name": "javaScript",
-      "type": "JavaScript",
-      "value": "/**\n * Set the carousel image.\n * Author: Francesco Corti\n * Last modification date: 2016-01-02\n */\nfunction setCarouselImage () {\n\n    var myImages = new Array(\"equal1.jpg\", \"equal2.jpg\", \"equal3.jpg\", \"equal4.jpg\");\n    var random = myImages[Math.floor(Math.random() * myImages.length)];\n\n    random = 'url(/pentaho/api/repos/crystal/static/custom/img/' + random + ')';\n\n    $('#introCarousel').fadeOut(1000);\n\n    setTimeout(function () {\n        $('#introCarousel').css('background-image', random);\n        $('#introCarousel').fadeIn(1000);\n    }, 1000);\n} "
-     }
-    ],
-    "type": "ComponentsFunction",
-    "typeDesc": "JavaScript function"
-   },
-   {
-    "id": "a5ec6124-e9ad-d27c-70dc-8f5acd7a7296",
-    "parent": "SCRIPT",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "updateTest"
-     },
-     {
-      "name": "javaScript",
-      "type": "JavaScript",
-      "value": "/**\n * Used by the click action of the table component.\n * Author: Francesco Corti\n * Last modification date: 2016-01-02\n */\nfunction updateTest (sel) {\n\n    var currentTestId = Dashboards.getParameterValue('testId');\n\n    if (currentTestId != sel[0]) {\n\n        Dashboards.fireChange('testId', sel[0]);\n        Dashboards.setParameter('testDescription',sel[1]);\n\n        $('#titleObj').html(\"<center><h3>\" + sel[1] + \"</h3></center>\");\n    }\n} "
-     }
-    ],
-    "type": "ComponentsFunction",
-    "typeDesc": "JavaScript function"
-   },
-   {
-    "id": "SELECTORS",
-    "name": "Selects",
-    "parent": "UnIqEiD",
-    "properties": [
-     {
-      "name": "Group",
-      "type": "Label",
-      "value": "Selects"
-     }
-    ],
-    "type": "Label",
-    "typeDesc": "<i>Group</i>"
-   },
-   {
-    "id": "cccb3d1d-2dbc-2d8e-96e9-4866c4d360d7",
-    "parent": "SELECTORS",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "dateRangeComponent"
-     },
-     {
-      "name": "listeners",
-      "type": "Listeners",
-      "value": "['${p:periodFrom}','${p:periodTo}']"
-     },
-     {
-      "name": "earliestDate",
-      "type": "String",
-      "value": "-1years"
-     },
-     {
-      "name": "latestDate",
-      "type": "String",
-      "value": "+1years"
-     },
-     {
-      "name": "leftOffset",
-      "type": "Integer",
-      "value": 0
-     },
-     {
-      "name": "topOffset",
-      "type": "Integer",
-      "value": 15
-     },
-     {
-      "name": "parameter",
-      "type": "ArrayParameter",
-      "value": "['${p:periodFrom}','${p:periodTo}']"
-     },
-     {
-      "name": "singleInput",
-      "type": "Boolean",
-      "value": "true"
-     },
-     {
-      "name": "inputSeparator",
-      "type": "String",
-      "value": ">"
-     },
-     {
-      "name": "canClickOutsidePopup",
-      "type": "Boolean",
-      "value": false
-     },
-     {
-      "name": "priority",
-      "type": "Integer",
-      "value": 5
-     },
-     {
-      "name": "htmlObject",
-      "type": "HtmlObject",
-      "value": "periodObj"
-     },
-     {
-      "name": "onCloseEvent",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "onOpenEvent",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "executeAtStart",
-      "type": "Boolean",
-      "value": "true"
-     },
-     {
-      "name": "preExecution",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "postExecution",
-      "type": "JavaScript",
-      "value": "function f() {\n    $(\"#\" + this.htmlObject).children(\":first\").attr('class','form-control');\n    $(\"#\" + this.htmlObject).children(\":first\").removeAttr('style');\n} "
-     },
-     {
-      "name": "preChange",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "postChange",
-      "type": "JavaScript",
-      "value": ""
-     },
-     {
-      "name": "tooltip",
-      "type": "Html",
-      "value": ""
-     }
-    ],
-    "type": "ComponentsDateRangeInput",
-    "typeDesc": "Date range input Component"
+    "type": "ComponentscccLineChart",
+    "typeDesc": "CCC Line Chart"
    }
   ]
  },
@@ -2162,7 +1890,7 @@
      {
       "name": "query",
       "type": "SqlQuery",
-      "value": "select\n id,\n description\nfrom\n crystal.dm_dim_tests\nwhere\n src_id != 'UNKNOWN'"
+      "value": "select\n description\nfrom\n crystal.dm_dim_tests\nwhere\n src_id != 'UNKNOWN'\norder by\n description asc"
      },
      {
       "name": "parameters",
@@ -2218,7 +1946,7 @@
      {
       "name": "name",
       "type": "Id",
-      "value": "samplesPerPeriod"
+      "value": "logs"
      },
      {
       "name": "driver",
@@ -2248,12 +1976,12 @@
      {
       "name": "query",
       "type": "SqlQuery",
-      "value": "SELECT\n D.ID \"Day\",\n COUNT(*) \"# Samples\",\n (COUNT(*) * 2) \"# JMX samples\"\nFROM \n CRYSTAL.DM_FACT_LOGS L\n JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID\n JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID\n JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID\n JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID\nWHERE\n T.ID = ${testIdParam}\n AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')\nGROUP BY\n D.ID\nORDER BY\n D.ID ASC"
+      "value": "SELECT\n L.LABEL LABEL,\n PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') DATE_TIME,\n SUM(L.RESPONSE_VALUE) \"Heap Memory\"\nFROM \n CRYSTAL.DM_FACT_LOGS L\n JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID\n JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID\n JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID\n JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID\nWHERE\n Ty.DESCRIPTION = 'JMX'\n AND UPPER(L.LABEL) IN ('HEAP MEMORY MAX', 'HEAP MEMORY USED', 'HEAP MEMORY COMMITTED')\n AND T.DESCRIPTION = ${testParam}\n AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')\nGROUP BY\n L.LABEL,\n PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss')\nORDER BY\n L.LABEL ASC,\n PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') ASC"
      },
      {
       "name": "parameters",
       "type": "CdaParameters",
-      "value": "[[\"testIdParam\",\"1\",\"Integer\",\"\"],[\"periodFromParam\",\"2001-01-01\",\"String\",\"\"],[\"periodToParam\",\"2001-01-01\",\"String\",\"\"]]"
+      "value": "[[\"periodFromParam\",\"2001-01-01\",\"String\",\"\"],[\"periodToParam\",\"2001-01-01\",\"String\",\"\"],[\"testParam\",\"Unknown\",\"String\",\"\"]]"
      },
      {
       "name": "cdacalculatedcolumns",
@@ -2296,7 +2024,7 @@
    }
   ]
  },
- "filename": "/system/crystal/dashboards/main.cdfde",
+ "filename": "/system/crystal/dashboards/jmxHeapMemory.cdfde",
  "layout": {
   "rows": [
    {
@@ -2323,7 +2051,7 @@
     "typeDesc": "Resource"
    },
    {
-    "id": "1b9f7af0-6d53-15fb-f642-12158b57a76d",
+    "id": "9832a3c4-69ee-aa0d-49fc-95ce0f481da5",
     "parent": "UnIqEiD",
     "properties": [
      {
@@ -2696,7 +2424,262 @@
      {
       "name": "name",
       "type": "Id",
-      "value": "testSelectorObj"
+      "value": "testFilterLabelObj"
+     },
+     {
+      "name": "bootstrapExtraSmall",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "bootstrapSmall",
+      "type": "String",
+      "value": "1"
+     },
+     {
+      "name": "bootstrapMedium",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "bootstrapLarge",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "bootstrapCssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": "right"
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutBootstrapColumn",
+    "typeDesc": "Column"
+   },
+   {
+    "id": "5541528e-2fe3-93c5-6bf5-d7939520b362",
+    "parent": "b5c0e36f-43e4-a20e-ecfe-c0bab1345042",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": ""
+     },
+     {
+      "name": "html",
+      "type": "Html",
+      "value": "<label for=\"testFilterObj\" class=\"control-label\" style=\"margin: 5px; 0px; 0px; 0px;\">Test:</label> "
+     },
+     {
+      "name": "fontSize",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "color",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutHtml",
+    "typeDesc": "Html"
+   },
+   {
+    "id": "ba7f7c92-6855-be3c-0828-28edcde5d53d",
+    "parent": "9ae392b6-d83a-4d11-f0f5-c88f79346e55",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "testFilterObj"
+     },
+     {
+      "name": "bootstrapExtraSmall",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "bootstrapSmall",
+      "type": "String",
+      "value": "5"
+     },
+     {
+      "name": "bootstrapMedium",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "bootstrapLarge",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "bootstrapCssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutBootstrapColumn",
+    "typeDesc": "Column"
+   },
+   {
+    "id": "488f15d5-1ca7-5bf5-fdd2-77f590d00180",
+    "parent": "9ae392b6-d83a-4d11-f0f5-c88f79346e55",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "periodFilterLabelObj"
+     },
+     {
+      "name": "bootstrapExtraSmall",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "bootstrapSmall",
+      "type": "String",
+      "value": "1"
+     },
+     {
+      "name": "bootstrapMedium",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "bootstrapLarge",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "bootstrapCssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": "right"
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutBootstrapColumn",
+    "typeDesc": "Column"
+   },
+   {
+    "id": "b0d45977-fc00-1601-d97f-861d96d39e29",
+    "parent": "488f15d5-1ca7-5bf5-fdd2-77f590d00180",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": ""
+     },
+     {
+      "name": "html",
+      "type": "Html",
+      "value": "<label for=\"periodFilterObj\" class=\"control-label\" style=\"margin: 5px; 0px; 0px; 0px;\">Period:</label> "
+     },
+     {
+      "name": "fontSize",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "color",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutHtml",
+    "typeDesc": "Html"
+   },
+   {
+    "id": "84d617eb-d8fd-6c40-44af-b92184b9e0cb",
+    "parent": "9ae392b6-d83a-4d11-f0f5-c88f79346e55",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "periodFilterObj"
      },
      {
       "name": "bootstrapExtraSmall",
@@ -2753,13 +2736,13 @@
     "typeDesc": "Column"
    },
    {
-    "id": "053dbe9f-163c-b45f-bf77-db7bdc6a71fd",
+    "id": "b5973def-63c1-1d01-a64a-5da0574a96fd",
     "parent": "9ae392b6-d83a-4d11-f0f5-c88f79346e55",
     "properties": [
      {
       "name": "name",
       "type": "Id",
-      "value": "testsActivitiesObj"
+      "value": "exportCsvButtonObj"
      },
      {
       "name": "bootstrapExtraSmall",
@@ -2768,604 +2751,71 @@
      },
      {
       "name": "bootstrapSmall",
-      "type": "String",
-      "value": "9"
-     },
-     {
-      "name": "bootstrapMedium",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapLarge",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapCssClass",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutBootstrapColumn",
-    "typeDesc": "Column"
-   },
-   {
-    "id": "4d39a908-0356-ff09-0e65-67b2d75e368f",
-    "parent": "053dbe9f-163c-b45f-bf77-db7bdc6a71fd",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "panelObj"
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": "450"
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutRow",
-    "typeDesc": "Row"
-   },
-   {
-    "id": "4ee9c555-866f-99f2-b497-1aa09443537a",
-    "parent": "4d39a908-0356-ff09-0e65-67b2d75e368f",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": ""
-     },
-     {
-      "name": "bootstrapExtraSmall",
-      "type": "String",
-      "value": "12"
-     },
-     {
-      "name": "bootstrapSmall",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapMedium",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapLarge",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapCssClass",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutBootstrapColumn",
-    "typeDesc": "Column"
-   },
-   {
-    "id": "67aa655d-0596-cc99-c914-2e979bdde443",
-    "parent": "4ee9c555-866f-99f2-b497-1aa09443537a",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "titleObj"
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutRow",
-    "typeDesc": "Row"
-   },
-   {
-    "id": "3a8535d0-6e89-790b-5259-f7564feed1fb",
-    "parent": "4ee9c555-866f-99f2-b497-1aa09443537a",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "chartObj"
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": "400"
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutRow",
-    "typeDesc": "Row"
-   },
-   {
-    "id": "e299cab4-d1e0-b463-7f48-067a0d8cd83c",
-    "parent": "4ee9c555-866f-99f2-b497-1aa09443537a",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "filterObj"
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutRow",
-    "typeDesc": "Row"
-   },
-   {
-    "id": "7a748857-72f6-89d1-5d65-3b89cef9262a",
-    "parent": "e299cab4-d1e0-b463-7f48-067a0d8cd83c",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": ""
-     },
-     {
-      "name": "bootstrapExtraSmall",
-      "type": "String",
-      "value": "2"
-     },
-     {
-      "name": "bootstrapSmall",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapMedium",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapLarge",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapCssClass",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": "right"
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutBootstrapColumn",
-    "typeDesc": "Column"
-   },
-   {
-    "id": "679fee89-1147-3882-d25d-aff6edeeafba",
-    "parent": "7a748857-72f6-89d1-5d65-3b89cef9262a",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": ""
-     },
-     {
-      "name": "html",
-      "type": "Html",
-      "value": "<label for=\"periodObj\" class=\"control-label\" style=\"margin: 5px; 0px; 0px; 0px;\">Period:</label> "
-     },
-     {
-      "name": "fontSize",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "color",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutHtml",
-    "typeDesc": "Html"
-   },
-   {
-    "id": "6b15932f-ae26-5de0-5ede-43959d35ee93",
-    "parent": "e299cab4-d1e0-b463-7f48-067a0d8cd83c",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "periodObj"
-     },
-     {
-      "name": "bootstrapExtraSmall",
-      "type": "String",
-      "value": "4"
-     },
-     {
-      "name": "bootstrapSmall",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapMedium",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapLarge",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapCssClass",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": "center"
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutBootstrapColumn",
-    "typeDesc": "Column"
-   },
-   {
-    "id": "32733c27-82ab-321e-4f9e-9030e07c4f06",
-    "parent": "e299cab4-d1e0-b463-7f48-067a0d8cd83c",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": ""
-     },
-     {
-      "name": "bootstrapExtraSmall",
-      "type": "String",
-      "value": "2"
-     },
-     {
-      "name": "bootstrapSmall",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapMedium",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapLarge",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapCssClass",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": "right"
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutBootstrapColumn",
-    "typeDesc": "Column"
-   },
-   {
-    "id": "d6812ed8-24e4-c6ee-4101-a4e1cc73dddc",
-    "parent": "32733c27-82ab-321e-4f9e-9030e07c4f06",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": ""
-     },
-     {
-      "name": "html",
-      "type": "Html",
-      "value": "<label for=\"targetSamplesObj\" class=\"control-label\" style=\"margin: 5px; 0px; 0px; 0px;\">Target:</label> "
-     },
-     {
-      "name": "fontSize",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "color",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutHtml",
-    "typeDesc": "Html"
-   },
-   {
-    "id": "3ecdd3d2-2726-0e27-0221-2a8aded18040",
-    "parent": "e299cab4-d1e0-b463-7f48-067a0d8cd83c",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "targetSampleObj_1"
-     },
-     {
-      "name": "bootstrapExtraSmall",
-      "type": "String",
-      "value": "2"
-     },
-     {
-      "name": "bootstrapSmall",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapMedium",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapLarge",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "bootstrapCssClass",
-      "type": "String",
-      "value": ""
-     },
-     {
-      "name": "height",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "backgroundColor",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "roundCorners",
-      "type": "RoundCorners",
-      "value": ""
-     },
-     {
-      "name": "textAlign",
-      "type": "TextAlign",
-      "value": "left"
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutBootstrapColumn",
-    "typeDesc": "Column"
-   },
-   {
-    "id": "34f9128b-2e7f-d9df-06bf-0580233dbe86",
-    "parent": "e299cab4-d1e0-b463-7f48-067a0d8cd83c",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "targetSampleObj_2"
-     },
-     {
-      "name": "bootstrapExtraSmall",
       "type": "String",
       "value": "1"
      },
      {
-      "name": "bootstrapSmall",
+      "name": "bootstrapMedium",
       "type": "String",
       "value": ""
+     },
+     {
+      "name": "bootstrapLarge",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "bootstrapCssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": "right"
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutBootstrapColumn",
+    "typeDesc": "Column"
+   },
+   {
+    "id": "3a7f08d8-985b-f03e-b8c4-bab939d41f0b",
+    "parent": "9ae392b6-d83a-4d11-f0f5-c88f79346e55",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "exportXlsButtonObj"
+     },
+     {
+      "name": "bootstrapExtraSmall",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "bootstrapSmall",
+      "type": "String",
+      "value": "1"
      },
      {
       "name": "bootstrapMedium",
@@ -3400,7 +2850,7 @@
      {
       "name": "textAlign",
       "type": "TextAlign",
-      "value": "left"
+      "value": "right"
      },
      {
       "name": "cssClass",
@@ -3412,40 +2862,7 @@
     "typeDesc": "Column"
    },
    {
-    "id": "f1f94cc4-916a-1a93-a565-df47e8918e5f",
-    "parent": "053dbe9f-163c-b45f-bf77-db7bdc6a71fd",
-    "properties": [
-     {
-      "name": "name",
-      "type": "Id",
-      "value": "CarouselObj"
-     },
-     {
-      "name": "html",
-      "type": "Html",
-      "value": "<div id=\"introCarousel\" class=\"jumbotron\">\n    <img style=\"float: right;\" src=\"/pentaho/api/repos/crystal/static/custom/img/cc.png\" width=\"25px\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Alan O'Rourke Creative Commons\" />\n    <img style=\"float: right;\" src=\"/pentaho/api/repos/crystal/static/custom/img/help.png\" width=\"25px\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Click on a test to start analysing\" />\n</div> "
-     },
-     {
-      "name": "fontSize",
-      "type": "Integer",
-      "value": ""
-     },
-     {
-      "name": "color",
-      "type": "Color",
-      "value": ""
-     },
-     {
-      "name": "cssClass",
-      "type": "String",
-      "value": ""
-     }
-    ],
-    "type": "LayoutHtml",
-    "typeDesc": "Html"
-   },
-   {
-    "id": "20aa9876-2a7f-5c0f-dbea-b8dc360b7b55",
+    "id": "9a31f575-ccfd-4d53-3d83-78bc7be67fa5",
     "parent": "UnIqEiD",
     "properties": [
      {
@@ -3457,6 +2874,44 @@
       "name": "height",
       "type": "Integer",
       "value": "20"
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutRow",
+    "typeDesc": "Row"
+   },
+   {
+    "id": "a6d7eb99-2bce-c2b6-d9df-cefe9da11386",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "logsObj"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
      },
      {
       "name": "backgroundColor",
@@ -3617,6 +3072,6 @@
     "typeDesc": "Html"
    }
   ],
-  "title": "main"
+  "title": "jmxHeapMemory"
  }
 }

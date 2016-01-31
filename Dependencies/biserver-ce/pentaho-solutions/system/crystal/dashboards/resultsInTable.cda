@@ -34,33 +34,31 @@ order by
       <Parameter default="2001-01-01" name="periodToParam" type="String"/>
       <Parameter default="Unknown" name="testParam" type="String"/>
     </Parameters>
-    <Query><![CDATA[select
- ty.description as type,
- t.description test_name,
- concat(formatdatetime(f.day_id,'yyyy-MM-dd'), 'T', m.description, ':', concat(substr('00', 0, (2 - length(f.second))),f.second), '.', concat(substr('000', 0, (3 - length(f.millisecond))),f.millisecond)) start_time,
- f.threadname thread_name,
- f.label,
- f.elapsed,
- f.success,
- f.bytes,
- f.latency,
- f.connect,
- f.idletime idle
-from
- crystal.dm_fact_logs as f
- join crystal.dm_dim_tests as t on t.id = f.testname_id
- join crystal.dm_dim_types as ty on ty.id = f.type_id
- join crystal.dm_dim_days as d on d.id = f.day_id
- join crystal.dm_dim_minutes as m on m.id = f.minute_id
- join crystal.dm_dim_hosts as h on h.id = f.hostname_id
-where
- t.description = ${testParam}
- and f.day_id between parsedatetime(${periodFromParam},'yyyy-MM-dd') and parsedatetime(${periodToParam},'yyyy-MM-dd')
-order by
- f.testname_id asc,
- f.day_id asc,
- f.minute_id asc,
- f.second asc,
- f.millisecond asc]]></Query>
+    <Query><![CDATA[SELECT
+ CONCAT(FORMATDATETIME(F.DAY_ID,'yyyy-MM-dd'), 'T', M.DESCRIPTION, ':', CONCAT(SUBSTR('00', 0, (2 - LENGTH(F.SECOND))),F.SECOND), '.', CONCAT(SUBSTR('000', 0, (3 - LENGTH(F.MILLISECOND))),F.MILLISECOND)) START_TIME,
+ F.THREADNAME THREAD_NAME,
+ F.LABEL,
+ F.ELAPSED,
+ F.SUCCESS,
+ F.BYTES,
+ F.LATENCY,
+ F.CONNECT,
+ F.IDLETIME IDLE
+FROM
+ CRYSTAL.DM_FACT_LOGS AS F
+ JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = F.TEST_ID
+ JOIN CRYSTAL.DM_DIM_TYPES AS TY ON TY.ID = F.TYPE_ID AND TY.DESCRIPTION = 'SAMPLE'
+ JOIN CRYSTAL.DM_DIM_DAYS AS D ON D.ID = F.DAY_ID
+ JOIN CRYSTAL.DM_DIM_MINUTES AS M ON M.ID = F.MINUTE_ID
+ JOIN CRYSTAL.DM_DIM_HOSTS AS H ON H.ID = F.HOSTNAME_ID
+WHERE
+ T.DESCRIPTION = ${testParam}
+ AND F.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+ORDER BY
+ F.TEST_ID ASC,
+ F.DAY_ID ASC,
+ F.MINUTE_ID ASC,
+ F.SECOND ASC,
+ F.MILLISECOND ASC]]></Query>
   </DataAccess>
 </CDADescriptor>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?><CDADescriptor>
+  <DataSources>
+    <Connection id="tests" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+    <Connection id="cpuUsageLogs" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+    <Connection id="concurrentUsersAndTicketsLogs" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+    <Connection id="garbageCollectionLogs" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+    <Connection id="heapMemoryLogs" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+    <Connection id="threadsLogs" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+  </DataSources>
+  <DataAccess access="public" connection="tests" id="tests" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters/>
+    <Query><![CDATA[select
+ description
+from
+ crystal.dm_dim_tests
+where
+ src_id != 'UNKNOWN'
+order by
+ description asc]]></Query>
+  </DataAccess>
+  <DataAccess access="public" connection="cpuUsageLogs" id="cpuUsageLogs" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
+      <Parameter default="2001-01-01" name="periodToParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[SELECT
+ CONCAT(L.LABEL,' (x10)') LABEL,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') DATE_TIME,
+ (SUM(L.RESPONSE_VALUE) * 10) "CPU usage"
+FROM 
+ CRYSTAL.DM_FACT_LOGS L
+ JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
+ JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
+ JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
+ JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
+WHERE
+ Ty.DESCRIPTION = 'JMX'
+ AND UPPER(L.LABEL) IN ('PROCESS CPU LOAD', 'SYSTEM CPU LOAD')
+ AND T.DESCRIPTION = ${testParam}
+ AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+GROUP BY
+ L.LABEL,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss')
+ORDER BY
+ L.LABEL ASC,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') ASC]]></Query>
+  </DataAccess>
+  <DataAccess access="public" connection="concurrentUsersAndTicketsLogs" id="concurrentUsersAndTicketsLogs" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
+      <Parameter default="2001-01-01" name="periodToParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[SELECT
+ L.LABEL LABEL,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') DATE_TIME,
+ SUM(L.RESPONSE_VALUE) "Query results"
+FROM 
+ CRYSTAL.DM_FACT_LOGS L
+ JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
+ JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
+ JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
+ JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
+WHERE
+ Ty.DESCRIPTION = 'JMX'
+ AND UPPER(L.LABEL) IN ('TICKET COUNT', 'USERS COUNT')
+ AND T.DESCRIPTION = ${testParam}
+ AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+GROUP BY
+ L.LABEL,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss')
+ORDER BY
+ L.LABEL ASC,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') ASC]]></Query>
+  </DataAccess>
+  <DataAccess access="public" connection="garbageCollectionLogs" id="garbageCollectionLogs" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
+      <Parameter default="2001-01-01" name="periodToParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[SELECT
+ CONCAT(L.LABEL,CASE UPPER(L.LABEL) WHEN 'GC PAR NEW COLLECTION COUNT' THEN ' (x10)' ELSE '' END) LABEL,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') DATE_TIME,
+ (SUM(L.RESPONSE_VALUE) * (CASE UPPER(L.LABEL) WHEN 'GC PAR NEW COLLECTION COUNT' THEN 10 ELSE 1 END)) "Query results"
+FROM 
+ CRYSTAL.DM_FACT_LOGS L
+ JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
+ JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
+ JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
+ JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
+WHERE
+ Ty.DESCRIPTION = 'JMX'
+ AND UPPER(L.LABEL) IN ('GC PAR NEW COLLECTION COUNT', 'GC PAR NEW COLLECTION TIME', 'GC CONCURRENT MARK SWEEP COLLECTION COUNT', 'GC CONCURRENT MARK SWEEP COLLECTION TIME')
+ AND T.DESCRIPTION = ${testParam}
+ AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+GROUP BY
+ L.LABEL,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss')
+ORDER BY
+ L.LABEL ASC,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') ASC]]></Query>
+  </DataAccess>
+  <DataAccess access="public" connection="heapMemoryLogs" id="heapMemoryLogs" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
+      <Parameter default="2001-01-01" name="periodToParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[SELECT
+ L.LABEL LABEL,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') DATE_TIME,
+ SUM(L.RESPONSE_VALUE) "Heap Memory"
+FROM 
+ CRYSTAL.DM_FACT_LOGS L
+ JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
+ JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
+ JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
+ JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
+WHERE
+ Ty.DESCRIPTION = 'JMX'
+ AND UPPER(L.LABEL) IN ('HEAP MEMORY MAX', 'HEAP MEMORY USED', 'HEAP MEMORY COMMITTED')
+ AND T.DESCRIPTION = ${testParam}
+ AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+GROUP BY
+ L.LABEL,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss')
+ORDER BY
+ L.LABEL ASC,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') ASC]]></Query>
+  </DataAccess>
+  <DataAccess access="public" connection="threadsLogs" id="threadsLogs" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
+      <Parameter default="2001-01-01" name="periodToParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[SELECT
+ L.LABEL LABEL,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') DATE_TIME,
+ SUM(L.RESPONSE_VALUE) "Threads"
+FROM 
+ CRYSTAL.DM_FACT_LOGS L
+ JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
+ JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
+ JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
+ JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
+WHERE
+ Ty.DESCRIPTION = 'JMX'
+ AND UPPER(L.LABEL) IN ('THREADS BUSY', 'THREADS COUNT')
+ AND T.DESCRIPTION = ${testParam}
+ AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+GROUP BY
+ L.LABEL,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss')
+ORDER BY
+ L.LABEL ASC,
+ PARSEDATETIME(CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(L.SECOND,2,'0')),'dd-MM-yyyy hh:mm:ss') ASC]]></Query>
+  </DataAccess>
+</CDADescriptor>
