@@ -34,21 +34,44 @@ where
       <Parameter default="2001-01-01" name="periodToParam" type="String"/>
     </Parameters>
     <Query><![CDATA[SELECT
- D.ID "Day",
- COUNT(*) "# Samples",
- (COUNT(*) * 2) "# JMX samples"
-FROM 
- CRYSTAL.DM_FACT_LOGS L
- JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
- JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
- JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
- JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
-WHERE
- T.ID = ${testIdParam}
- AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
-GROUP BY
- D.ID
+ L1."Day" "Day",
+ L1."# Samples" "# Samples",
+ L2."# JMX Samples" "# JMX samples"
+FROM
+ (
+ SELECT
+  D.ID "Day",
+  COUNT(*) "# Samples"
+ FROM 
+  CRYSTAL.DM_FACT_LOGS L
+  JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
+  JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
+  JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
+  JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
+ WHERE
+  Ty.DESCRIPTION = 'SAMPLE'
+  AND T.ID = ${testIdParam}
+  AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+ GROUP BY
+  D.ID) L1
+ JOIN (
+ SELECT
+  D.ID "Day",
+  COUNT(*) "# JMX Samples"
+ FROM 
+  CRYSTAL.DM_FACT_LOGS L
+  JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
+  JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
+  JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
+  JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
+ WHERE
+  Ty.DESCRIPTION = 'JMX'
+  AND T.ID = ${testIdParam}
+  AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+ GROUP BY
+  D.ID) L2
+ ON L1."Day" = L2."Day"
 ORDER BY
- D.ID ASC]]></Query>
+ L1."Day" ASC]]></Query>
   </DataAccess>
 </CDADescriptor>
