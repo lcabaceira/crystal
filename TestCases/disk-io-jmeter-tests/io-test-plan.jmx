@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.9" jmeter="r1719185">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Filesystems Input/Output Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath">/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/TestCases/cmis-jmeter-test/src</stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Parameters" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="user.threads" elementType="Argument">
+            <stringProp name="Argument.name">user.threads</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Number of concurrent users</stringProp>
+          </elementProp>
+          <elementProp name="rampup" elementType="Argument">
+            <stringProp name="Argument.name">rampup</stringProp>
+            <stringProp name="Argument.value">4</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="loop" elementType="Argument">
+            <stringProp name="Argument.name">loop</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="indexfilesystem.path" elementType="Argument">
+            <stringProp name="Argument.name">indexfilesystem.path</stringProp>
+            <stringProp name="Argument.value">/Users/lcabaceira/My-Library/Customers/crystalProj/crystalCommitBranch/crystal/TestCases/disk-io-jmeter-tests</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="contentfilesystem.path" elementType="Argument">
+            <stringProp name="Argument.name">contentfilesystem.path</stringProp>
+            <stringProp name="Argument.value">/Users/lcabaceira/My-Library/Customers/crystalProj/crystalCommitBranch/crystal/TestCases/disk-io-jmeter-tests</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="resultsDirectory" elementType="Argument">
+            <stringProp name="Argument.name">resultsDirectory</stringProp>
+            <stringProp name="Argument.value">/Users/lcabaceira/My-Library/Customers/crystalProj/crystalCommitBranch/crystal/TestCases/JMeterLogs</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Main" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${user.threads}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampup}</stringProp>
+        <longProp name="ThreadGroup.start_time">1293887799000</longProp>
+        <longProp name="ThreadGroup.end_time">1293887799000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">${DURATION}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">${loop}</stringProp>
+        </LoopController>
+        <hashTree>
+          <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Test ContentStore Disk 8GB" enabled="true">
+            <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="contentfilesystem.path" elementType="Argument">
+                  <stringProp name="Argument.name">contentfilesystem.path</stringProp>
+                  <stringProp name="Argument.value">${contentfilesystem.path}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="resultsDirectory" elementType="Argument">
+                  <stringProp name="Argument.name">resultsDirectory</stringProp>
+                  <stringProp name="Argument.value">${resultsDirectory}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="classname">org.crystal.jmeter.test.TestSeqIoPerfContent8gb</stringProp>
+          </JavaSampler>
+          <hashTree/>
+          <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Test Indexes Disk 8GB" enabled="true">
+            <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="indexfilesystem.path" elementType="Argument">
+                  <stringProp name="Argument.name">indexfilesystem.path</stringProp>
+                  <stringProp name="Argument.value">${indexfilesystem.path}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="resultsDirectory" elementType="Argument">
+                  <stringProp name="Argument.name">resultsDirectory</stringProp>
+                  <stringProp name="Argument.value">${resultsDirectory}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="classname">org.crystal.jmeter.test.TestSeqIOPerfIndexes8gb</stringProp>
+          </JavaSampler>
+          <hashTree/>
+          <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Test Indexes Disk 400 mb" enabled="true">
+            <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="indexfilesystem.path" elementType="Argument">
+                  <stringProp name="Argument.name">indexfilesystem.path</stringProp>
+                  <stringProp name="Argument.value">${indexfilesystem.path}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="resultsDirectory" elementType="Argument">
+                  <stringProp name="Argument.name">resultsDirectory</stringProp>
+                  <stringProp name="Argument.value">${resultsDirectory}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="classname">org.crystal.jmeter.test.TestSeqIOPerfIndexes400mb</stringProp>
+          </JavaSampler>
+          <hashTree/>
+          <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Test ContentStore Disk 400 mb" enabled="true">
+            <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="contentfilesystem.path" elementType="Argument">
+                  <stringProp name="Argument.name">contentfilesystem.path</stringProp>
+                  <stringProp name="Argument.value">${contentfilesystem.path}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="resultsDirectory" elementType="Argument">
+                  <stringProp name="Argument.name">resultsDirectory</stringProp>
+                  <stringProp name="Argument.value">${resultsDirectory}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="classname">org.crystal.jmeter.test.TestSeqIoPerfContent400mb</stringProp>
+          </JavaSampler>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
