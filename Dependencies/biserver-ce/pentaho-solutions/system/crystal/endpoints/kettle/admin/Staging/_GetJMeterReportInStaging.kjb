@@ -61,8 +61,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>48</xloc>
-      <yloc>160</yloc>
+      <xloc>32</xloc>
+      <yloc>144</yloc>
       </entry>
     <entry>
       <name>GetJMeterReportInXmlInStaging</name>
@@ -97,8 +97,8 @@
             </parameter>      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>784</xloc>
-      <yloc>160</yloc>
+      <xloc>768</xloc>
+      <yloc>144</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -107,8 +107,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>960</xloc>
-      <yloc>256</yloc>
+      <xloc>944</xloc>
+      <yloc>240</yloc>
       </entry>
     <entry>
       <name>Move Files</name>
@@ -134,8 +134,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>784</xloc>
-      <yloc>256</yloc>
+      <xloc>768</xloc>
+      <yloc>240</yloc>
       </entry>
     <entry>
       <name>is xml&#x3f;</name>
@@ -156,11 +156,11 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>224</xloc>
-      <yloc>160</yloc>
+      <xloc>208</xloc>
+      <yloc>144</yloc>
       </entry>
     <entry>
-      <name>is csv&#x3f;</name>
+      <name>is json&#x3f;</name>
       <description/>
       <type>SIMPLE_EVAL</type>
       <valuetype>variable</valuetype>
@@ -168,7 +168,7 @@
       <variablename>&#x24;&#x7b;reportPath&#x7d;</variablename>
       <fieldtype>string</fieldtype>
       <mask/>
-      <comparevalue>.csv</comparevalue>
+      <comparevalue>.json</comparevalue>
       <minvalue/>
       <maxvalue/>
       <successcondition>endswith</successcondition>
@@ -178,11 +178,118 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>224</xloc>
-      <yloc>352</yloc>
+      <xloc>208</xloc>
+      <yloc>336</yloc>
       </entry>
     <entry>
-      <name>GetJMeterReportInCsvInStaging</name>
+      <name>GetJMeterReportInjsonInStaging</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x24;&#x7b;file.separator&#x7d;_GetJMeterReportInJsonInStaging.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>N</pass_all_parameters>
+            <parameter>            <name>reportPath</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;reportPath&#x7d;</value>
+            </parameter>      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>768</xloc>
+      <yloc>336</yloc>
+      </entry>
+    <entry>
+      <name>Abort job</name>
+      <description/>
+      <type>ABORT</type>
+      <message>JMeter report in unknown format</message>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>208</xloc>
+      <yloc>512</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log for xml</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>XML file&#x3a; &#x24;&#x7b;reportPath&#x7d;</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>XML file ready to be imported</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>544</xloc>
+      <yloc>144</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log for json</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>CSV file&#x3a; &#x24;&#x7b;reportPath&#x7d;</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>JSON file ready to be imported</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>544</xloc>
+      <yloc>336</yloc>
+      </entry>
+    <entry>
+      <name>Check if xml</name>
+      <description/>
+      <type>XML_WELL_FORMED</type>
+      <arg_from_previous>N</arg_from_previous>
+      <include_subfolders>N</include_subfolders>
+      <nr_errors_less_than>10</nr_errors_less_than>
+      <success_condition>success_if_no_errors</success_condition>
+      <resultfilenames>all_filenames</resultfilenames>
+      <fields>
+        <field>
+          <source_filefolder>&#x24;&#x7b;reportPath&#x7d;</source_filefolder>
+          <wildcard/>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>368</xloc>
+      <yloc>144</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log for malformed xml</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>XML file&#x3a; &#x24;&#x7b;reportPath&#x7d;</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>XML file malformed</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>544</xloc>
+      <yloc>32</yloc>
+      </entry>
+    <entry>
+      <name>GetJMeterReportInCsvInStaging 2</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -214,35 +321,22 @@
             </parameter>      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>784</xloc>
-      <yloc>352</yloc>
+      <xloc>1536</xloc>
+      <yloc>603</yloc>
       </entry>
     <entry>
-      <name>Abort job</name>
+      <name>Abort job 2</name>
       <description/>
       <type>ABORT</type>
       <message>JMeter report in unknown format</message>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>224</xloc>
-      <yloc>496</yloc>
+      <xloc>960</xloc>
+      <yloc>736</yloc>
       </entry>
     <entry>
-      <name>Write To Log for xml</name>
-      <description/>
-      <type>WRITE_TO_LOG</type>
-      <logmessage>XML file&#x3a; &#x24;&#x7b;reportPath&#x7d;</logmessage>
-      <loglevel>Basic</loglevel>
-      <logsubject>XML file ready to be imported</logsubject>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>560</xloc>
-      <yloc>160</yloc>
-      </entry>
-    <entry>
-      <name>Write To Log for csv</name>
+      <name>Write To Log for csv 2</name>
       <description/>
       <type>WRITE_TO_LOG</type>
       <logmessage>CSV file&#x3a; &#x24;&#x7b;reportPath&#x7d;</logmessage>
@@ -251,42 +345,21 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>560</xloc>
-      <yloc>352</yloc>
+      <xloc>1312</xloc>
+      <yloc>603</yloc>
       </entry>
     <entry>
-      <name>Check if xml</name>
-      <description/>
-      <type>XML_WELL_FORMED</type>
-      <arg_from_previous>N</arg_from_previous>
-      <include_subfolders>N</include_subfolders>
-      <nr_errors_less_than>10</nr_errors_less_than>
-      <success_condition>success_if_no_errors</success_condition>
-      <resultfilenames>all_filenames</resultfilenames>
-      <fields>
-        <field>
-          <source_filefolder>&#x24;&#x7b;reportPath&#x7d;</source_filefolder>
-          <wildcard/>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>384</xloc>
-      <yloc>160</yloc>
-      </entry>
-    <entry>
-      <name>Write To Log for malformed xml</name>
+      <name>Write To Log for malformed json</name>
       <description/>
       <type>WRITE_TO_LOG</type>
-      <logmessage>XML file&#x3a; &#x24;&#x7b;reportPath&#x7d;</logmessage>
+      <logmessage>JSON file&#x3a; &#x24;&#x7b;reportPath&#x7d;</logmessage>
       <loglevel>Basic</loglevel>
-      <logsubject>XML file malformed</logsubject>
+      <logsubject>JSON file malformed</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>560</xloc>
-      <yloc>48</yloc>
+      <xloc>768</xloc>
+      <yloc>448</yloc>
       </entry>
   </entries>
   <hops>
@@ -310,7 +383,7 @@
     </hop>
     <hop>
       <from>is xml&#x3f;</from>
-      <to>is csv&#x3f;</to>
+      <to>is json&#x3f;</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -318,21 +391,12 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>GetJMeterReportInCsvInStaging</from>
+      <from>GetJMeterReportInjsonInStaging</from>
       <to>Move Files</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>is csv&#x3f;</from>
-      <to>Abort job</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
@@ -345,8 +409,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>is csv&#x3f;</from>
-      <to>Write To Log for csv</to>
+      <from>is json&#x3f;</from>
+      <to>Write To Log for json</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -354,8 +418,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Write To Log for csv</from>
-      <to>GetJMeterReportInCsvInStaging</to>
+      <from>Write To Log for json</from>
+      <to>GetJMeterReportInjsonInStaging</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -400,6 +464,33 @@
     </hop>
     <hop>
       <from>Write To Log for malformed xml</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>is json&#x3f;</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>GetJMeterReportInjsonInStaging</from>
+      <to>Write To Log for malformed json</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log for malformed json</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>

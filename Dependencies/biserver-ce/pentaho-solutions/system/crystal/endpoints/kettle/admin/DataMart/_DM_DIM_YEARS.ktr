@@ -102,7 +102,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Years range from OPE_JMETER_REPORTS</from><to>Generating values</to><enabled>Y</enabled> </hop>
+  <hop> <from>Years range from operational</from><to>Generating values</to><enabled>Y</enabled> </hop>
   <hop> <from>Generating values</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>Select values</from><to>Insert &#x2f; Update</to><enabled>Y</enabled> </hop>
   </order>
@@ -142,8 +142,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>400</xloc>
-      <yloc>32</yloc>
+      <xloc>352</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -189,8 +189,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>736</xloc>
-      <yloc>32</yloc>
+      <xloc>688</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -211,14 +211,14 @@
       </remove>      <remove>        <name>MAX_YEAR</name>
       </remove>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>560</xloc>
-      <yloc>32</yloc>
+      <xloc>512</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Years range from OPE_JMETER_REPORTS</name>
+    <name>Years range from operational</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -229,7 +229,7 @@
            <schema_name/>
            </partitioning>
     <connection>crystal</connection>
-    <sql>SELECT&#xa; YEAR&#x28;NVL&#x28;MIN&#x28;DATETIME&#x29;,CURRENT_DATE&#x29;&#x29; MIN_YEAR,&#xa; YEAR&#x28;NVL&#x28;MAX&#x28;DATETIME&#x29;,CURRENT_DATE&#x29;&#x29; MAX_YEAR&#xa;FROM&#xa; CRYSTAL.OPE_JMETER_REPORTS</sql>
+    <sql>SELECT&#xa; YEAR&#x28;NVL&#x28;MIN&#x28;DATETIME&#x29;,CURRENT_DATE&#x29;&#x29; MIN_YEAR,&#xa; YEAR&#x28;NVL&#x28;MAX&#x28;DATETIME&#x29;,CURRENT_DATE&#x29;&#x29; MAX_YEAR&#xa;FROM&#xa; &#x28;SELECT DATETIME FROM CRYSTAL.OPE_JMETER_REPORTS&#xa;  UNION ALL&#xa;  SELECT DATETIME FROM CRYSTAL.OPE_JMETER_EXECUTION_PLAN OPE&#x29;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -237,8 +237,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>144</xloc>
-      <yloc>32</yloc>
+      <xloc>128</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

@@ -172,7 +172,7 @@
       <name>Init staging</name>
       <description/>
       <type>SQL</type>
-      <sql>DELETE FROM CRYSTAL.STG_JMETER_REPORTS&#x3b;</sql>
+      <sql>DELETE FROM CRYSTAL.STG_JMETER_REPORTS&#x3b;&#xa;DELETE FROM CRYSTAL.STG_JMETER_REPORTS_JSON&#x3b;</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename/>

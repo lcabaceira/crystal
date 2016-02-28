@@ -102,12 +102,12 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Days range from OPE_JMETER_REPORTS</from><to>Generating values</to><enabled>Y</enabled> </hop>
+  <hop> <from>Days range from operational</from><to>Generating values</to><enabled>Y</enabled> </hop>
   <hop> <from>Generating values</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>Select values</from><to>Insert &#x2f; Update</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Days range from OPE_JMETER_REPORTS</name>
+    <name>Days range from operational</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -118,7 +118,7 @@
            <schema_name/>
            </partitioning>
     <connection>crystal</connection>
-    <sql>SELECT&#xa; NVL&#x28;MIN&#x28;DATETIME&#x29;,CURRENT_DATE&#x29; MIN_DAY,&#xa; NVL&#x28;MAX&#x28;DATETIME&#x29;,CURRENT_DATE&#x29; MAX_DAY&#xa;FROM&#xa; CRYSTAL.OPE_JMETER_REPORTS</sql>
+    <sql>SELECT&#xa; NVL&#x28;MIN&#x28;DATETIME&#x29;,CURRENT_DATE&#x29; MIN_DAY,&#xa; NVL&#x28;MAX&#x28;DATETIME&#x29;,CURRENT_DATE&#x29; MAX_DAY&#xa;FROM&#xa; &#x28;SELECT DATETIME FROM CRYSTAL.OPE_JMETER_REPORTS&#xa;  UNION ALL&#xa;  SELECT DATETIME FROM CRYSTAL.OPE_JMETER_EXECUTION_PLAN OPE&#x29;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -127,7 +127,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>144</xloc>
-      <yloc>32</yloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -210,8 +210,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>400</xloc>
-      <yloc>32</yloc>
+      <xloc>384</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -293,7 +293,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>736</xloc>
-      <yloc>32</yloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -315,7 +315,7 @@
       </remove>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>560</xloc>
-      <yloc>32</yloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

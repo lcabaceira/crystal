@@ -126,8 +126,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>32</xloc>
-      <yloc>32</yloc>
+      <xloc>48</xloc>
+      <yloc>48</yloc>
       </entry>
     <entry>
       <name>OUTPUT</name>
@@ -136,8 +136,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>608</xloc>
-      <yloc>32</yloc>
+      <xloc>672</xloc>
+      <yloc>48</yloc>
       </entry>
     <entry>
       <name>GetAllInStaging</name>
@@ -167,8 +167,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>144</xloc>
-      <yloc>32</yloc>
+      <xloc>176</xloc>
+      <yloc>48</yloc>
       </entry>
     <entry>
       <name>GetAllInOperational</name>
@@ -198,8 +198,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>304</xloc>
-      <yloc>32</yloc>
+      <xloc>352</xloc>
+      <yloc>48</yloc>
       </entry>
     <entry>
       <name>GetAllInDataMart</name>
@@ -229,8 +229,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>480</xloc>
-      <yloc>32</yloc>
+      <xloc>528</xloc>
+      <yloc>48</yloc>
       </entry>
   </entries>
   <hops>

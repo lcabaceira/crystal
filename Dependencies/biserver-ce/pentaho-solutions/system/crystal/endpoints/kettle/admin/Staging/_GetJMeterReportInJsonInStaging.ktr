@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>GetJMeterReportInCsvInStaging</name>
+    <name>_GetJMeterReportInJsonInStaging</name>
     <description>Get a single jmeter report in CSV format in staging.</description>
     <extended_description/>
-    <trans_version>1.0</trans_version>
+    <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>2</trans_status>
+    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
         <parameter>
             <name>reportPath</name>
-            <default_value>&#x2f;home&#x2f;fcorti&#x2f;Desktop&#x2f;crystal&#x2f;TestCases&#x2f;JMeterLogs&#x2f;Alfresco5-TestPlan.jmx_2015-12-23_20-35-39_5c7af6f1-3473-4d39-b932-ae9c1c89d2ad.csv</default_value>
+            <default_value>&#x2f;home&#x2f;fcorti&#x2f;Desktop&#x2f;crystal&#x2f;TestCases&#x2f;JMeterLogs&#x2f;IoResultsContent400mb.json</default_value>
             <description>Report name.</description>
         </parameter>
     </parameters>
@@ -107,13 +107,128 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>STG_JMETER_REPORTS</from><to>Operations</to><enabled>Y</enabled> </hop>
-  <hop> <from>Operations</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Select values 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values 2</from><to>OPE_JMETER_REPORTS</to><enabled>Y</enabled> </hop>
+  <hop> <from>Set Filename</from><to>Set Type</to><enabled>Y</enabled> </hop>
+  <hop> <from>Set Type</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Json Input</from><to>Set Filename</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>OPE_JMETER_REPORTS</name>
+    <name>Get data from XML</name>
+    <type>getXMLData</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <addresultfile>N</addresultfile>
+    <namespaceaware>N</namespaceaware>
+    <ignorecomments>N</ignorecomments>
+    <readurl>N</readurl>
+    <validating>N</validating>
+    <usetoken>N</usetoken>
+    <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
+    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
+    <rownum_field/>
+    <encoding>UTF-8</encoding>
+    <file>
+      <name>&#x24;&#x7b;reportPath&#x7d;</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+    </fields>
+    <limit>0</limit>
+    <loopxpath/>
+    <IsInFields>N</IsInFields>
+    <IsAFile>N</IsAFile>
+    <XmlField/>
+    <prunePath/>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>64</xloc>
+      <yloc>48</yloc>
+      <draw>N</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Set Filename</name>
+    <type>SetValueConstant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+   <usevar>Y</usevar>
+    <fields>
+      <field>
+        <name>Filename</name>
+        <value>&#x24;&#x7b;reportPath&#x7d;</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>224</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Set Type</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>Type</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>EXECUTION_PLAN</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>352</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table output</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -125,7 +240,7 @@
            </partitioning>
     <connection>crystal</connection>
     <schema>CRYSTAL</schema>
-    <table>OPE_JMETER_REPORTS</table>
+    <table>STG_JMETER_REPORTS_JSON</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -142,101 +257,29 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>ELAPSED</column_name>
-          <stream_name>ELAPSED</stream_name>
-        </field>
-        <field>
-          <column_name>IDLETIME</column_name>
-          <stream_name>IDLETIME</stream_name>
-        </field>
-        <field>
-          <column_name>LATENCY</column_name>
-          <stream_name>LATENCY</stream_name>
-        </field>
-        <field>
-          <column_name>CONNECT</column_name>
-          <stream_name>CONNECT</stream_name>
-        </field>
-        <field>
-          <column_name>DATETIME</column_name>
-          <stream_name>DATETIME</stream_name>
-        </field>
-        <field>
-          <column_name>SUCCESS</column_name>
-          <stream_name>SUCCESS</stream_name>
-        </field>
-        <field>
-          <column_name>LABEL</column_name>
-          <stream_name>LABEL</stream_name>
-        </field>
-        <field>
-          <column_name>RESPONSECODE</column_name>
-          <stream_name>RESPONSECODE</stream_name>
-        </field>
-        <field>
-          <column_name>RESPONSEMESSAGE</column_name>
-          <stream_name>RESPONSEMESSAGE</stream_name>
-        </field>
-        <field>
-          <column_name>THREADNAME</column_name>
-          <stream_name>THREADNAME</stream_name>
-        </field>
-        <field>
-          <column_name>DATATYPE</column_name>
-          <stream_name>DATATYPE</stream_name>
-        </field>
-        <field>
-          <column_name>ENCODING</column_name>
-          <stream_name>ENCODING</stream_name>
-        </field>
-        <field>
-          <column_name>BYTES</column_name>
-          <stream_name>BYTES</stream_name>
-        </field>
-        <field>
-          <column_name>SAMPLECOUNT</column_name>
-          <stream_name>SAMPLECOUNT</stream_name>
-        </field>
-        <field>
-          <column_name>ERRORCOUNT</column_name>
-          <stream_name>ERRORCOUNT</stream_name>
-        </field>
-        <field>
-          <column_name>GROUPTHREADS</column_name>
-          <stream_name>GROUPTHREADS</stream_name>
-        </field>
-        <field>
-          <column_name>ALLTHREADS</column_name>
-          <stream_name>ALLTHREADS</stream_name>
-        </field>
-        <field>
-          <column_name>HOSTNAME</column_name>
-          <stream_name>HOSTNAME</stream_name>
+          <column_name>CONTENT</column_name>
+          <stream_name>content</stream_name>
         </field>
         <field>
           <column_name>FILENAME</column_name>
-          <stream_name>FILENAME</stream_name>
-        </field>
-        <field>
-          <column_name>TESTNAME</column_name>
-          <stream_name>TESTNAME</stream_name>
+          <stream_name>Filename</stream_name>
         </field>
         <field>
           <column_name>TYPE</column_name>
-          <stream_name>TYPE</stream_name>
+          <stream_name>Type</stream_name>
         </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>688</xloc>
-      <yloc>32</yloc>
+      <xloc>480</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Operations</name>
-    <type>ScriptValueMod</type>
+    <name>Json Input</name>
+    <type>JsonInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -245,185 +288,53 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#xa;NEWFILENAME &#x3d; FILENAME&#x3b;&#xa;&#xa;&#x2f;&#x2f; Remove path.&#xa;if &#x28;FILENAME.lastIndexOf&#x28;getVariable&#x28;&#x22;file.separator&#x22;,&#x22;&#x22;&#x29;&#x29; &#x3e;&#x3d; 0&#x29; &#x7b;&#xa;  NEWFILENAME &#x3d; FILENAME.substring&#x28;FILENAME.lastIndexOf&#x28;getVariable&#x28;&#x22;file.separator&#x22;,&#x22;&#x22;&#x29;&#x29; &#x2b; 1&#x29;&#x3b;&#xa;&#x7d;&#xa;&#xa;&#x2f;&#x2f; Test name extraction.&#xa;TESTNAME &#x3d; NEWFILENAME.toUpperCase&#x28;&#x29;&#x3b;&#xa;if &#x28;TESTNAME.lastIndexOf&#x28;&#x22;.JMX&#x22;&#x29; &#x3e;&#x3d; 0&#x29; &#x7b;&#xa;  TESTNAME &#x3d; NEWFILENAME.substring&#x28;0,TESTNAME.lastIndexOf&#x28;&#x22;.JMX&#x22;&#x29;&#x29;&#x3b;&#xa;&#x7d;&#xa;&#xa;&#x2f;&#x2f; Date time convertion.&#xa;DATETIME &#x3d; new Date&#x28;TIMESTAMP&#x29;&#x3b;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>NEWFILENAME</name>
-        <rename>NEWFILENAME</rename>
+    <include>Y</include>
+    <include_field>Filename</include_field>
+    <rownum>N</rownum>
+    <addresultfile>N</addresultfile>
+    <readurl>N</readurl>
+    <IsIgnoreEmptyFile>Y</IsIgnoreEmptyFile>
+    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
+    <ignoreMissingPath>N</ignoreMissingPath>
+    <rownum_field/>
+    <file>
+      <name>&#x24;&#x7b;reportPath&#x7d;</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>CONTENT</name>
+        <path>.</path>
         <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>TESTNAME</name>
-        <rename>TESTNAME</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>DATETIME</name>
-        <rename>DATETIME</rename>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>240</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>STG_JMETER_REPORTS</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>crystal</connection>
-    <sql>SELECT &#x2a; FROM CRYSTAL.STG_JMETER_REPORTS&#xa;</sql>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
     <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <IsInFields>N</IsInFields>
+    <IsAFile>N</IsAFile>
+    <valueField/>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>80</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>        <select_unspecified>N</select_unspecified>
-      <remove>        <name>FILENAME</name>
-      </remove>      <remove>        <name>TIMESTAMP</name>
-      </remove>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>368</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>ELAPSED</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>IDLETIME</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>LATENCY</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>CONNECT</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>DATETIME</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>SUCCESS</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>LABEL</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>RESPONSECODE</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>RESPONSEMESSAGE</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>THREADNAME</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>DATATYPE</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>ENCODING</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>BYTES</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>SAMPLECOUNT</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>ERRORCOUNT</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>GROUPTHREADS</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>ALLTHREADS</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>HOSTNAME</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>NEWFILENAME</name>
-        <rename>FILENAME</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>TESTNAME</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>TYPE</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>512</xloc>
-      <yloc>32</yloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

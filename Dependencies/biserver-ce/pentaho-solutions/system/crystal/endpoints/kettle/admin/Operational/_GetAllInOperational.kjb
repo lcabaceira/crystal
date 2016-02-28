@@ -77,8 +77,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>32</xloc>
-      <yloc>32</yloc>
+      <xloc>48</xloc>
+      <yloc>48</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -87,16 +87,16 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>416</xloc>
-      <yloc>32</yloc>
+      <xloc>528</xloc>
+      <yloc>48</yloc>
       </entry>
     <entry>
-      <name>CleanData</name>
+      <name>GetAllInOperational</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x24;&#x7b;file.separator&#x7d;_CleanData.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x24;&#x7b;file.separator&#x7d;_GetAllInOperational.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -120,14 +120,14 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>304</xloc>
-      <yloc>32</yloc>
+      <xloc>368</xloc>
+      <yloc>48</yloc>
       </entry>
     <entry>
       <name>Init operational</name>
       <description/>
       <type>SQL</type>
-      <sql>DELETE FROM CRYSTAL.OPE_JMETER_REPORTS&#x3b;</sql>
+      <sql>DELETE FROM CRYSTAL.OPE_JMETER_REPORTS&#x3b;&#xa;DELETE FROM CRYSTAL.OPE_JMETER_EXECUTION_PLAN&#x3b;</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename/>
@@ -136,13 +136,13 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>160</xloc>
-      <yloc>32</yloc>
+      <xloc>192</xloc>
+      <yloc>48</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
-      <from>CleanData</from>
+      <from>GetAllInOperational</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -161,7 +161,7 @@
     </hop>
     <hop>
       <from>Init operational</from>
-      <to>CleanData</to>
+      <to>GetAllInOperational</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

@@ -176,7 +176,7 @@
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
       <name>&#x24;&#x7b;importFolderPath&#x7d;</name>
-      <filemask>.&#x2a;&#x5c;.csv</filemask>
+      <filemask>.&#x2a;&#x5c;.json</filemask>
       <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>

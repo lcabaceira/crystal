@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>DM_DIM_HOSTS</name>
-    <description>Populate the host dimension.</description>
+    <name>DM_FACT_EXECUTION_PLANS</name>
+    <description>Populate the fact table.</description>
     <extended_description/>
     <trans_version>1.0</trans_version>
     <trans_type>Normal</trans_type>
@@ -102,10 +102,58 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>TESTNAME from Operational</from><to>String operations</to><enabled>Y</enabled> </hop>
+  <hop> <from>OPE_JMETER_EXECUTION_PLAN</from><to>DATE, TIME and RESPONSE_VALUE</to><enabled>Y</enabled> </hop>
+  <hop> <from>DATE, TIME and RESPONSE_VALUE</from><to>Select values</to><enabled>Y</enabled> </hop>
   <hop> <from>Select values</from><to>Insert &#x2f; Update</to><enabled>Y</enabled> </hop>
-  <hop> <from>String operations</from><to>Select values</to><enabled>Y</enabled> </hop>
   </order>
+  <step>
+    <name>DATE, TIME and RESPONSE_VALUE</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#xa;var dateTime &#x3d; str2date&#x28;DATETIME,&#x22;yyyy-MM-dd HH&#x3a;mm&#x3a;ss.SSS&#x22;&#x29;&#x3b;&#xa;&#xa;DAY_ID &#x3d; truncDate&#x28;dateTime, 3&#x29;&#x3b;&#xa;&#xa;MINUTE_ID &#x3d; parseInt&#x28;date2str&#x28;dateTime,&#x22;HH&#x22;&#x29;,10&#x29; &#x2a; 60&#x3b;&#xa;MINUTE_ID &#x2b;&#x3d; parseInt&#x28;date2str&#x28;dateTime,&#x22;mm&#x22;&#x29;,10&#x29;&#x3b;&#xa;&#xa;SECOND &#x3d; parseInt&#x28;date2str&#x28;dateTime,&#x22;ss&#x22;&#x29;,10&#x29;&#x3b;&#xa;&#xa;MILLISECOND &#x3d; parseInt&#x28;date2str&#x28;dateTime,&#x22;SSS&#x22;&#x29;,10&#x29;&#x3b;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>DAY_ID</name>
+        <rename>DAY_ID</rename>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>MINUTE_ID</name>
+        <rename>MINUTE_ID</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>SECOND</name>
+        <rename>SECOND</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>MILLISECOND</name>
+        <rename>MILLISECOND</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>368</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step>
     <name>Insert &#x2f; Update</name>
     <type>InsertUpdate</type>
@@ -118,32 +166,150 @@
            <schema_name/>
            </partitioning>
     <connection>crystal</connection>
-    <commit>100</commit>
+    <commit>1000</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema>CRYSTAL</schema>
-      <table>DM_DIM_HOSTS</table>
+      <table>DM_FACT_EXECUTION_PLANS</table>
       <key>
-        <name>SRC_ID</name>
-        <field>SRC_ID</field>
+        <name>TYPE_ID</name>
+        <field>TYPE_ID</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>TEST_ID</name>
+        <field>TEST_ID</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>HOSTNAME_ID</name>
+        <field>HOSTNAME_ID</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>DAY_ID</name>
+        <field>DAY_ID</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>MINUTE_ID</name>
+        <field>MINUTE_ID</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>SECOND</name>
+        <field>SECOND</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>MILLISECOND</name>
+        <field>MILLISECOND</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>PROG</name>
+        <field>PROG</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
       <value>
-        <name>DESCRIPTION</name>
-        <rename>DESCRIPTION</rename>
+        <name>TYPE_ID</name>
+        <rename>TYPE_ID</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>TEST_ID</name>
+        <rename>TEST_ID</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>HOSTNAME_ID</name>
+        <rename>HOSTNAME_ID</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>DAY_ID</name>
+        <rename>DAY_ID</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>MINUTE_ID</name>
+        <rename>MINUTE_ID</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>SECOND</name>
+        <rename>SECOND</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>MILLISECOND</name>
+        <rename>MILLISECOND</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>PROG</name>
+        <rename>PROG</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>MEMORY_MAPPED_FILE</name>
+        <rename>MEMORY_MAPPED_FILE</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>SRC_ID</name>
-        <rename>SRC_ID</rename>
-        <update>N</update>
+        <name>RANDOM_ACCESS_FILE</name>
+        <rename>RANDOM_ACCESS_FILE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>BUFFERED_STREAM_FILE</name>
+        <rename>BUFFERED_STREAM_FILE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>BUFFERED_CHANNEL_FILE</name>
+        <rename>BUFFEREDCHANNEL_FILE</rename>
+        <update>Y</update>
       </value>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>672</xloc>
-      <yloc>64</yloc>
+      <xloc>720</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>OPE_JMETER_EXECUTION_PLAN</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>crystal</connection>
+    <sql>SELECT&#xa; NVL&#x28;Ty.ID, &#x28;SELECT ID FROM CRYSTAL.DM_DIM_TYPES WHERE SRC_ID&#x3d;&#x27;UNKNOWN&#x27;&#x29;&#x29; TYPE_ID,&#xa; NVL&#x28;T.ID,  &#x28;SELECT ID FROM CRYSTAL.DM_DIM_TESTS WHERE SRC_ID&#x3d;&#x27;UNKNOWN&#x27;&#x29;&#x29; TEST_ID,&#xa; NVL&#x28;H.ID,  &#x28;SELECT ID FROM CRYSTAL.DM_DIM_HOSTS WHERE SRC_ID&#x3d;&#x27;UNKNOWN&#x27;&#x29;&#x29; HOSTNAME_ID,&#xa; OPE.DATETIME,&#xa; OPE.PROG,&#xa; NVL&#x28;OPE.MEMORYMAPPEDFILE,0&#x29; MEMORY_MAPPED_FILE,&#xa; NVL&#x28;OPE.RANDOMACCESSFILE,0&#x29; RANDOM_ACCESS_FILE,&#xa; NVL&#x28;OPE.BUFFEREDSTREAMFILE,0&#x29; BUFFERED_STREAM_FILE,&#xa; NVL&#x28;OPE.BUFFEREDCHANNELFILE,0&#x29; BUFFEREDCHANNEL_FILE&#xa;FROM&#xa; CRYSTAL.OPE_JMETER_EXECUTION_PLAN OPE&#xa; LEFT JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.DESCRIPTION &#x3d; OPE.TESTNAME&#xa; LEFT JOIN CRYSTAL.DM_DIM_HOSTS AS H ON H.DESCRIPTION &#x3d; OPE.HOSTNAME&#xa; LEFT JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.SRC_ID &#x3d; OPE.TYPE</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>112</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -160,84 +326,11 @@
            <schema_name/>
            </partitioning>
     <fields>        <select_unspecified>N</select_unspecified>
-      <remove>        <name>HOSTNAME</name>
+      <remove>        <name>DATETIME</name>
       </remove>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>528</xloc>
-      <yloc>64</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>String operations</name>
-    <type>StringOperations</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>HOSTNAME</in_stream_name>
-        <out_stream_name>DESCRIPTION</out_stream_name>
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>HOSTNAME</in_stream_name>
-        <out_stream_name>SRC_ID</out_stream_name>
-        <trim_type>both</trim_type>
-        <lower_upper>upper</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>384</xloc>
-      <yloc>64</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>TESTNAME from Operational</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>crystal</connection>
-    <sql>SELECT&#xa; &#x27;Unknown&#x27; HOSTNAME&#xa;UNION ALL&#xa;SELECT DISTINCT&#xa; HOSTNAME HOSTNAME&#xa;FROM&#xa; CRYSTAL.OPE_JMETER_REPORTS&#xa;WHERE&#xa; HOSTNAME IS NOT NULL&#xa;UNION ALL&#xa;SELECT DISTINCT&#xa; HOSTNAME HOSTNAME&#xa;FROM&#xa; CRYSTAL.OPE_JMETER_EXECUTION_PLAN&#xa;WHERE&#xa; HOSTNAME IS NOT NULL</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>144</xloc>
-      <yloc>64</yloc>
+      <xloc>576</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
