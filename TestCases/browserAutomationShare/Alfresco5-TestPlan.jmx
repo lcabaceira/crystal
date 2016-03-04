@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="2.9" jmeter="r1719185">
+<jmeterTestPlan version="1.2" properties="2.5" jmeter="2.13 r1665067">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Alfresco 5 - Create Users - Perform Searches - Delete Users" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -63,13 +63,13 @@
           </elementProp>
           <elementProp name="userThinkingTime" elementType="Argument">
             <stringProp name="Argument.name">userThinkingTime</stringProp>
-            <stringProp name="Argument.value">800</stringProp>
+            <stringProp name="Argument.value">200</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">User thinking time = minimum delay + random user thinking time</stringProp>
           </elementProp>
           <elementProp name="minimumDelay" elementType="Argument">
             <stringProp name="Argument.name">minimumDelay</stringProp>
-            <stringProp name="Argument.value">0000</stringProp>
+            <stringProp name="Argument.value">000</stringProp>
             <stringProp name="Argument.desc">Minimum delay between searches</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -87,13 +87,13 @@
           </elementProp>
           <elementProp name="alfrescoServer" elementType="Argument">
             <stringProp name="Argument.name">alfrescoServer</stringProp>
-            <stringProp name="Argument.value">192.168.101.245</stringProp>
+            <stringProp name="Argument.value">${__P(alfrescoServer,localhost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Alfresco or LB host name</stringProp>
           </elementProp>
           <elementProp name="httpPort" elementType="Argument">
             <stringProp name="Argument.name">httpPort</stringProp>
-            <stringProp name="Argument.value">8080</stringProp>
+            <stringProp name="Argument.value">${__P(alfrescoPort,8080)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Alfresco or LB port</stringProp>
           </elementProp>
@@ -105,7 +105,7 @@
           </elementProp>
           <elementProp name="testName" elementType="Argument">
             <stringProp name="Argument.name">testName</stringProp>
-            <stringProp name="Argument.value">AlfrescoBrowserAutomation</stringProp>
+            <stringProp name="Argument.value">AlfrescoTest</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Test Name (used for recording test results)</stringProp>
           </elementProp>
@@ -118,6 +118,30 @@
           <elementProp name="contentEncoding" elementType="Argument">
             <stringProp name="Argument.name">contentEncoding</stringProp>
             <stringProp name="Argument.value">UTF-8</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="crystalHome" elementType="Argument">
+            <stringProp name="Argument.name">crystalHome</stringProp>
+            <stringProp name="Argument.value">${__P(crystalHome,/home/miguel/opt/crystal-master/)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Path to crystal home folder</stringProp>
+          </elementProp>
+          <elementProp name="chromeDriver" elementType="Argument">
+            <stringProp name="Argument.name">chromeDriver</stringProp>
+            <stringProp name="Argument.value">${__P(chromeDriver,/home/miguel/opt/crystal-master/Dependencies/jmeter/bin/chromeDriver/linux64/chromedriver)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Path to chromedriver binary</stringProp>
+          </elementProp>
+          <elementProp name="uploadFiles" elementType="Argument">
+            <stringProp name="Argument.name">uploadFiles</stringProp>
+            <stringProp name="Argument.value">${__P(uploadFiles,/home/miguel/opt/crystal-master/TestCases/browserAutomationShare/uploadFiles.txt)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Path to uploadFiles.txt file</stringProp>
+          </elementProp>
+          <elementProp name="searchWords" elementType="Argument">
+            <stringProp name="Argument.name">searchWords</stringProp>
+            <stringProp name="Argument.value">${__P(searchWords,/home/miguel/opt/crystal-master/TestCases/browserAutomationShare/searchwords.txt)}</stringProp>
+            <stringProp name="Argument.desc">Patch to searchwods.txt file</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -134,6 +158,7 @@
         <stringProp name="HTTPSampler.protocol"></stringProp>
         <stringProp name="HTTPSampler.contentEncoding"></stringProp>
         <stringProp name="HTTPSampler.path"></stringProp>
+        <boolProp name="HTTPSampler.image_parser">true</boolProp>
         <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
       </ConfigTestElement>
       <hashTree/>
@@ -142,16 +167,14 @@
         <boolProp name="CookieManager.clearEachIteration">false</boolProp>
       </CookieManager>
       <hashTree/>
-      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Upload Files - CSV Data Set Config" enabled="true">
-        <stringProp name="delimiter">,</stringProp>
-        <stringProp name="fileEncoding"></stringProp>
-        <stringProp name="filename">uploadFiles.txt</stringProp>
-        <boolProp name="quotedData">false</boolProp>
-        <boolProp name="recycle">true</boolProp>
-        <stringProp name="shareMode">shareMode.all</stringProp>
-        <boolProp name="stopThread">false</boolProp>
-        <stringProp name="variableNames">uploadFile</stringProp>
-      </CSVDataSet>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="Content-Type" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json; charset=${contentEncoding}</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
       <hashTree/>
       <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="User Counter" enabled="true">
         <stringProp name="CounterConfig.start">1</stringProp>
@@ -163,18 +186,9 @@
       </CounterConfig>
       <hashTree/>
       <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
-        <boolProp name="clearEachIteration">false</boolProp>
+        <boolProp name="clearEachIteration">true</boolProp>
         <boolProp name="useExpires">false</boolProp>
       </CacheManager>
-      <hashTree/>
-      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-        <collectionProp name="HeaderManager.headers">
-          <elementProp name="Content-Type" elementType="Header">
-            <stringProp name="Header.name">Content-Type</stringProp>
-            <stringProp name="Header.value">application/json; charset=${contentEncoding}</stringProp>
-          </elementProp>
-        </collectionProp>
-      </HeaderManager>
       <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Test Started" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
@@ -646,7 +660,7 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Creating &quot; +
           </hashTree>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="For each user - Log in - Create Site - Upload Document - Searches - Log out" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="For each user - Log in - Create Site - Upload Document - Delete Document - Searches - Log out" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -659,8 +673,38 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Creating &quot; +
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
       </ThreadGroup>
       <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="Content-Type" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json; charset=${contentEncoding}</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${alfrescoServer}</stringProp>
+          <stringProp name="HTTPSampler.port">${httpPort}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <boolProp name="HTTPSampler.image_parser">true</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
         <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
           <stringProp name="WebDriverConfig.proxy_type">AUTO_DETECT</stringProp>
           <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
@@ -683,6 +727,26 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Creating &quot; +
           <collectionProp name="FirefoxDriverConfig.general.preferences"/>
           <stringProp name="FirefoxDriverConfig.general.useragent.override"></stringProp>
         </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.ChromeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig" testname="jp@gc - Chrome Driver Config" enabled="false">
+          <stringProp name="WebDriverConfig.proxy_type">AUTO_DETECT</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.maximize_browser">false</boolProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+          <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
+          <stringProp name="ChromeDriverConfig.chromedriver_path">${chromeDriver}</stringProp>
+          <boolProp name="ChromeDriverConfig.android_enabled">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig>
         <hashTree/>
         <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Loops Counter" enabled="true">
           <stringProp name="CounterConfig.start">1</stringProp>
@@ -720,16 +784,53 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Running test loop
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
         <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-GB,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:39.0) Gecko/20100101 Firefox/39.0</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">http://${alfrescoServer}:${httpPort}/share/page/</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
           <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - WebDriver Login" enabled="true">
-            <stringProp name="WebDriverSampler.script">var pkg=JavaImporter(org.openqa.selenium) //import java selenium package
+            <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui)
+var wait = new pkg.WebDriverWait(WDS.browser, 10000)
 var support_ui=JavaImporter(org.openqa.selenium.support.ui.WebDriverWait) //import WebDriverWait Package
 var ui=JavaImporter(org.openqa.selenium.support.ui) //import Selenium Support UI package
-var wait=new support_ui.WebDriverWait(WDS.browser,10000) // wait 1 seconds until page loads
+
 var username=&apos;${userNamePrefix}${user-number}&apos;
 var password=&apos;${userNamePrefix}${user-number}&apos;
 
 WDS.sampleResult.sampleStart() //sample starting point
 WDS.browser.get(&apos;http://${alfrescoServer}:${httpPort}/share/page&apos;) // opens website 
+
+wait.until(pkg.ExpectedConditions.elementToBeClickable(pkg.By.id(&apos;page_x002e_components_x002e_slingshot-login_x0023_default-submit-button&apos;)))
+
 var usernameField = WDS.browser.findElement(pkg.By.id(&apos;page_x002e_components_x002e_slingshot-login_x0023_default-username&apos;)) //define username field
 usernameField.sendKeys([username]) // types username value
 var passwordField = WDS.browser.findElement(pkg.By.id(&apos;page_x002e_components_x002e_slingshot-login_x0023_default-password&apos;)) //define password field
@@ -738,41 +839,13 @@ passwordField.sendKeys([password]) // types password value
 var loginButton=WDS.browser.findElement(pkg.By.id(&apos;page_x002e_components_x002e_slingshot-login_x0023_default-submit-button&apos;)) //define login submit button
 loginButton.click() //click on the login button
 
+wait.until(pkg.ExpectedConditions.elementToBeClickable(pkg.By.id(&apos;page_x002e_component-1-1_x002e_user_x007e_&apos;+ username +&apos;_x007e_dashboard_x0023_default-createSite-button&apos;)))
+
 WDS.sampleResult.sampleEnd()</stringProp>
             <stringProp name="WebDriverSampler.parameters"></stringProp>
             <stringProp name="WebDriverSampler.language">javascript</stringProp>
           </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
-          <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-              <collectionProp name="HeaderManager.headers">
-                <elementProp name="Content-Type" elementType="Header">
-                  <stringProp name="Header.name">Content-Type</stringProp>
-                  <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
-                </elementProp>
-                <elementProp name="Accept-Language" elementType="Header">
-                  <stringProp name="Header.name">Accept-Language</stringProp>
-                  <stringProp name="Header.value">en-GB,en;q=0.5</stringProp>
-                </elementProp>
-                <elementProp name="Accept" elementType="Header">
-                  <stringProp name="Header.name">Accept</stringProp>
-                  <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
-                </elementProp>
-                <elementProp name="User-Agent" elementType="Header">
-                  <stringProp name="Header.name">User-Agent</stringProp>
-                  <stringProp name="Header.value">Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:39.0) Gecko/20100101 Firefox/39.0</stringProp>
-                </elementProp>
-                <elementProp name="Referer" elementType="Header">
-                  <stringProp name="Header.name">Referer</stringProp>
-                  <stringProp name="Header.value">http://${alfrescoServer}:${httpPort}/share/page/</stringProp>
-                </elementProp>
-                <elementProp name="Accept-Encoding" elementType="Header">
-                  <stringProp name="Header.name">Accept-Encoding</stringProp>
-                  <stringProp name="Header.value">gzip, deflate</stringProp>
-                </elementProp>
-              </collectionProp>
-            </HeaderManager>
-            <hashTree/>
-          </hashTree>
+          <hashTree/>
         </hashTree>
         <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="User Thinking Time" enabled="true">
           <stringProp name="ConstantTimer.delay">${minimumDelay}</stringProp>
@@ -946,32 +1019,65 @@ WDS.sampleResult.sampleEnd()</stringProp>
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
         <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Upload Files - CSV Data Set Config" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">${uploadFiles}</stringProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="variableNames">uploadFile</stringProp>
+          </CSVDataSet>
+          <hashTree/>
           <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Click Upload Button" enabled="true">
             <stringProp name="WebDriverSampler.script">var support_ui=JavaImporter(org.openqa.selenium.support.ui.WebDriverWait) //import WebDriverWait Package
 var ui=JavaImporter(org.openqa.selenium.support.ui) //import Selenium Support UI package
 var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui)
 var wait = new pkg.WebDriverWait(WDS.browser, 10000)
-var path =&apos;${uploadFile}&apos;
+var path = WDS.args[0]+&apos;${uploadFile}&apos;
+
 //split file path to get filename
-var nameArray = path.split(&apos;/&apos;);
-var filename = nameArray[nameArray.length - 1];
+var nameArray = path.split(&apos;[\]&apos;)
+//var nameArray = path.replace(/[\]/g, &apos;&apos;)
+
+var filename = nameArray[nameArray.length - 1]
 
 WDS.sampleResult.sampleStart() //sample starting point
 
 var createUploadButton=WDS.browser.findElement(pkg.By.id(&apos;template_x002e_documentlist_v2_x002e_documentlibrary_x0023_default-fileUpload-button-button&apos;))
 createUploadButton.click()
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&apos;template_x002e_dnd-upload_x002e_documentlibrary_x0023_default-file-selection-button-overlay-button&apos;)))
 
-var selectFileField = WDS.browser.findElement(pkg.By.id(&apos;template_x002e_dnd-upload_x002e_documentlibrary_x0023_default-file-selection-button-overlay-button&apos;))
-selectFileField.click()
+WDS.sampleResult.sampleEnd()</stringProp>
+            <stringProp name="WebDriverSampler.parameters">${crystalHome}</stringProp>
+            <stringProp name="WebDriverSampler.language">javascript</stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+          <hashTree/>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="User Thinking Time" enabled="true">
+            <stringProp name="ConstantTimer.delay">${minimumDelay}</stringProp>
+            <stringProp name="RandomTimer.range">${userThinkingTime}</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+          <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Submit File" enabled="true">
+            <stringProp name="WebDriverSampler.script">var support_ui=JavaImporter(org.openqa.selenium.support.ui.WebDriverWait) //import WebDriverWait Package
+var ui=JavaImporter(org.openqa.selenium.support.ui) //import Selenium Support UI package
+var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui)
+var wait = new pkg.WebDriverWait(WDS.browser, 10000)
+var path = WDS.args[0]+&apos;${uploadFile}&apos;
+
+var nameArray = path.split(&apos;/&apos;)
+var filename = nameArray[nameArray.length - 1]
+
+WDS.sampleResult.sampleStart() //sample starting point
 
 var filesField = WDS.browser.findElement(pkg.By.name(&apos;files[]&apos;))
 filesField.clear()
-filesField.sendKeys([&apos;${uploadFile}&apos;]) 
-
+filesField.sendKeys([WDS.args[0]+&apos;${uploadFile}&apos;]) 
 wait.until(pkg.ExpectedConditions.elementToBeClickable(pkg.By.xpath(&quot;//img[@title=&apos;&quot;+ filename +&quot;&apos;]&quot;)))
 
 WDS.sampleResult.sampleEnd()</stringProp>
-            <stringProp name="WebDriverSampler.parameters"></stringProp>
+            <stringProp name="WebDriverSampler.parameters">${crystalHome}</stringProp>
             <stringProp name="WebDriverSampler.language">javascript</stringProp>
           </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
           <hashTree/>
@@ -1015,28 +1121,6 @@ WDS.sampleResult.sampleEnd()</stringProp>
           <stringProp name="RandomTimer.range">${userThinkingTime}</stringProp>
         </UniformRandomTimer>
         <hashTree/>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Download document" enabled="true">
-          <boolProp name="TransactionController.includeTimers">false</boolProp>
-          <boolProp name="TransactionController.parent">true</boolProp>
-        </TransactionController>
-        <hashTree>
-          <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Click Download Link" enabled="true">
-            <stringProp name="WebDriverSampler.script">var pkg=JavaImporter(org.openqa.selenium) //import java selenium package
-var support_ui=JavaImporter(org.openqa.selenium.support.ui.WebDriverWait) //import WebDriverWait Package
-var ui=JavaImporter(org.openqa.selenium.support.ui) //import Selenium Support UI package
-var username=&apos;${userNamePrefix}${user-number}&apos;
-
-WDS.sampleResult.sampleStart() //sample starting point
-
-var createUploadButton=WDS.browser.findElement(pkg.By.xpath(&quot;//*[@class=&apos;simple-link&apos; and @title=&apos;Download&apos;]&quot;))
-createUploadButton.click()
-
-WDS.sampleResult.sampleEnd()</stringProp>
-            <stringProp name="WebDriverSampler.parameters"></stringProp>
-            <stringProp name="WebDriverSampler.language">javascript</stringProp>
-          </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
-          <hashTree/>
-        </hashTree>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Delete document" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">true</boolProp>
@@ -1074,15 +1158,12 @@ WDS.sampleResult.sampleEnd()</stringProp>
           <stringProp name="LoopController.loops">${searchCountPerUser}</stringProp>
         </LoopController>
         <hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Transaction Controller" enabled="true">
-            <boolProp name="TransactionController.includeTimers">false</boolProp>
-            <boolProp name="TransactionController.parent">false</boolProp>
-          </TransactionController>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Live and Faceted Searches" enabled="true"/>
           <hashTree>
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Search Words - CSV Data Set Config" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">searchWords.txt</stringProp>
+              <stringProp name="filename">${searchWords}</stringProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
               <stringProp name="shareMode">shareMode.all</stringProp>
@@ -1098,7 +1179,7 @@ var ui=JavaImporter(org.openqa.selenium.support.ui) //import Selenium Support UI
 var searchWord=&apos;${searchWord}&apos;
 
 WDS.sampleResult.sampleStart()
-searchWord=&apos;${searchWord}&apos;
+
 var searchBox=WDS.browser.findElement(pkg.By.id(&apos;HEADER_SEARCHBOX_FORM_FIELD&apos;))
 searchBox.sendKeys([searchWord]) 
 
@@ -1187,13 +1268,14 @@ WDS.sampleResult.sampleEnd()</stringProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">${concurrentUsers}</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">${rampUpPeriod}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time"></stringProp>
         <longProp name="ThreadGroup.start_time">1314880700000</longProp>
         <longProp name="ThreadGroup.end_time">1314880700000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
       </ThreadGroup>
       <hashTree>
         <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Create Sites is True" enabled="true">
@@ -1388,7 +1470,7 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Deleting &quot; +
               <hashTree/>
             </hashTree>
           </hashTree>
-          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="1 second timer" enabled="false">
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="1 second timer" enabled="true">
             <stringProp name="ConstantTimer.delay">1000</stringProp>
             <stringProp name="RandomTimer.range">0</stringProp>
           </UniformRandomTimer>
@@ -2361,26 +2443,20 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>true</encoding>
+            <encoding>false</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>true</responseData>
-            <samplerData>true</samplerData>
-            <xml>true</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>true</responseHeaders>
-            <requestHeaders>true</requestHeaders>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
-            <url>true</url>
-            <fileName>true</fileName>
-            <hostname>true</hostname>
             <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
           </value>
         </objProp>
         <objProp>
@@ -2411,7 +2487,7 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}..${__BeanShell(File.separator,)}JMeterLogs${__BeanShell(File.separator,)}${__TestPlanName}_${__time(yyyy-MM-dd_HH-mm-ss,)}_resultsTable.xml</stringProp>
+        <stringProp name="filename">resultlogs/${testName}ResultsTable.csv</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
@@ -2428,26 +2504,20 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>true</encoding>
+            <encoding>false</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>true</responseData>
-            <samplerData>true</samplerData>
-            <xml>true</xml>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
             <fieldNames>true</fieldNames>
-            <responseHeaders>true</responseHeaders>
-            <requestHeaders>true</requestHeaders>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
-            <url>true</url>
-            <fileName>true</fileName>
-            <hostname>true</hostname>
             <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
           </value>
         </objProp>
         <objProp>
@@ -2478,7 +2548,7 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}..${__BeanShell(File.separator,)}JMeterLogs${__BeanShell(File.separator,)}${__TestPlanName}_${__time(yyyy-MM-dd_HH-mm-ss,)}_SummaryReport.xml</stringProp>
+        <stringProp name="filename">resultlogs/${testName}SummaryReport.csv</stringProp>
       </ResultCollector>
       <hashTree/>
       <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseTimesOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Times Over Time" enabled="true">
@@ -2495,26 +2565,20 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>true</encoding>
+            <encoding>false</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>true</responseData>
-            <samplerData>true</samplerData>
-            <xml>true</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>true</responseHeaders>
-            <requestHeaders>true</requestHeaders>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
-            <url>true</url>
-            <fileName>true</fileName>
-            <hostname>true</hostname>
             <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
           </value>
         </objProp>
         <objProp>
@@ -2545,7 +2609,7 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}..${__BeanShell(File.separator,)}JMeterLogs${__BeanShell(File.separator,)}${__TestPlanName}_${__time(yyyy-MM-dd_HH-mm-ss,)}_ResponseTimesOverTime.xml</stringProp>
+        <stringProp name="filename">resultlogs/${testName}ResponseTimesOverTime.csv</stringProp>
         <longProp name="interval_grouping">1000</longProp>
         <boolProp name="graph_aggregated">false</boolProp>
         <stringProp name="include_sample_labels"></stringProp>
@@ -2570,26 +2634,20 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>true</encoding>
+            <encoding>false</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>true</responseData>
-            <samplerData>true</samplerData>
-            <xml>true</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>true</responseHeaders>
-            <requestHeaders>true</requestHeaders>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
-            <url>true</url>
-            <fileName>true</fileName>
-            <hostname>true</hostname>
             <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
           </value>
         </objProp>
         <objProp>
@@ -2620,7 +2678,7 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}..${__BeanShell(File.separator,)}JMeterLogs${__BeanShell(File.separator,)}${__TestPlanName}_${__time(yyyy-MM-dd_HH-mm-ss,)}_TransactionsPerSecond.xml</stringProp>
+        <stringProp name="filename">resultlogs/${testName}TransactionsPerSecond.csv</stringProp>
         <longProp name="interval_grouping">1000</longProp>
         <boolProp name="graph_aggregated">false</boolProp>
         <stringProp name="include_sample_labels"></stringProp>
@@ -2645,26 +2703,20 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>true</encoding>
+            <encoding>false</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>true</responseData>
-            <samplerData>true</samplerData>
-            <xml>true</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>true</responseHeaders>
-            <requestHeaders>true</requestHeaders>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
-            <url>true</url>
-            <fileName>true</fileName>
-            <hostname>true</hostname>
             <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
           </value>
         </objProp>
         <objProp>
@@ -2695,7 +2747,7 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}..${__BeanShell(File.separator,)}JMeterLogs${__BeanShell(File.separator,)}${__TestPlanName}_${__time(yyyy-MM-dd_HH-mm-ss,)}_ActiveThreadsOverTime.xml</stringProp>
+        <stringProp name="filename">resultlogs/${testName}ActiveThreadsOverTime.csv</stringProp>
         <longProp name="interval_grouping">500</longProp>
         <boolProp name="graph_aggregated">false</boolProp>
         <stringProp name="include_sample_labels"></stringProp>
@@ -2720,26 +2772,20 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>true</encoding>
+            <encoding>false</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>true</responseData>
-            <samplerData>true</samplerData>
-            <xml>true</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>true</responseHeaders>
-            <requestHeaders>true</requestHeaders>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
-            <url>true</url>
-            <fileName>true</fileName>
-            <hostname>true</hostname>
             <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
           </value>
         </objProp>
         <objProp>
@@ -2770,7 +2816,7 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}..${__BeanShell(File.separator,)}JMeterLogs${__BeanShell(File.separator,)}${__TestPlanName}_${__time(yyyy-MM-dd_HH-mm-ss,)}_HitsPerSecond.xml</stringProp>
+        <stringProp name="filename">resultlogs/${testName}HitsPerSecond.csv</stringProp>
         <longProp name="interval_grouping">1000</longProp>
         <boolProp name="graph_aggregated">false</boolProp>
         <stringProp name="include_sample_labels"></stringProp>
@@ -2795,26 +2841,20 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>true</encoding>
+            <encoding>false</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>true</responseData>
-            <samplerData>true</samplerData>
-            <xml>true</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>true</responseHeaders>
-            <requestHeaders>true</requestHeaders>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
-            <url>true</url>
-            <fileName>true</fileName>
-            <hostname>true</hostname>
             <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
           </value>
         </objProp>
         <objProp>
@@ -2845,7 +2885,7 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}..${__BeanShell(File.separator,)}JMeterLogs${__BeanShell(File.separator,)}${__TestPlanName}_${__time(yyyy-MM-dd_HH-mm-ss,)}_HeapMemory.xml</stringProp>
+        <stringProp name="filename">resultlogs/${testName}HeapMemory.csv</stringProp>
         <longProp name="interval_grouping">1000</longProp>
         <boolProp name="graph_aggregated">false</boolProp>
         <stringProp name="include_sample_labels"></stringProp>
@@ -2888,103 +2928,6 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
         </collectionProp>
       </kg.apc.jmeter.jmxmon.JMXMonCollector>
       <hashTree/>
-      <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="jp@gc - JMXMon CPU Usage" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>true</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>true</responseData>
-            <samplerData>true</samplerData>
-            <xml>true</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>true</responseHeaders>
-            <requestHeaders>true</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <url>true</url>
-            <fileName>true</fileName>
-            <hostname>true</hostname>
-            <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
-          </value>
-        </objProp>
-        <objProp>
-          <name></name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>false</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <threadCounts>true</threadCounts>
-          </value>
-        </objProp>
-        <stringProp name="filename">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}..${__BeanShell(File.separator,)}JMeterLogs${__BeanShell(File.separator,)}${__TestPlanName}_${__time(yyyy-MM-dd_HH-mm-ss,)}_CPUUsage.xml</stringProp>
-        <longProp name="interval_grouping">1000</longProp>
-        <boolProp name="graph_aggregated">false</boolProp>
-        <stringProp name="include_sample_labels"></stringProp>
-        <stringProp name="exclude_sample_labels"></stringProp>
-        <stringProp name="start_offset"></stringProp>
-        <stringProp name="end_offset"></stringProp>
-        <boolProp name="include_checkbox_state">false</boolProp>
-        <boolProp name="exclude_checkbox_state">false</boolProp>
-        <collectionProp name="samplers">
-          <collectionProp name="-1052291323">
-            <stringProp name="439649103">System CPU Load</stringProp>
-            <stringProp name="-1390751634">service:jmx:rmi:///jndi/rmi://${alfrescoServer}:${rmiPort}/alfresco/jmxrmi</stringProp>
-            <stringProp name="-1715313805">controlRole</stringProp>
-            <stringProp name="-1655027952">change_asap</stringProp>
-            <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
-            <stringProp name="-481625761">SystemCpuLoad</stringProp>
-            <stringProp name="0"></stringProp>
-            <stringProp name="1237">false</stringProp>
-          </collectionProp>
-          <collectionProp name="-1099634447">
-            <stringProp name="693316431">Process CPU Load</stringProp>
-            <stringProp name="-1390751634">service:jmx:rmi:///jndi/rmi://${alfrescoServer}:${rmiPort}/alfresco/jmxrmi</stringProp>
-            <stringProp reference="../../collectionProp/stringProp[3]"/>
-            <stringProp reference="../../collectionProp/stringProp[4]"/>
-            <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
-            <stringProp name="-101473953">ProcessCpuLoad</stringProp>
-            <stringProp reference="../../collectionProp/stringProp[7]"/>
-            <stringProp name="1237">false</stringProp>
-          </collectionProp>
-        </collectionProp>
-      </kg.apc.jmeter.jmxmon.JMXMonCollector>
-      <hashTree/>
       <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="jp@gc - JMXMon Garbage Collection" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
@@ -2999,26 +2942,20 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>true</encoding>
+            <encoding>false</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>true</responseData>
-            <samplerData>true</samplerData>
-            <xml>true</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>true</responseHeaders>
-            <requestHeaders>true</requestHeaders>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
-            <url>true</url>
-            <fileName>true</fileName>
-            <hostname>true</hostname>
             <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
           </value>
         </objProp>
         <objProp>
@@ -3049,7 +2986,7 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}..${__BeanShell(File.separator,)}JMeterLogs${__BeanShell(File.separator,)}${__TestPlanName}_${__time(yyyy-MM-dd_HH-mm-ss,)}_GC.xml</stringProp>
+        <stringProp name="filename">resultlogs/${testName}GC.csv</stringProp>
         <longProp name="interval_grouping">1000</longProp>
         <boolProp name="graph_aggregated">false</boolProp>
         <stringProp name="include_sample_labels"></stringProp>
@@ -3102,7 +3039,7 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
         </collectionProp>
       </kg.apc.jmeter.jmxmon.JMXMonCollector>
       <hashTree/>
-      <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="jp@gc - JMXMon 8080 Threads" enabled="true">
+      <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="jp@gc - JMXMon CPU Usage" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -3116,26 +3053,20 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>true</encoding>
+            <encoding>false</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>true</responseData>
-            <samplerData>true</samplerData>
-            <xml>true</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>true</responseHeaders>
-            <requestHeaders>true</requestHeaders>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
-            <url>true</url>
-            <fileName>true</fileName>
-            <hostname>true</hostname>
             <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
           </value>
         </objProp>
         <objProp>
@@ -3166,7 +3097,98 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}..${__BeanShell(File.separator,)}JMeterLogs${__BeanShell(File.separator,)}${__TestPlanName}_${__time(yyyy-MM-dd_HH-mm-ss,)}_8080Threads.xml</stringProp>
+        <stringProp name="filename">resultlogs/${testName}CPUUsage.csv</stringProp>
+        <longProp name="interval_grouping">1000</longProp>
+        <boolProp name="graph_aggregated">false</boolProp>
+        <stringProp name="include_sample_labels"></stringProp>
+        <stringProp name="exclude_sample_labels"></stringProp>
+        <stringProp name="start_offset"></stringProp>
+        <stringProp name="end_offset"></stringProp>
+        <boolProp name="include_checkbox_state">false</boolProp>
+        <boolProp name="exclude_checkbox_state">false</boolProp>
+        <collectionProp name="samplers">
+          <collectionProp name="-1052291323">
+            <stringProp name="439649103">System CPU Load</stringProp>
+            <stringProp name="-1390751634">service:jmx:rmi:///jndi/rmi://${alfrescoServer}:${rmiPort}/alfresco/jmxrmi</stringProp>
+            <stringProp name="-1715313805">controlRole</stringProp>
+            <stringProp name="-1655027952">change_asap</stringProp>
+            <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+            <stringProp name="-481625761">SystemCpuLoad</stringProp>
+            <stringProp name="0"></stringProp>
+            <stringProp name="1237">false</stringProp>
+          </collectionProp>
+          <collectionProp name="-1099634447">
+            <stringProp name="693316431">Process CPU Load</stringProp>
+            <stringProp name="-1390751634">service:jmx:rmi:///jndi/rmi://${alfrescoServer}:${rmiPort}/alfresco/jmxrmi</stringProp>
+            <stringProp reference="../../collectionProp/stringProp[3]"/>
+            <stringProp reference="../../collectionProp/stringProp[4]"/>
+            <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+            <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+            <stringProp reference="../../collectionProp/stringProp[7]"/>
+            <stringProp name="1237">false</stringProp>
+          </collectionProp>
+        </collectionProp>
+      </kg.apc.jmeter.jmxmon.JMXMonCollector>
+      <hashTree/>
+      <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="jp@gc - JMXMon 8080 Threads" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+          </value>
+        </objProp>
+        <objProp>
+          <name></name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+          </value>
+        </objProp>
+        <stringProp name="filename">resultlogs/${testName}8080Threads.csv</stringProp>
         <longProp name="interval_grouping">1000</longProp>
         <boolProp name="graph_aggregated">false</boolProp>
         <stringProp name="include_sample_labels"></stringProp>
@@ -3213,26 +3235,20 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>true</encoding>
+            <encoding>false</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>true</responseData>
-            <samplerData>true</samplerData>
-            <xml>true</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>true</responseHeaders>
-            <requestHeaders>true</requestHeaders>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
-            <url>true</url>
-            <fileName>true</fileName>
-            <hostname>true</hostname>
             <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
           </value>
         </objProp>
         <objProp>
@@ -3263,7 +3279,7 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}..${__BeanShell(File.separator,)}JMeterLogs${__BeanShell(File.separator,)}${__TestPlanName}_${__time(yyyy-MM-dd_HH-mm-ss,)}_8443Threads.xml</stringProp>
+        <stringProp name="filename">resultlogs/${testName}8443Threads.csv</stringProp>
         <longProp name="interval_grouping">1000</longProp>
         <boolProp name="graph_aggregated">false</boolProp>
         <stringProp name="include_sample_labels"></stringProp>
@@ -3310,26 +3326,20 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>true</encoding>
+            <encoding>false</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>true</responseData>
-            <samplerData>true</samplerData>
-            <xml>true</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>true</responseHeaders>
-            <requestHeaders>true</requestHeaders>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
-            <url>true</url>
-            <fileName>true</fileName>
-            <hostname>true</hostname>
             <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
           </value>
         </objProp>
         <objProp>
@@ -3360,7 +3370,7 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}..${__BeanShell(File.separator,)}JMeterLogs${__BeanShell(File.separator,)}${__TestPlanName}_${__time(yyyy-MM-dd_HH-mm-ss,)}_8009Threads.xml</stringProp>
+        <stringProp name="filename">resultlogs/${testName}8009Threads.csv</stringProp>
         <longProp name="interval_grouping">1000</longProp>
         <boolProp name="graph_aggregated">false</boolProp>
         <stringProp name="include_sample_labels"></stringProp>
@@ -3407,26 +3417,20 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>true</encoding>
+            <encoding>false</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>true</responseData>
-            <samplerData>true</samplerData>
-            <xml>true</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>true</responseHeaders>
-            <requestHeaders>true</requestHeaders>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
-            <url>true</url>
-            <fileName>true</fileName>
-            <hostname>true</hostname>
             <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
           </value>
         </objProp>
         <objProp>
@@ -3457,7 +3461,7 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}..${__BeanShell(File.separator,)}JMeterLogs${__BeanShell(File.separator,)}${__TestPlanName}_${__time(yyyy-MM-dd_HH-mm-ss,)}_ConcurrentUsers.xml</stringProp>
+        <stringProp name="filename">resultlogs/${testName}ConcurrentUsers.csv</stringProp>
         <longProp name="interval_grouping">1000</longProp>
         <boolProp name="graph_aggregated">false</boolProp>
         <stringProp name="include_sample_labels"></stringProp>
@@ -3504,26 +3508,20 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>true</encoding>
+            <encoding>false</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>true</responseData>
-            <samplerData>true</samplerData>
-            <xml>true</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>true</responseHeaders>
-            <requestHeaders>true</requestHeaders>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
-            <url>true</url>
-            <fileName>true</fileName>
-            <hostname>true</hostname>
             <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
           </value>
         </objProp>
         <objProp>
@@ -3554,7 +3552,7 @@ System.out.println(dateFormat.format(cal.getTime()) + &quot; - Test Finished!!!&
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}..${__BeanShell(File.separator,)}JMeterLogs${__BeanShell(File.separator,)}${__TestPlanName}_${__time(yyyy-MM-dd_HH-mm-ss,)}_${testName}results.xml</stringProp>
+        <stringProp name="filename">resultlogs/${testName}results.csv</stringProp>
       </ResultCollector>
       <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Recording Controller" enabled="true">

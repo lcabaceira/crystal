@@ -9,32 +9,42 @@
         <hudson.model.StringParameterDefinition>
           <name>testsPlanFolder</name>
           <description>The location of the .jmx test files</description>
-          <defaultValue>/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/TestCases/browserAutomationShare</defaultValue>
+          <defaultValue>/home/miguel/opt/crystal-master/TestCases/browserAutomationShare</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>jmeterBin</name>
           <description>The location of jmeter jar and the .sh file</description>
-          <defaultValue>/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/Dependencies/jmeter/bin</defaultValue>
+          <defaultValue>/home/miguel/opt/crystal-master/Dependencies/jmeter/bin</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>testCase</name>
           <description>The name of the testcase file</description>
-          <defaultValue>Alfresco5-TestPlan.jmx</defaultValue>
+          <defaultValue>Alfresco5-TestPlan-chrome.jmx</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>reportsLocation</name>
           <description>The location of the jmeter reports</description>
-          <defaultValue>/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/supportingData/reports</defaultValue>
+          <defaultValue>/home/miguel/opt/crystal-master/supportingData/reports</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>alfrescoServer</name>
           <description>The alfresco server ip or hostname</description>
-          <defaultValue>192.168.101.231</defaultValue>
+          <defaultValue>localhost</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>alfrescoPort</name>
           <description>The alfresco server port</description>
           <defaultValue>8080</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>crystalHome</name>
+          <description></description>
+          <defaultValue>/home/miguel/opt/crystal-master/</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>chromeDriver</name>
+          <description></description>
+          <defaultValue>/home/miguel/opt/crystal-master/Dependencies/jmeter/bin/chromeDriver/linux64/chromedriver</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -51,7 +61,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>$jmeterBin/jmeter.sh -n -t $testsPlanFolder/$testCase -l $reportsLocation/Alfresco5-TestResults.jtl</command>
+      <command>$jmeterBin/jmeter.sh -n -t $testsPlanFolder/$testCase -JalfrescoServer=&quot;$alfrescoServer&quot; -JalfrescoPort=&quot;$alfrescoPort&quot; -JcrystalHome=&quot;$crystalHome&quot; -JchromeDriver=&quot;$chromeDriver&quot; -l $reportsLocation/Alfresco5-TestResults.jtl</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

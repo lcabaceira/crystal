@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="2.9" jmeter="r1719185">
+<jmeterTestPlan version="1.2" properties="2.5" jmeter="2.13 r1665067">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Alfresco 5 - Create Users - Perform Searches - Delete Users" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -45,7 +45,7 @@
           </elementProp>
           <elementProp name="userNamePrefix" elementType="Argument">
             <stringProp name="Argument.name">userNamePrefix</stringProp>
-            <stringProp name="Argument.value">Murcielago-</stringProp>
+            <stringProp name="Argument.value">murcielago-</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Username = username prefix + user number</stringProp>
           </elementProp>
@@ -87,13 +87,13 @@
           </elementProp>
           <elementProp name="alfrescoServer" elementType="Argument">
             <stringProp name="Argument.name">alfrescoServer</stringProp>
-            <stringProp name="Argument.value">192.168.101.231</stringProp>
+            <stringProp name="Argument.value">${__P(alfrescoServer,localhost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Alfresco or LB host name</stringProp>
           </elementProp>
           <elementProp name="httpPort" elementType="Argument">
             <stringProp name="Argument.name">httpPort</stringProp>
-            <stringProp name="Argument.value">8080</stringProp>
+            <stringProp name="Argument.value">${__P(alfrescoPort,8080)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Alfresco or LB port</stringProp>
           </elementProp>
@@ -120,9 +120,28 @@
             <stringProp name="Argument.value">UTF-8</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="crystalHome" elementType="Argument">
+            <stringProp name="Argument.name">crystalHome</stringProp>
+            <stringProp name="Argument.value">${__P(crystalHome,/home/miguel/opt/crystal-master/)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Path to crystal home folder</stringProp>
+          </elementProp>
           <elementProp name="chromeDriver" elementType="Argument">
             <stringProp name="Argument.name">chromeDriver</stringProp>
-            <stringProp name="Argument.value">/Users/lcabaceira/My-Library/Customers/jtests/project/jtests/Dependencies/bin/chromeDriver/macOS/chromedriver</stringProp>
+            <stringProp name="Argument.value">${__P(chromeDriver,/home/miguel/opt/crystal-master/Dependencies/jmeter/bin/chromeDriver/linux64/chromedriver)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Path to chromedriver binary</stringProp>
+          </elementProp>
+          <elementProp name="uploadFiles" elementType="Argument">
+            <stringProp name="Argument.name">uploadFiles</stringProp>
+            <stringProp name="Argument.value">${__P(uploadFiles,/home/miguel/opt/crystal-master/TestCases/browserAutomationShare/uploadFiles.txt)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Path to uploadFiles.txt file</stringProp>
+          </elementProp>
+          <elementProp name="searchWords" elementType="Argument">
+            <stringProp name="Argument.name">searchWords</stringProp>
+            <stringProp name="Argument.value">${__P(searchWords,/home/miguel/opt/crystal-master/TestCases/browserAutomationShare/searchwords.txt)}</stringProp>
+            <stringProp name="Argument.desc">Patch to searchwods.txt file</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -1003,7 +1022,7 @@ WDS.sampleResult.sampleEnd()</stringProp>
           <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Upload Files - CSV Data Set Config" enabled="true">
             <stringProp name="delimiter">,</stringProp>
             <stringProp name="fileEncoding"></stringProp>
-            <stringProp name="filename">uploadFiles.txt</stringProp>
+            <stringProp name="filename">${uploadFiles}</stringProp>
             <boolProp name="quotedData">false</boolProp>
             <boolProp name="recycle">true</boolProp>
             <stringProp name="shareMode">shareMode.all</stringProp>
@@ -1016,7 +1035,8 @@ WDS.sampleResult.sampleEnd()</stringProp>
 var ui=JavaImporter(org.openqa.selenium.support.ui) //import Selenium Support UI package
 var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui)
 var wait = new pkg.WebDriverWait(WDS.browser, 10000)
-var path =&apos;${uploadFile}&apos;
+var path = WDS.args[0]+&apos;${uploadFile}&apos;
+
 //split file path to get filename
 var nameArray = path.split(&apos;[\]&apos;)
 //var nameArray = path.replace(/[\]/g, &apos;&apos;)
@@ -1030,7 +1050,7 @@ createUploadButton.click()
 wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&apos;template_x002e_dnd-upload_x002e_documentlibrary_x0023_default-file-selection-button-overlay-button&apos;)))
 
 WDS.sampleResult.sampleEnd()</stringProp>
-            <stringProp name="WebDriverSampler.parameters"></stringProp>
+            <stringProp name="WebDriverSampler.parameters">${crystalHome}</stringProp>
             <stringProp name="WebDriverSampler.language">javascript</stringProp>
           </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
           <hashTree/>
@@ -1044,7 +1064,7 @@ WDS.sampleResult.sampleEnd()</stringProp>
 var ui=JavaImporter(org.openqa.selenium.support.ui) //import Selenium Support UI package
 var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui)
 var wait = new pkg.WebDriverWait(WDS.browser, 10000)
-var path =&apos;${uploadFile}&apos;
+var path = WDS.args[0]+&apos;${uploadFile}&apos;
 
 var nameArray = path.split(&apos;/&apos;)
 var filename = nameArray[nameArray.length - 1]
@@ -1053,11 +1073,11 @@ WDS.sampleResult.sampleStart() //sample starting point
 
 var filesField = WDS.browser.findElement(pkg.By.name(&apos;files[]&apos;))
 filesField.clear()
-filesField.sendKeys([&apos;${uploadFile}&apos;]) 
+filesField.sendKeys([WDS.args[0]+&apos;${uploadFile}&apos;]) 
 wait.until(pkg.ExpectedConditions.elementToBeClickable(pkg.By.xpath(&quot;//img[@title=&apos;&quot;+ filename +&quot;&apos;]&quot;)))
 
 WDS.sampleResult.sampleEnd()</stringProp>
-            <stringProp name="WebDriverSampler.parameters"></stringProp>
+            <stringProp name="WebDriverSampler.parameters">${crystalHome}</stringProp>
             <stringProp name="WebDriverSampler.language">javascript</stringProp>
           </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
           <hashTree/>
@@ -1143,7 +1163,7 @@ WDS.sampleResult.sampleEnd()</stringProp>
             <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Search Words - CSV Data Set Config" enabled="true">
               <stringProp name="delimiter">,</stringProp>
               <stringProp name="fileEncoding"></stringProp>
-              <stringProp name="filename">searchWords.txt</stringProp>
+              <stringProp name="filename">${searchWords}</stringProp>
               <boolProp name="quotedData">false</boolProp>
               <boolProp name="recycle">true</boolProp>
               <stringProp name="shareMode">shareMode.all</stringProp>
