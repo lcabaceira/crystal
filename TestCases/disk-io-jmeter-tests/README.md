@@ -43,6 +43,10 @@ indexfilesystem.path   =  Path to the indexes filesystem to be tested
 contentfilesystem.path =  Path to the ContentStore filesystem to be tested
 resultsDirectory = Path where to store the result JSON
 
+As a general conclusion,
+
+There is a significant difference in performance for the different means of doing sequential file read and write IO from Java.   We've found the use of ByteBuffers and Channels to be the best optimised parts of the IO libraries, all very dependent on the filesystem, OS and Host. This is why this tests are very important for Alfresco Content Store and Indexes file system as they can provide a good overview on how is each fiesystem performing in comparison with others.
+
 References :
 
   - http://mechanical-sympathy.blogspot.ch/2011/12/java-sequential-io-performance.html
