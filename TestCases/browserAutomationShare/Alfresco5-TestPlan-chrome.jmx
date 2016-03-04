@@ -51,13 +51,13 @@
           </elementProp>
           <elementProp name="concurrentUsers" elementType="Argument">
             <stringProp name="Argument.name">concurrentUsers</stringProp>
-            <stringProp name="Argument.value">20</stringProp>
+            <stringProp name="Argument.value">3</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Number of users to run the test concurrently</stringProp>
           </elementProp>
           <elementProp name="searchCountPerUser" elementType="Argument">
             <stringProp name="Argument.name">searchCountPerUser</stringProp>
-            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.value">5</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Number of searches per user. Each user executes a Live search and a Faceted search per test</stringProp>
           </elementProp>
@@ -81,7 +81,7 @@
           </elementProp>
           <elementProp name="rampUpPeriod" elementType="Argument">
             <stringProp name="Argument.name">rampUpPeriod</stringProp>
-            <stringProp name="Argument.value">60</stringProp>
+            <stringProp name="Argument.value">10</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Rump up period to create test threads (run concurrent tests)</stringProp>
           </elementProp>
