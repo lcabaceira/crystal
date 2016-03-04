@@ -40,7 +40,9 @@ The results of this tests are recorded on a JSON format.
 This tests has the following configuration parameters
 
 indexfilesystem.path   =  Path to the indexes filesystem to be tested
+
 contentfilesystem.path =  Path to the ContentStore filesystem to be tested
+
 resultsDirectory = Path where to store the result JSON
 
 As a general conclusion,
