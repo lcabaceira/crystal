@@ -6,6 +6,12 @@
       <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
       <User>pentaho_user</User>
     </Connection>
+    <Connection id="labels" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
     <Connection id="hosts" type="sql.jdbc">
       <Driver>org.h2.Driver</Driver>
       <Pass>password</Pass>
@@ -40,6 +46,26 @@ where
 order by
  t.description asc]]></Query>
   </DataAccess>
+  <DataAccess access="public" connection="labels" id="labels" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="INPUT/OUTPUT" name="typeDescriptionParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[select
+ '' as description
+union all
+select distinct
+ p.label as description
+from
+ crystal.dm_fact_execution_plans p
+ join crystal.dm_dim_types t on p.type_id = t.id
+where
+ t.src_id != 'UNKNOWN'
+ and t.description = ${typeDescriptionParam}
+order by
+ h.description asc]]></Query>
+  </DataAccess>
   <DataAccess access="public" connection="hosts" id="hosts" type="sql">
     <Cache duration="3600" enabled="true"/>
     <Columns/>
@@ -69,13 +95,13 @@ order by
     <Columns/>
     <Parameters>
       <Parameter default="INPUT/OUTPUT" name="typeDescriptionParam" type="String"/>
-      <Parameter default="localhost" name="hostParam" type="String"/>
+      <Parameter default="" name="hostParam" type="String"/>
       <Parameter default="Unknown" name="testParam" type="String"/>
+      <Parameter default="" name="labelParam" type="String"/>
       <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
       <Parameter default="2001-01-01" name="periodToParam" type="String"/>
     </Parameters>
     <Query><![CDATA[SELECT
- P.LABEL LABEL,
  CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(P.SECOND,2,'0'), ' - ', P.PROG + 1) "Time - Prog",
  SUM(P.MEMORY_MAPPED_FILE) "Memory mapped file",
  SUM(P.RANDOM_ACCESS_FILE) "Random access file",
@@ -92,9 +118,9 @@ WHERE
  Ty.DESCRIPTION = ${typeDescriptionParam}
  AND T.DESCRIPTION = ${testParam}
  AND (${hostParam} = '' OR (${hostParam} != '' AND H.DESCRIPTION = ${hostParam}))
+ AND (${labelParam} = '' OR (${labelParam} != '' AND P.LABEL = ${labelParam}))
  AND P.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
 GROUP BY
- P.LABEL,
  CONCAT(D.DESCRIPTION,' ',M.DESCRIPTION,':',LPAD(P.SECOND,2,'0'), ' - ', P.PROG + 1)
 ORDER BY
  P.DAY_ID ASC,
