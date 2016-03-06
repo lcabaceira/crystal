@@ -16,20 +16,29 @@
   <DataAccess access="public" connection="tests" id="tests" type="sql">
     <Cache duration="3600" enabled="true"/>
     <Columns/>
-    <Parameters/>
+    <Parameters>
+      <Parameter default="SAMPLE" name="typeDescriptionParam" type="String"/>
+    </Parameters>
     <Query><![CDATA[select
- description
+ t.description as description
 from
- crystal.dm_dim_tests
+ crystal.dm_dim_tests t
+ join crystal.dm_dim_types ty
 where
- src_id != 'UNKNOWN'
+ t.src_id != 'UNKNOWN'
+ and ty.description = ${typeDescriptionParam}
+ and exists (
+  select 1 from crystal.dm_fact_logs l where l.test_id = t.id and l.type_id = ty.id
+  union all
+  select 1 from crystal.dm_fact_execution_plans p where p.test_id = t.id and p.type_id = ty.id)
 order by
- description asc]]></Query>
+ t.description asc]]></Query>
   </DataAccess>
   <DataAccess access="public" connection="logs" id="logs" type="sql">
     <Cache duration="3600" enabled="true"/>
     <Columns/>
     <Parameters>
+      <Parameter default="SAMPLE" name="typeDescriptionParam" type="String"/>
       <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
       <Parameter default="2001-01-01" name="periodToParam" type="String"/>
       <Parameter default="Unknown" name="testParam" type="String"/>
@@ -47,7 +56,7 @@ order by
 FROM
  CRYSTAL.DM_FACT_LOGS AS F
  JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = F.TEST_ID
- JOIN CRYSTAL.DM_DIM_TYPES AS TY ON TY.ID = F.TYPE_ID AND TY.DESCRIPTION = 'SAMPLE'
+ JOIN CRYSTAL.DM_DIM_TYPES AS TY ON TY.ID = F.TYPE_ID AND TY.DESCRIPTION = ${typeDescriptionParam}
  JOIN CRYSTAL.DM_DIM_DAYS AS D ON D.ID = F.DAY_ID
  JOIN CRYSTAL.DM_DIM_MINUTES AS M ON M.ID = F.MINUTE_ID
  JOIN CRYSTAL.DM_DIM_HOSTS AS H ON H.ID = F.HOSTNAME_ID

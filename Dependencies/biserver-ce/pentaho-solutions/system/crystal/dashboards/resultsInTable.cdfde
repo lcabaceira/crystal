@@ -750,12 +750,12 @@
      {
       "name": "query",
       "type": "SqlQuery",
-      "value": "select\n description\nfrom\n crystal.dm_dim_tests\nwhere\n src_id != 'UNKNOWN'\norder by\n description asc"
+      "value": "select\n t.description as description\nfrom\n crystal.dm_dim_tests t\n join crystal.dm_dim_types ty\nwhere\n t.src_id != 'UNKNOWN'\n and ty.description = ${typeDescriptionParam}\n and exists (\n  select 1 from crystal.dm_fact_logs l where l.test_id = t.id and l.type_id = ty.id\n  union all\n  select 1 from crystal.dm_fact_execution_plans p where p.test_id = t.id and p.type_id = ty.id)\norder by\n t.description asc\n"
      },
      {
       "name": "parameters",
       "type": "CdaParameters",
-      "value": "[]"
+      "value": "[[\"typeDescriptionParam\",\"SAMPLE\",\"String\",\"\"]]"
      },
      {
       "name": "cdacalculatedcolumns",
@@ -836,12 +836,12 @@
      {
       "name": "query",
       "type": "SqlQuery",
-      "value": "SELECT\n CONCAT(FORMATDATETIME(F.DAY_ID,'yyyy-MM-dd'), 'T', M.DESCRIPTION, ':', CONCAT(SUBSTR('00', 0, (2 - LENGTH(F.SECOND))),F.SECOND), '.', CONCAT(SUBSTR('000', 0, (3 - LENGTH(F.MILLISECOND))),F.MILLISECOND)) START_TIME,\n F.THREADNAME THREAD_NAME,\n F.LABEL,\n F.ELAPSED,\n F.SUCCESS,\n F.BYTES,\n F.LATENCY,\n F.CONNECT,\n F.IDLETIME IDLE\nFROM\n CRYSTAL.DM_FACT_LOGS AS F\n JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = F.TEST_ID\n JOIN CRYSTAL.DM_DIM_TYPES AS TY ON TY.ID = F.TYPE_ID AND TY.DESCRIPTION = 'SAMPLE'\n JOIN CRYSTAL.DM_DIM_DAYS AS D ON D.ID = F.DAY_ID\n JOIN CRYSTAL.DM_DIM_MINUTES AS M ON M.ID = F.MINUTE_ID\n JOIN CRYSTAL.DM_DIM_HOSTS AS H ON H.ID = F.HOSTNAME_ID\nWHERE\n T.DESCRIPTION = ${testParam}\n AND F.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')\nORDER BY\n F.TEST_ID ASC,\n F.DAY_ID ASC,\n F.MINUTE_ID ASC,\n F.SECOND ASC,\n F.MILLISECOND ASC"
+      "value": "SELECT\n CONCAT(FORMATDATETIME(F.DAY_ID,'yyyy-MM-dd'), 'T', M.DESCRIPTION, ':', CONCAT(SUBSTR('00', 0, (2 - LENGTH(F.SECOND))),F.SECOND), '.', CONCAT(SUBSTR('000', 0, (3 - LENGTH(F.MILLISECOND))),F.MILLISECOND)) START_TIME,\n F.THREADNAME THREAD_NAME,\n F.LABEL,\n F.ELAPSED,\n F.SUCCESS,\n F.BYTES,\n F.LATENCY,\n F.CONNECT,\n F.IDLETIME IDLE\nFROM\n CRYSTAL.DM_FACT_LOGS AS F\n JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = F.TEST_ID\n JOIN CRYSTAL.DM_DIM_TYPES AS TY ON TY.ID = F.TYPE_ID AND TY.DESCRIPTION = ${typeDescriptionParam}\n JOIN CRYSTAL.DM_DIM_DAYS AS D ON D.ID = F.DAY_ID\n JOIN CRYSTAL.DM_DIM_MINUTES AS M ON M.ID = F.MINUTE_ID\n JOIN CRYSTAL.DM_DIM_HOSTS AS H ON H.ID = F.HOSTNAME_ID\nWHERE\n T.DESCRIPTION = ${testParam}\n AND F.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')\nORDER BY\n F.TEST_ID ASC,\n F.DAY_ID ASC,\n F.MINUTE_ID ASC,\n F.SECOND ASC,\n F.MILLISECOND ASC"
      },
      {
       "name": "parameters",
       "type": "CdaParameters",
-      "value": "[[\"periodFromParam\",\"2001-01-01\",\"String\",\"\"],[\"periodToParam\",\"2001-01-01\",\"String\",\"\"],[\"testParam\",\"Unknown\",\"String\",\"\"]]"
+      "value": "[[\"typeDescriptionParam\",\"SAMPLE\",\"String\",\"\"],[\"periodFromParam\",\"2001-01-01\",\"String\",\"\"],[\"periodToParam\",\"2001-01-01\",\"String\",\"\"],[\"testParam\",\"Unknown\",\"String\",\"\"]]"
      },
      {
       "name": "cdacalculatedcolumns",

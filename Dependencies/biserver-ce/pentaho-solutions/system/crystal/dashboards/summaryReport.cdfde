@@ -750,12 +750,12 @@
      {
       "name": "query",
       "type": "SqlQuery",
-      "value": "select\n description\nfrom\n crystal.dm_dim_tests\nwhere\n src_id != 'UNKNOWN'\norder by\n description asc"
+      "value": "select\n t.description as description\nfrom\n crystal.dm_dim_tests t\n join crystal.dm_dim_types ty\nwhere\n t.src_id != 'UNKNOWN'\n and ty.description = ${typeDescriptionParam}\n and exists (\n  select 1 from crystal.dm_fact_logs l where l.test_id = t.id and l.type_id = ty.id\n  union all\n  select 1 from crystal.dm_fact_execution_plans p where p.test_id = t.id and p.type_id = ty.id)\norder by\n t.description asc\n"
      },
      {
       "name": "parameters",
       "type": "CdaParameters",
-      "value": "[]"
+      "value": "[[\"typeDescriptionParam\",\"SAMPLE\",\"String\",\"\"]]"
      },
      {
       "name": "cdacalculatedcolumns",

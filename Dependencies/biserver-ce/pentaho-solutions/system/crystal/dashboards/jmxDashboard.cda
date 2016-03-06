@@ -40,23 +40,32 @@
   <DataAccess access="public" connection="tests" id="tests" type="sql">
     <Cache duration="3600" enabled="true"/>
     <Columns/>
-    <Parameters/>
+    <Parameters>
+      <Parameter default="JMX SAMPLE" name="typeDescriptionParam" type="String"/>
+    </Parameters>
     <Query><![CDATA[select
- description
+ t.description as description
 from
- crystal.dm_dim_tests
+ crystal.dm_dim_tests t
+ join crystal.dm_dim_types ty
 where
- src_id != 'UNKNOWN'
+ t.src_id != 'UNKNOWN'
+ and ty.description = ${typeDescriptionParam}
+ and exists (
+  select 1 from crystal.dm_fact_logs l where l.test_id = t.id and l.type_id = ty.id
+  union all
+  select 1 from crystal.dm_fact_execution_plans p where p.test_id = t.id and p.type_id = ty.id)
 order by
- description asc]]></Query>
+ t.description asc]]></Query>
   </DataAccess>
   <DataAccess access="public" connection="cpuUsageLogs" id="cpuUsageLogs" type="sql">
     <Cache duration="3600" enabled="true"/>
     <Columns/>
     <Parameters>
+      <Parameter default="JMX SAMPLE" name="typeDescriptionParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
       <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
       <Parameter default="2001-01-01" name="periodToParam" type="String"/>
-      <Parameter default="Unknown" name="testParam" type="String"/>
     </Parameters>
     <Query><![CDATA[SELECT
  CONCAT(L.LABEL,' (x10)') LABEL,
@@ -69,7 +78,7 @@ FROM
  JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
  JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
 WHERE
- Ty.DESCRIPTION = 'JMX'
+ Ty.DESCRIPTION = ${typeDescriptionParam}
  AND UPPER(L.LABEL) IN ('PROCESS CPU LOAD', 'SYSTEM CPU LOAD')
  AND T.DESCRIPTION = ${testParam}
  AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
@@ -84,9 +93,10 @@ ORDER BY
     <Cache duration="3600" enabled="true"/>
     <Columns/>
     <Parameters>
+      <Parameter default="JMX SAMPLE" name="typeDescriptionParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
       <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
       <Parameter default="2001-01-01" name="periodToParam" type="String"/>
-      <Parameter default="Unknown" name="testParam" type="String"/>
     </Parameters>
     <Query><![CDATA[SELECT
  L.LABEL LABEL,
@@ -99,7 +109,7 @@ FROM
  JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
  JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
 WHERE
- Ty.DESCRIPTION = 'JMX'
+ Ty.DESCRIPTION = ${typeDescriptionParam}
  AND UPPER(L.LABEL) IN ('TICKET COUNT', 'USERS COUNT')
  AND T.DESCRIPTION = ${testParam}
  AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
@@ -114,9 +124,10 @@ ORDER BY
     <Cache duration="3600" enabled="true"/>
     <Columns/>
     <Parameters>
+      <Parameter default="JMX SAMPLE" name="typeDescriptionParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
       <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
       <Parameter default="2001-01-01" name="periodToParam" type="String"/>
-      <Parameter default="Unknown" name="testParam" type="String"/>
     </Parameters>
     <Query><![CDATA[SELECT
  CONCAT(L.LABEL,CASE UPPER(L.LABEL) WHEN 'GC PAR NEW COLLECTION COUNT' THEN ' (x10)' ELSE '' END) LABEL,
@@ -129,7 +140,7 @@ FROM
  JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
  JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
 WHERE
- Ty.DESCRIPTION = 'JMX'
+ Ty.DESCRIPTION = ${typeDescriptionParam}
  AND UPPER(L.LABEL) IN ('GC PAR NEW COLLECTION COUNT', 'GC PAR NEW COLLECTION TIME', 'GC CONCURRENT MARK SWEEP COLLECTION COUNT', 'GC CONCURRENT MARK SWEEP COLLECTION TIME')
  AND T.DESCRIPTION = ${testParam}
  AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
@@ -144,9 +155,10 @@ ORDER BY
     <Cache duration="3600" enabled="true"/>
     <Columns/>
     <Parameters>
+      <Parameter default="Unknown" name="testParam" type="String"/>
       <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
       <Parameter default="2001-01-01" name="periodToParam" type="String"/>
-      <Parameter default="Unknown" name="testParam" type="String"/>
+      <Parameter default="JMX SAMPLE" name="typeDescriptionParam" type="String"/>
     </Parameters>
     <Query><![CDATA[SELECT
  L.LABEL LABEL,
@@ -159,7 +171,7 @@ FROM
  JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
  JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
 WHERE
- Ty.DESCRIPTION = 'JMX'
+ Ty.DESCRIPTION = ${typeDescriptionParam}
  AND UPPER(L.LABEL) IN ('HEAP MEMORY MAX', 'HEAP MEMORY USED', 'HEAP MEMORY COMMITTED')
  AND T.DESCRIPTION = ${testParam}
  AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
@@ -174,9 +186,10 @@ ORDER BY
     <Cache duration="3600" enabled="true"/>
     <Columns/>
     <Parameters>
+      <Parameter default="JMX SAMPLE" name="typeDescriptionParam" type="String"/>
+      <Parameter default="Unknown" name="testParam" type="String"/>
       <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
       <Parameter default="2001-01-01" name="periodToParam" type="String"/>
-      <Parameter default="Unknown" name="testParam" type="String"/>
     </Parameters>
     <Query><![CDATA[SELECT
  L.LABEL LABEL,
@@ -189,7 +202,7 @@ FROM
  JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
  JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
 WHERE
- Ty.DESCRIPTION = 'JMX'
+ Ty.DESCRIPTION = ${typeDescriptionParam}
  AND UPPER(L.LABEL) IN ('THREADS BUSY', 'THREADS COUNT')
  AND T.DESCRIPTION = ${testParam}
  AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')

@@ -16,15 +16,23 @@
   <DataAccess access="public" connection="tests" id="tests" type="sql">
     <Cache duration="3600" enabled="true"/>
     <Columns/>
-    <Parameters/>
+    <Parameters>
+      <Parameter default="SAMPLE" name="typeDescriptionParam" type="String"/>
+    </Parameters>
     <Query><![CDATA[select
- description
+ t.description as description
 from
- crystal.dm_dim_tests
+ crystal.dm_dim_tests t
+ join crystal.dm_dim_types ty
 where
- src_id != 'UNKNOWN'
+ t.src_id != 'UNKNOWN'
+ and ty.description = ${typeDescriptionParam}
+ and exists (
+  select 1 from crystal.dm_fact_logs l where l.test_id = t.id and l.type_id = ty.id
+  union all
+  select 1 from crystal.dm_fact_execution_plans p where p.test_id = t.id and p.type_id = ty.id)
 order by
- description asc]]></Query>
+ t.description asc]]></Query>
   </DataAccess>
   <DataAccess access="public" connection="logs" id="logs" type="sql">
     <Cache duration="3600" enabled="true"/>

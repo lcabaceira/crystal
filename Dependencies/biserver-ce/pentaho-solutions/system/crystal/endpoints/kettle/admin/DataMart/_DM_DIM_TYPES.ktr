@@ -153,8 +153,8 @@
     <data>
       <line> <item>-1</item><item>UNKNOWN</item><item>UNKNOWN</item> </line>
       <line> <item>0</item><item>SAMPLE</item><item>SAMPLE</item> </line>
-      <line> <item>1</item><item>JMX</item><item>JMX</item> </line>
-      <line> <item>2</item><item>EXECUTION PLAN</item><item>EXECUTION PLAN</item> </line>
+      <line> <item>1</item><item>JMX SAMPLE</item><item>JMX SAMPLE</item> </line>
+      <line> <item>2</item><item>INPUT&#x2f;OUTPUT</item><item>INPUT&#x2f;OUTPUT</item> </line>
     </data>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>

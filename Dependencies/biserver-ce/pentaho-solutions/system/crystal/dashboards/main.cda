@@ -12,66 +12,126 @@
       <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
       <User>pentaho_user</User>
     </Connection>
+    <Connection id="jmxSamplesPerPeriod" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
+    <Connection id="inputOutputPerPeriod" type="sql.jdbc">
+      <Driver>org.h2.Driver</Driver>
+      <Pass>password</Pass>
+      <Url>jdbc:h2:tcp:localhost:9092/crystal</Url>
+      <User>pentaho_user</User>
+    </Connection>
   </DataSources>
   <DataAccess access="public" connection="tests" id="tests" type="sql">
     <Cache duration="3600" enabled="true"/>
     <Columns/>
     <Parameters/>
     <Query><![CDATA[select
- id,
- description
+ t.id as id,
+ t.description as description,
+ ty.description as type
 from
- crystal.dm_dim_tests
+ crystal.dm_dim_tests t
+ join crystal.dm_dim_types ty
 where
- src_id != 'UNKNOWN']]></Query>
+ t.src_id != 'UNKNOWN'
+ and exists (
+  select 1 from crystal.dm_fact_logs l where l.test_id = t.id and l.type_id = ty.id
+  union all
+  select 1 from crystal.dm_fact_execution_plans p where p.test_id = t.id and p.type_id = ty.id)
+order by
+ t.description asc]]></Query>
   </DataAccess>
   <DataAccess access="public" connection="samplesPerPeriod" id="samplesPerPeriod" type="sql">
     <Cache duration="3600" enabled="true"/>
     <Columns/>
     <Parameters>
+      <Parameter default="SAMPLE" name="typeIdParam" type="String"/>
       <Parameter default="1" name="testIdParam" type="Integer"/>
       <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
       <Parameter default="2001-01-01" name="periodToParam" type="String"/>
     </Parameters>
     <Query><![CDATA[SELECT
- L1."Day" "Day",
- L1."# Samples" "# Samples",
- L2."# JMX Samples" "# JMX samples"
-FROM
- (
- SELECT
-  D.ID "Day",
-  COUNT(*) "# Samples"
- FROM 
-  CRYSTAL.DM_FACT_LOGS L
-  JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
-  JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
-  JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
-  JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
- WHERE
-  Ty.DESCRIPTION = 'SAMPLE'
-  AND T.ID = ${testIdParam}
-  AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
- GROUP BY
-  D.ID) L1
- JOIN (
- SELECT
-  D.ID "Day",
-  COUNT(*) "# JMX Samples"
- FROM 
-  CRYSTAL.DM_FACT_LOGS L
-  JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
-  JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
-  JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
-  JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
- WHERE
-  Ty.DESCRIPTION = 'JMX'
-  AND T.ID = ${testIdParam}
-  AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
- GROUP BY
-  D.ID) L2
- ON L1."Day" = L2."Day"
+ L.LABEL "Label",
+ D.ID "Day",
+ SUM(L.ELAPSED) "Elapsed"
+FROM 
+ CRYSTAL.DM_FACT_LOGS L
+ JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
+ JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
+ JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
+ JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
+WHERE
+ Ty.DESCRIPTION = ${typeIdParam}
+ AND T.ID = ${testIdParam}
+ AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+GROUP BY
+ L.LABEL,
+ D.ID
 ORDER BY
- L1."Day" ASC]]></Query>
+ D.ID ASC,
+ L.LABEL ASC]]></Query>
+  </DataAccess>
+  <DataAccess access="public" connection="jmxSamplesPerPeriod" id="jmxSamplesPerPeriod" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="JMX SAMPLE" name="typeIdParam" type="String"/>
+      <Parameter default="1" name="testIdParam" type="Integer"/>
+      <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
+      <Parameter default="2001-01-01" name="periodToParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[SELECT
+ L.LABEL "Label",
+ D.ID "Day",
+ AVG(L.RESPONSE_VALUE) "Response value"
+FROM 
+ CRYSTAL.DM_FACT_LOGS L
+ JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = L.TEST_ID
+ JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = L.TYPE_ID
+ JOIN CRYSTAL.DM_DIM_DAYS AS D ON L.DAY_ID = D.ID
+ JOIN CRYSTAL.DM_DIM_MINUTES AS M ON L.MINUTE_ID = M.ID
+WHERE
+ Ty.DESCRIPTION = ${typeIdParam}
+ AND T.ID = ${testIdParam}
+ AND L.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+GROUP BY
+ L.LABEL,
+ D.ID
+ORDER BY
+ D.ID ASC,
+ L.LABEL ASC]]></Query>
+  </DataAccess>
+  <DataAccess access="public" connection="inputOutputPerPeriod" id="inputOutputPerPeriod" type="sql">
+    <Cache duration="3600" enabled="true"/>
+    <Columns/>
+    <Parameters>
+      <Parameter default="JMX SAMPLE" name="typeIdParam" type="String"/>
+      <Parameter default="1" name="testIdParam" type="Integer"/>
+      <Parameter default="2001-01-01" name="periodFromParam" type="String"/>
+      <Parameter default="2001-01-01" name="periodToParam" type="String"/>
+    </Parameters>
+    <Query><![CDATA[SELECT
+ P.LABEL "Label",
+ D.ID "Day",
+ AVG(P."Bytes/sec") "AVG Bytes/sec"
+FROM 
+ (SELECT subP.*, ((subP.MEMORY_MAPPED_FILE + subP.RANDOM_ACCESS_FILE) / 2) "Bytes/sec" FROM CRYSTAL.DM_FACT_EXECUTION_PLANS AS subP) AS P
+ JOIN CRYSTAL.DM_DIM_TESTS AS T ON T.ID = P.TEST_ID
+ JOIN CRYSTAL.DM_DIM_TYPES AS Ty ON Ty.ID = P.TYPE_ID
+ JOIN CRYSTAL.DM_DIM_DAYS AS D ON P.DAY_ID = D.ID
+ JOIN CRYSTAL.DM_DIM_MINUTES AS M ON P.MINUTE_ID = M.ID
+WHERE
+ Ty.DESCRIPTION = ${typeIdParam}
+ AND T.ID = ${testIdParam}
+ AND P.DAY_ID BETWEEN PARSEDATETIME(${periodFromParam},'yyyy-MM-dd') AND PARSEDATETIME(${periodToParam},'yyyy-MM-dd')
+GROUP BY
+ P.LABEL,
+ D.ID
+ORDER BY
+ D.ID ASC]]></Query>
   </DataAccess>
 </CDADescriptor>
